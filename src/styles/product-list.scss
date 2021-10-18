@@ -1,0 +1,166 @@
+$product-list-coefficient: 0.25;
+.product-list {
+  .button,
+  button:hover {
+    background: #b4ffff;
+    border-radius: 48px;
+    font-family: Telenor Evolution;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 10px 42px 8px;
+    color: #2028cd;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+  }
+  background: #000f3c;
+
+  padding: 42px 0;
+  color: #b4ffff !important;
+  .usp-block__icon-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 16px 0 !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    max-height: 48px;
+    max-width: 48px;
+  }
+
+  @media (max-width: $mobile-breakpoint - 1px) {
+    text-align: center;
+  }
+  @media (max-width: $mobile-breakpoint - 1px) {
+    text-align: center;
+    .col-md-4.grid-row--gutter-none.grid-row--line.desktop-padding-toleft--xsmall.desktop-padding-toright--xsmall.dir-md--column.margin-trailer--large.desktop-margin-trailer--none {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 220px;
+    }
+
+    .col-md-stretch {
+      text-align: center;
+    }
+  }
+}
+
+.product-list {
+  .button {
+    transform: translateY(30px);
+  }
+  .button.observed {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-name: product-list-button-transition;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.75s;
+  }
+
+  .carousel__holder .col-md-4 {
+    opacity: 0.5;
+    .usp-block__icon-holder {
+      opacity: 0;
+    }
+  }
+  @media (min-width: $mobile-breakpoint) {
+    .carousel__holder .col-md-4.observed {
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+      animation-name: product-list-desktop;
+      animation-timing-function: ease-in-out;
+      opacity: 0.5;
+      transform: translateY(50px);
+      animation-delay: 1s;
+      .usp-block__icon-holder {
+        opacity: 0;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-name: product-list-fade-in-desktop;
+        animation-timing-function: ease-in-out;
+        animation-delay: 0.5s;
+      }
+    }
+    .carousel__holder {
+      @for $i from 1 through 3 {
+        .col-md-4.observed:nth-child(#{$i}n) {
+          animation-delay: #{$i * $product-list-coefficient}s;
+          .usp-block__icon-holder {
+            animation-delay: #{$i * $product-list-coefficient}s;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: $mobile-breakpoint - 1px) {
+    .carousel__holder .col-md-4.observed {
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-name: product-list-desktop;
+      animation-timing-function: ease-in-out;
+      opacity: 0.5;
+      transform: translateY(50px);
+      .usp-block__icon-holder {
+        opacity: 0;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+        animation-name: product-list-fade-in-mobile;
+        animation-timing-function: ease-in-out;
+        transform: translateY(15px);
+      }
+    }
+    .carousel__holder {
+      @for $i from 1 through 3 {
+        .col-md-4.observed:nth-child(#{$i}n) {
+          animation-delay: #{$i * $product-list-coefficient}s;
+          .usp-block__icon-holder {
+            animation-delay: #{$i * $product-list-coefficient}s;
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes product-list-desktop {
+  0% {
+    opacity: 0.5;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes product-list-fade-in-desktop {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes product-list-fade-in-mobile {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes product-list-button-transition {
+  0% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,160 @@
+/* styling */
+.leader {
+  background: #f6f4ee;
+  .grid-row--gutter-none.grid-row--between.desktop-padding-toleft--small.desktop-padding-toright--small {
+    text-align: center;
+    width: 100%;
+    .col-auto {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .slider .carousel__item {
+    text-align: center;
+    min-width: 320px;
+    max-width: 320px;
+    @media (min-width: 768px) {
+      min-width: calc(100% / 3);
+      max-width: calc(100% / 3);
+    }
+    .article__image-holder {
+      background: blue;
+      height: 200px;
+    }
+    img {
+      display: none;
+    }
+  }
+  .left-arrow,
+  .right-arrow {
+    z-index: 7;
+    position: absolute;
+    top: 100px;
+    @media (min-width: $mobile-breakpoint) {
+      top: 85px;
+    }
+  }
+  .left-arrow {
+    left: 0;
+    transform: rotate(90deg);
+  }
+  .right-arrow {
+    right: 0;
+    transform: rotate(-90deg);
+  }
+}
+// animations
+$item-length: 100;
+
+@media (min-width: $mobile-breakpoint) {
+  .leader {
+    .carousel__holder {
+      transform: translateX(20vw);
+    }
+  }
+  .leader.observed {
+    .carousel__holder {
+      animation-name: carousel-slide-in-desktop;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in-out;
+    }
+  }
+
+  .leader .slider .carousel__holder {
+    @for $i from 1 through 20 {
+      .carousel__item:nth-child(#{$i}n) {
+        transform: translateX(#{$i * $item-length}px);
+      }
+    }
+  }
+  .leader.observed .slider .carousel__holder {
+    @for $i from 1 through 20 {
+      .carousel__item:nth-child(#{$i}n) {
+        transform: translateX(0);
+        transition-property: transform;
+        transition-duration: 2.5s;
+        transition-delay: 0.5s;
+      }
+    }
+  }
+}
+@keyframes carousel-slide-in-desktop {
+  0% {
+    transform: translateX(20vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@media (max-width: $mobile-breakpoint - 1px) {
+  .leader {
+    .carousel__holder {
+      transform: translateX(50vw);
+    }
+  }
+  .leader.observed {
+    .carousel__holder {
+      animation-name: carousel-slide-in-mobile;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+      animation-timing-function: linear;
+    }
+  }
+
+  @keyframes carousel-slide-in-mobile {
+    0% {
+      transform: translateX(50vw);
+    }
+    100% {
+      transform: translateX(-280px);
+    }
+  }
+  .leader {
+    .col-auto.padding-leader--xxsmall.desktop-padding--small,
+    .col-auto.padding-leader--xxxsmall.margin-trailer--auto,
+    .col-auto.padding-leader--small {
+      opacity: 0;
+    }
+  }
+  .leader.observed {
+    .col-auto.padding-leader--xxsmall.desktop-padding--small,
+    .col-auto.padding-leader--xxxsmall.margin-trailer--auto,
+    .col-auto.padding-leader--small {
+      animation-name: fade-in;
+      animation-delay: 2s;
+      animation-duration: 0.2s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in-out;
+    }
+  }
+}
+
+/** Arrows animation**/
+.leader {
+  .left-arrow,
+  .right-arrow {
+    opacity: 0;
+  }
+}
+
+.leader.observed {
+  .left-arrow,
+  .right-arrow {
+    animation-name: fade-in;
+    animation-delay: 2s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

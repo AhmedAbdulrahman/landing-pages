@@ -1,0 +1,88 @@
+.quote {
+  margin: 120px 0;
+
+  .quote-text {
+    text-align: left;
+    font-family: "Telenor Evolution";
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 20px;
+
+
+    color: #2028cd;
+  }
+  .quote-name {
+    font-family: "Telenor Evolution";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: right;
+  }
+  .heading{
+  }
+  .heading .margin-trailer {
+    position: absolute;
+    z-index: -1;
+    img {
+      width: 144px;
+      height: 116px;
+    }
+  }
+  .splitting {
+    text-align: left;
+    display: block;
+    font-size:  12px;
+    line-height: 18px;
+    @media (min-width: 320px) {      font-size:  18px;
+      line-height: 26px;}
+    @media (min-width: 480px) {}
+    @media (min-width: 768px) {
+      font-size:  20px;
+      line-height: 32px;
+    }
+    @media (min-width: 1024px) {
+      font-size:  29px;
+      line-height: 40px;
+    }
+    @media (min-width: 1100px) {
+      font-size:  30px;
+      line-height: 42px;
+    }
+  }
+
+  .splitting {
+    .word {
+      opacity: 0;
+      transform: translateX(200px);
+    }
+  }
+  &.observed {
+    .splitting {
+      .word {
+        display: inline-block;
+        position: relative;
+        opacity: 0;
+        animation-duration: calc(200ms * var(--line-total));
+        animation-delay: calc(300ms + (300ms * var(--line-index)));
+        animation-fill-mode: forwards;
+        animation-name: line-fade-in;
+        animation-timing-function: linear;
+      }
+    }
+  }
+}
+
+@keyframes line-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateX(70px);
+    @media (min-width: $mobile-breakpoint) {
+      transform: translateX(200px);
+    }
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

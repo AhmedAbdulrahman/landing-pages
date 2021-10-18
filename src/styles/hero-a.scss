@@ -1,0 +1,47 @@
+/* Module styling*/
+
+.hero-a {
+  margin: 40px 0;
+  & > .container {
+    width: 80vw;
+
+    transform: translateY(-150px);
+  }
+  & > .container > div {
+    background: #f6f4ee;
+  }
+  & > .terminal-block {
+    overflow: hidden;
+    height: auto;
+    min-height: 335px;
+  }
+}
+.hero-a {
+  @media (min-width: $mobile-breakpoint) {
+    height: 40vw;
+    clear: both;
+    & > .container,
+    & > .terminal-block {
+      display: block;
+      float: left;
+
+      height: 100%;
+    }
+    & > .terminal-block {
+      height: 100%;
+      width: 60vw;
+      min-height: 335px;
+    }
+    & > .container {
+      height: 100%;
+      width: 40vw;
+      transform: translate(-10%, 20%);
+    }
+    & > .container > div {
+      width: 50%;
+      min-width: 500px;
+
+      transform: translate(0, 0);
+    }
+  }
+}
