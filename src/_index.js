@@ -35,6 +35,7 @@ const Splitting = require("splitting");
     lastKnownScrollPosition = window.scrollY;
 
     let repeatOften = function() {
+      console.log('repeatOften');
       hideArrow(sideBySideElement, lastKnownScrollPosition);
       animateImage(sideBySideElement, image, lastKnownScrollPosition)
 
@@ -84,7 +85,6 @@ const Splitting = require("splitting");
   // Side By Side Module Observer - To determine when cta button is visible
   const sideBySideObserverCallback = (entries) => {
     ticking = entries.some(entry => entry.isIntersecting)
-
     entries.forEach((entry) => {
 
       if (entry.isIntersecting) {
