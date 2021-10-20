@@ -7,11 +7,13 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    transition: 0.4s opacity;
+
     & > div {
       height: 40px;
       width: 40px;
       border-radius: 50%;
-      background: #00c8ff;
+      background: #000F3C;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -21,12 +23,21 @@
       animation: bounce2 2s ease-in-out infinite;
     }
   }
+
+  &.hidden {
+    .down-arrow {
+      opacity: 0;
+    }
+  }
+
   .grid-row > .col-12 {
     padding-left: 0;
     padding-right: 0;
+
     .col-md-6 {
       max-height: calc(50vh - 10px);
       overflow: hidden;
+
       @media (min-width: 750px) {
         max-height: calc(100vh - 20px);
       }
@@ -51,8 +62,8 @@
     font-family: "Telenor Evolution";
     font-style: italic;
     font-weight: 800;
-    font-size: 30px;
-    line-height: 48px;
+    font-size: 32px;
+    line-height: 40px;
     @media (min-width: 750px) {
       font-size: 48px;
       line-height: 56px;
@@ -64,16 +75,6 @@
   img {
     position: relative;
     width: 100%;
-  }
-}
-.side-by-side {
-  .down-arrow {
-    display: none;
-  }
-}
-.side-by-side.observed {
-  .down-arrow {
-    display: flex;
   }
 }
 

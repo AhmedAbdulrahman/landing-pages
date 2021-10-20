@@ -5,6 +5,7 @@ const Splitting = require("splitting");
   Splitting({
     by: "lines",
   });
+
   // This is a list of elements we like to track if they are in view and then apply the class.
   const leader = ".leader";
   const quote = ".quote";
@@ -12,8 +13,9 @@ const Splitting = require("splitting");
   const productList = ".product-list  .carousel__holder > .col-md-4";
   const productListButton = ".product-list  .button";
   const querySelector = `${leader}, ${benefitList}, ${productList}, ${productListButton}, ${quote}`;
-
   const className = "observed";
+  let ticking = false;
+  let lastKnownScrollPosition = 0;
   // Fall back for IE
   if (!"IntersectionObserver" in window) {
     document.querySelectorAll(querySelector).forEach((i) => {
@@ -25,7 +27,32 @@ const Splitting = require("splitting");
     return;
   }
 
-  document.querySelectorAll(querySelector).forEach((i) => {
+  let _sideBySidelistener = function() {
+    const sideBySideElement = document.querySelector('.side-by-side')
+
+    lastKnownScrollPosition = window.scrollY;
+
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        hideArrow(sideBySideElement, lastKnownScrollPosition);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+
+  function hideArrow(target, scrollPos) {
+    if (!target) return
+    if (scrollPos > 20) {
+      if (!target.classList.contains('hidden')) {
+        target.classList.add('hidden')
+      }
+    }
+  }
+
+
+  /*document.querySelectorAll(querySelector).forEach((i) => {
     if (i) {
       const observer = new IntersectionObserver(
         (entries) => {
@@ -47,19 +74,17 @@ const Splitting = require("splitting");
         observer.unobserve(entry.target);
       }
     });
-  };
+  };*/
 
   /*************************************************************/
 
   // Side By Side Module Observer - To determine when cta button is visible
-  const continueObserverCallback = (entries) => {
+  const sideBySideObserverCallback = (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add(className);
+        document.addEventListener('scroll', _sideBySidelistener, true);
       } else {
-        if (entry.target.classList.contains(className)) {
-          entry.target.classList.remove(className);
-        }
+        document.removeEventListener('scroll', _sideBySidelistener, true)
       }
     });
   };
@@ -67,16 +92,15 @@ const Splitting = require("splitting");
     if (i) {
       const observer = new IntersectionObserver(
         (entries) => {
-          continueObserverCallback(entries, observer, i);
+          sideBySideObserverCallback(entries, observer, i);
         },
-        { threshold: 0.9 } // As soon as the user scrolls a few pixels the cta disapears
       );
       observer.observe(i);
     }
   });
   /***************************** Circle Spinner Module Observer ********************************/
 
-  const circleObserverCallback = (entries, observer) => {
+  /*const circleObserverCallback = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const el = entry.target;
@@ -131,11 +155,11 @@ const Splitting = require("splitting");
       );
       observer.observe(i);
     }
-  });
+  });*/
 
 })();
 
-/****************************** Side by side Top Module scaaling effect ******************************************/
+/*/!****************************** Side by side Top Module scaaling effect ******************************************!/
 
 let image = document.querySelector(".side-by-side .visual-block__image");
 let container = document.querySelector(".side-by-side");
@@ -172,7 +196,7 @@ function animate() {
 init();
 animate();
 
-/*************************** Small paralax effect on text container ************************************/
+/!*************************** Small paralax effect on text container ************************************!/
 
 document.querySelectorAll(".hero-a").forEach((i) => {
   if (i) {
@@ -221,4 +245,4 @@ const heroObserverCallback = (entries, observer) => {
       });
     }
   });
-};
+};*/
