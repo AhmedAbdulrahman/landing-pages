@@ -1,70 +1,68 @@
 /* styling */
 .benefit-list {
-  @media (max-width: $mobile-breakpoint - 1px) {
-    padding: 0 16px;
-    .grid-row {
-      margin-left: 0;
-      margin-right: 0;
-    }
+  margin-bottom: 56px;
+
+  > article {
+    padding-left: 17px;
+    padding-right: 17px;
   }
-  .icon-netsikker {
-    transform: translate(0, -8px);
-    display: inline-block;
+
+  @media (min-width: 750px) {
+    margin-bottom: 80px;
+  }
+
+  header {
+    text-align: left;
+    margin-bottom: 16px;
   }
   h2 {
-    font-family: "Telenor Evolution";
     font-style: italic;
     font-weight: 800;
     font-size: 32px;
     line-height: 24px;
-    margin: 16px 0;
+    margin-bottom: 20px;
   }
   p {
-    margin: 16px 0;
-    font-family: "Telenor Evolution";
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 24px;
   }
-  .grid-row--middle
-    > .col-md-auto.grid-row--gutter-none.grid-row--middle.grid-row--center.margin-trailer.desktop-margin-trailer--none {
-    font-family: "Telenor Evolution";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-    margin: 8px 0;
-  }
-  .icon--small {
-    display: flex;
-    justify-content: center;
-  }
 
-  @media (max-width: $mobile-breakpoint - 1px) {
-    .grid-row--middle,
-    .grid-row-xs--middle {
-      align-items: flex-start;
-    }
-    .grid-row--middle
-      > .col-md-auto.grid-row--gutter-none.grid-row--middle.grid-row--center.margin-trailer.desktop-margin-trailer--none {
-      margin: 0 16px 0 32px;
-    }
-    .icon--small {
-      position: absolute;
-      top: 4px;
-      left: -24px;
+  .benefit-list__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &-item {
+      padding-left: 30px;
+
+      &:before {
+        display: none;
+      }
+      .icon--small {
+        position: absolute;
+        top: 0;
+        left: 4px;
+      }
+
+      &-text {
+
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+      }
     }
   }
 }
 
 /* Animation */
 $benefit-delay-offset: 0.2;
-$benefit-coefficient: 0.25;
-$benefit-duration: 1.5s;
+$benefit-coefficient: 0.2;
+$benefit-duration: 0.8s;
 
 .benefit-list__list {
-  .benefit-item.observed > .icon--small > img {
+  .benefit-list__list-item.observed > .icon--small > img {
     opacity: 0;
     animation-duration: $benefit-duration;
     animation-fill-mode: forwards;
@@ -74,7 +72,7 @@ $benefit-duration: 1.5s;
 }
 .benefit-list__list {
   @for $i from 1 through 10 {
-    .benefit-item.observed:nth-child(#{$i}n) {
+    .benefit-list__list-item.observed:nth-child(#{$i}n) {
       & > .icon--small > img {
         animation-delay: #{$benefit-delay-offset + $i * $benefit-coefficient}s;
       }
