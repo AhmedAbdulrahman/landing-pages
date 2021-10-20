@@ -76,6 +76,10 @@
     position: relative;
     width: 100%;
   }
+
+  img.visual-block__image {
+    transition: transform 100ms linear;
+  }
 }
 
 @keyframes bounce2 {
