@@ -1,11 +1,103 @@
 /* Module styling*/
 
 .hero-a {
-  margin: 40px 0;
+  position: relative;
+  @media (min-width: 750px) {
+    height: 40vw;
+  }
+
+  img.hero-a--image {
+    transition: transform 100ms linear;
+    width: 100%;
+  }
+
+  .heading {
+    font-size: 32px;
+    line-height: 40px;
+    font-style: italic;
+    text-align: left;
+    margin-bottom: 8px;
+
+    @media (min-width: 750px) {
+      font-size: 40px;
+      line-height: 48px;
+    }
+  }
+
+  .hero-a--content {
+    padding: 64px;
+
+    @media (min-width: 750px) {
+      display: flex;
+      flex-direction: column;
+      align-items: baseline;
+    }
+
+  }
+
+  .text {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 24px;
+
+    &--colored {
+      font-size: 20px;
+      line-height: 28px;
+      color: #FF4173;
+    }
+
+    &--sup {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 600;
+    }
+  }
+
+  .button {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: Telenor Evolution;
+    background: #000F3C;
+    border-radius: 48px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 10px 20px 8px;
+    color: #fff;
+    margin-top: 16px;
+    border-color: #000F3C;
+
+    @media (min-width: 750px) {
+      padding: 10px 42px 8px;
+    }
+  }
+
+  .button__icon {
+    padding-left: 5px;
+    padding-top: 5px;
+  }
+
+
+
   & > .container {
     width: 80vw;
+    transform: translateY(-60px);
 
-    transform: translateY(-150px);
+    @media (min-width: 750px) {
+      position: absolute;
+      top: 0;
+      right: 60px;
+      display: block;
+      float: left;
+      height: 100%;
+      width: 40vw;
+      transform: translate(-10%, 20%);
+    }
   }
   & > .container > div {
     background: #f6f4ee;
@@ -14,34 +106,13 @@
     overflow: hidden;
     height: auto;
     min-height: 335px;
-  }
-}
-.hero-a {
-  @media (min-width: $mobile-breakpoint) {
-    height: 40vw;
-    clear: both;
-    & > .container,
-    & > .terminal-block {
+
+    @media (min-width: 750px) {
       display: block;
-      float: left;
+      height: 100%;
+      width: 55vw;
+    }
 
-      height: 100%;
-    }
-    & > .terminal-block {
-      height: 100%;
-      width: 60vw;
-      min-height: 335px;
-    }
-    & > .container {
-      height: 100%;
-      width: 40vw;
-      transform: translate(-10%, 20%);
-    }
-    & > .container > div {
-      width: 50%;
-      min-width: 500px;
 
-      transform: translate(0, 0);
-    }
   }
 }
