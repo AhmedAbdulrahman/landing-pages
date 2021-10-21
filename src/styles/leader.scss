@@ -37,11 +37,14 @@
   }
   .left-arrow {
     left: 0;
-    transform: rotate(90deg);
   }
   .right-arrow {
-    right: 0;
-    transform: rotate(-90deg);
+    @media (min-width: $mobile-breakpoint) {
+      right: 0;
+    }
+    right: 20px;
+
+    transform: rotate(-180deg);
   }
 }
 // animations
@@ -56,7 +59,7 @@ $item-length: 100;
   .leader.observed {
     .carousel__holder {
       animation-name: carousel-slide-in-desktop;
-      animation-duration: 2s;
+      animation-duration: 1.3s;
       animation-fill-mode: forwards;
       animation-timing-function: ease-in-out;
     }
@@ -74,8 +77,8 @@ $item-length: 100;
       .carousel__item:nth-child(#{$i}n) {
         transform: translateX(0);
         transition-property: transform;
-        transition-duration: 2.5s;
-        transition-delay: 0.5s;
+        transition-duration: 0.2s;
+        transition-delay: 0.3s;
       }
     }
   }
@@ -97,9 +100,9 @@ $item-length: 100;
   .leader.observed {
     .carousel__holder {
       animation-name: carousel-slide-in-mobile;
-      animation-duration: 2s;
+      animation-duration: 0.9s;
       animation-fill-mode: forwards;
-      animation-timing-function: linear;
+      animation-timing-function: ease-in-out;
     }
   }
 
@@ -123,7 +126,7 @@ $item-length: 100;
     .col-auto.padding-leader--xxxsmall.margin-trailer--auto,
     .col-auto.padding-leader--small {
       animation-name: fade-in;
-      animation-delay: 2s;
+      animation-delay: 1.3s;
       animation-duration: 0.2s;
       animation-fill-mode: forwards;
       animation-timing-function: ease-in-out;
@@ -143,8 +146,8 @@ $item-length: 100;
   .left-arrow,
   .right-arrow {
     animation-name: fade-in;
-    animation-delay: 2s;
-    animation-duration: 1s;
+    animation-delay: 1.3s;
+    animation-duration: 0.6s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
   }

@@ -106,7 +106,7 @@ const Splitting = require("splitting");
   });
 
 
-  /*document.querySelectorAll(querySelector).forEach((i) => {
+  document.querySelectorAll(querySelector).forEach((i) => {
     if (i) {
       const observer = new IntersectionObserver(
           (entries) => {
@@ -128,7 +128,7 @@ const Splitting = require("splitting");
         observer.unobserve(entry.target);
       }
     });
-  };*/
+  };
 
   /*************************************************************/
 

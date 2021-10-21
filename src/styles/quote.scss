@@ -6,9 +6,7 @@
     font-family: "Telenor Evolution";
     font-style: normal;
     font-weight: 600;
-    margin-bottom: 20px;
-
-
+    margin: 32px 0 20px 32px;
     color: #2028cd;
   }
   .quote-name {
@@ -19,11 +17,13 @@
     line-height: 22px;
     text-align: right;
   }
-  .heading{
-  }
-  .heading .margin-trailer {
+
+  .quote-image {
     position: absolute;
     z-index: -1;
+    left:0;
+    top: 0;
+
     img {
       width: 144px;
       height: 116px;
@@ -32,23 +32,8 @@
   .splitting {
     text-align: left;
     display: block;
-    font-size:  12px;
-    line-height: 18px;
-    @media (min-width: 320px) {      font-size:  18px;
-      line-height: 26px;}
-    @media (min-width: 480px) {}
-    @media (min-width: 768px) {
-      font-size:  20px;
-      line-height: 32px;
-    }
-    @media (min-width: 1024px) {
-      font-size:  29px;
-      line-height: 40px;
-    }
-    @media (min-width: 1100px) {
-      font-size:  30px;
-      line-height: 42px;
-    }
+    font-size:  32px;
+    line-height: 40px;
   }
 
   .splitting {

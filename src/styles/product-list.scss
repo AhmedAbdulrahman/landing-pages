@@ -1,8 +1,19 @@
 $product-list-coefficient: 0.25;
 .product-list {
+  background: #000f3c;
+  padding: 42px 0;
+  color: #b4ffff !important;
+
+  .text {
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
   .button,
   button:hover {
-    background: #b4ffff;
+    background: #B4FFFF;
     border-radius: 48px;
     font-family: Telenor Evolution;
     font-style: normal;
@@ -10,16 +21,21 @@ $product-list-coefficient: 0.25;
     font-size: 14px;
     line-height: 24px;
     padding: 10px 42px 8px;
-    color: #2028cd;
+    color: #2028CD;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     margin-top: 16px;
   }
-  background: #000f3c;
 
-  padding: 42px 0;
-  color: #b4ffff !important;
+  .button__icon {
+    padding-left: 5px;
+    padding-top: 5px;
+  }
+
+
+
+
   .usp-block__icon-holder {
     display: flex;
     flex-direction: column;
@@ -31,6 +47,12 @@ $product-list-coefficient: 0.25;
     margin-left: 0 !important;
     max-height: 48px;
     max-width: 48px;
+
+    .icon {
+      &:before {
+        display: none;
+      }
+    }
   }
 
   @media (max-width: $mobile-breakpoint - 1px) {
@@ -38,12 +60,12 @@ $product-list-coefficient: 0.25;
   }
   @media (max-width: $mobile-breakpoint - 1px) {
     text-align: center;
+
     .col-md-4.grid-row--gutter-none.grid-row--line.desktop-padding-toleft--xsmall.desktop-padding-toright--xsmall.dir-md--column.margin-trailer--large.desktop-margin-trailer--none {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      min-height: 220px;
     }
 
     .col-md-stretch {
@@ -65,20 +87,14 @@ $product-list-coefficient: 0.25;
   }
 
   .carousel__holder .col-md-4 {
-    opacity: 0.5;
+    max-width: 344px;
+
     .usp-block__icon-holder {
       opacity: 0;
     }
   }
   @media (min-width: $mobile-breakpoint) {
-    .carousel__holder .col-md-4.observed {
-      animation-duration: 1s;
-      animation-fill-mode: forwards;
-      animation-name: product-list-desktop;
-      animation-timing-function: ease-in-out;
-      opacity: 0.5;
-      transform: translateY(50px);
-      animation-delay: 1s;
+    .carousel__holder .col-md-4 {
       .usp-block__icon-holder {
         opacity: 0;
         animation-duration: 1s;
@@ -100,14 +116,8 @@ $product-list-coefficient: 0.25;
     }
   }
   @media (max-width: $mobile-breakpoint - 1px) {
-    .carousel__holder .col-md-4.observed {
-      animation-duration: 0.5s;
-      animation-fill-mode: forwards;
-      animation-name: product-list-desktop;
-      animation-timing-function: ease-in-out;
-      opacity: 0.5;
-      transform: translateY(50px);
-      .usp-block__icon-holder {
+    .carousel__holder .col-md-4 {
+      .usp-block__icon-holder.observed {
         opacity: 0;
         animation-duration: 1.5s;
         animation-fill-mode: forwards;
