@@ -38,7 +38,7 @@ const Splitting = require("splitting");
         const heroSection = document.querySelector('.hero-a')
 
         requestAnimationFrame(() => {
-            const factor = Math.min(1, scrollY / (heroSection.offsetHeight / 0.22) );
+            const factor = Math.min(1, scrollY / (heroSection.offsetHeight / 0.09) );
             heroImage.style.transform = `scale(${1 + factor})`;
         })
     }
