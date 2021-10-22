@@ -21,6 +21,7 @@
     .article__image-holder {
       background: blue;
       height: 200px;
+      width: 100%;
     }
     img {
       display: none;
@@ -45,6 +46,36 @@
     right: 20px;
 
     transform: rotate(-180deg);
+  }
+
+  .leader--slide-content {
+    align-items: center;
+  }
+  .button {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: Telenor Evolution;
+    background: #000F3C;
+    border-radius: 48px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 10px 20px 8px;
+    color: #fff;
+    margin-top: 16px;
+    border-color: #000F3C;
+
+    @media (min-width: 750px) {
+      padding: 10px 42px 8px;
+    }
+  }
+
+  .button__icon {
+    padding-left: 5px;
+    padding-top: 5px;
   }
 }
 // animations
