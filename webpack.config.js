@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const  CopyWebpackPlugin  = require("copy-webpack-plugin");
 
 
+
 module.exports = function (env, argv) {
   let distPath = argv.mode === 'development' ? '/' : ''
   return {
