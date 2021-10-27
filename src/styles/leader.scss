@@ -48,9 +48,24 @@
     transform: rotate(-180deg);
   }
 
-  .leader--slide-content {
-    align-items: center;
+  .ovh {
+    @media (min-width: $mobile-breakpoint) {
+      align-items: stretch;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
+
+  .leader--slide-content {
+    @media (min-width: $mobile-breakpoint) {
+      align-items: baseline;
+      text-align: left;
+      height: 100%;
+      width: 350px;
+    }
+  }
+
+
   .button {
     display: inline-flex;
     flex-direction: row;
@@ -85,6 +100,7 @@ $item-length: 100;
   .leader {
     .carousel__holder {
       transform: translateX(20vw);
+      padding-left: 7px;
     }
   }
   .leader.observed {

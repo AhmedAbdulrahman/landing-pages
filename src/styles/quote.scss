@@ -39,7 +39,7 @@
   .splitting {
     .word {
       opacity: 0;
-      transform: translateX(200px);
+      transform: translateX(150px);
     }
   }
   &.observed {
@@ -48,8 +48,8 @@
         display: inline-block;
         position: relative;
         opacity: 0;
-        animation-duration: calc(200ms * var(--line-total));
-        animation-delay: calc(300ms + (300ms * var(--line-index)));
+        animation-duration: 0.5s;
+        animation-delay: calc(.05s + (.1s * var(--line-index)));
         animation-fill-mode: forwards;
         animation-name: line-fade-in;
         animation-timing-function: linear;

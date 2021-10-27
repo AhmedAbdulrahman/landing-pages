@@ -25,14 +25,14 @@
   }
 
   .hero-a--content {
-    padding: 64px;
+    padding: 18px;
 
-    @media (min-width: 750px) {
+    @media (min-width: $mobile-breakpoint) {
+      padding: 64px;
       display: flex;
       flex-direction: column;
       align-items: baseline;
     }
-
   }
 
   .text {
@@ -86,10 +86,10 @@
 
 
   & > .container {
-    width: 80vw;
+    width: 95vw;
     transform: translateY(-60px);
+    @media (min-width: $mobile-breakpoint) {
 
-    @media (min-width: 750px) {
       position: absolute;
       top: 0;
       right: 60px;

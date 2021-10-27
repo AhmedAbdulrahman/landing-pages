@@ -1,4 +1,4 @@
-$product-list-coefficient: 0.25;
+$product-list-coefficient: 0.40;
 .product-list {
   background: #000f3c;
   padding: 42px 0;
@@ -40,8 +40,6 @@ $product-list-coefficient: 0.25;
     align-items: center;
     width: 100%;
     margin: 16px 0 !important;
-    margin-right: 0 !important;
-    margin-left: 0 !important;
     max-height: 48px;
     max-width: 48px;
 
@@ -99,12 +97,13 @@ $product-list-coefficient: 0.25;
         animation-name: product-list-fade-in-desktop;
         animation-timing-function: ease-in-out;
         animation-delay: 0.5s;
+
       }
     }
+    // desktop
     .carousel__holder {
       @for $i from 1 through 3 {
-        .col-md-4.observed:nth-child(#{$i}n) {
-          animation-delay: #{$i * $product-list-coefficient}s;
+        .col-md-4:nth-child(#{$i}n) {
           .usp-block__icon-holder {
             animation-delay: #{$i * $product-list-coefficient}s;
           }
@@ -114,7 +113,7 @@ $product-list-coefficient: 0.25;
   }
   @media (max-width: $mobile-breakpoint - 1px) {
     .carousel__holder .col-md-4 {
-      .usp-block__icon-holder.observed {
+      .usp-block__icon-holder {
         opacity: 0;
         animation-duration: 1.5s;
         animation-fill-mode: forwards;
@@ -148,9 +147,11 @@ $product-list-coefficient: 0.25;
 @keyframes product-list-fade-in-desktop {
   0% {
     opacity: 0;
+    transform: translateX(30px);
   }
   100% {
     opacity: 1;
+    transform: translateX(0);
   }
 }
 @keyframes product-list-fade-in-mobile {
