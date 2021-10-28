@@ -33,13 +33,28 @@ const Splitting = require("splitting");
         })
     }
 
+    function calculateVerticalPercentage(
+        bounds,
+        threshold = 0,
+        root = window,
+    ) {
+        if (!root) return 0
+        const vh =
+            (root instanceof Element ? root.clientHeight : root.innerHeight) || 0
+        const offset = threshold * bounds.height
+        const percentage =
+            (bounds.bottom - offset) / (vh + bounds.height - offset * 2)
+
+        return 1 - Math.max(0, Math.min(1, percentage))
+    }
+
+
     function heroScrollHandler () {
-        const scrollY = window.scrollY
         const heroSection = document.querySelector('.hero-a')
 
         requestAnimationFrame(() => {
-            const factor = Math.min(1, scrollY / (heroSection.offsetHeight / 0.09) );
-            heroImage.style.transform = `scale(${1 + factor})`;
+            const percentage = calculateVerticalPercentage(heroSection.getBoundingClientRect(), 0, window)
+            heroImage.style.transform = `scale(${1 + percentage * 0.5})`;
         })
     }
 
