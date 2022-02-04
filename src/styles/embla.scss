@@ -3,35 +3,22 @@
      padding: 20px;
   }
 
-  .embla__viewport {
+.embla__viewport {
     overflow: hidden;
     width: 100%;
-  }
+}
 
-  .embla__viewport.is-draggable {
+.embla__viewport.is-draggable {
     cursor: move;
     cursor: grab;
-  }
+}
 
-  .embla__viewport.is-dragging {
+.embla__viewport.is-dragging {
     cursor: grabbing;
-  }
+}
 
-  .embla__container {
-    display: flex;
-    user-select: none;
-    -webkit-touch-callout: none;
-    -khtml-user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    margin-left: -10px;
-  }
-
-  .embla__slide {
-    position: relative;
-    padding-left: 10px;
-    flex: 0 0 100%;
-
-    @media (min-width: 750px) {
-        flex: 0 0 33.3333%;
-    }
-  }
+.embla__slide {
+  position: relative;
+  min-width: 50%;
+  // padding-left: 10px;
+}
