@@ -1,0 +1,130 @@
+.live-chat__root {
+    position: relative;
+
+    @media (min-width: 750px) {
+        height: 40vw;
+    }
+
+    .live-chat__block {
+        display: block;
+        height: 100%;
+        overflow: hidden;
+        min-height: 335px;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: -32px;
+        background-position: 50% 50% !  important;
+        background-size: cover !important;
+
+        @media (min-width: 750px) {
+            width: 60vw;
+        }
+    }
+
+
+    img.hero-a--image {
+        transition: transform 100ms linear;
+        width: 100%;
+    }
+
+    .heading {
+        font-size: 32px;
+        line-height: 40px;
+        font-style: italic;
+        text-align: left;
+        margin-bottom: 8px;
+        color: #000F3C;
+
+        @media (min-width: 750px) {
+          font-size: 32px;
+          line-height: 40px;
+        }
+    }
+
+    .live-chat--content {
+        padding: 18px;
+        color: #000F3C;
+
+        padding: 34px 24px;
+
+        @media (min-width: $mobile-breakpoint) {
+          padding: 67px 64px 66px 51px;
+          display: flex;
+          flex-direction: column;
+          align-items: baseline;
+        }
+
+        svg.help-icon {
+            margin-right: 4px;
+            fill: #000F3C;
+            path {
+                fill: #000F3C;
+            }
+        }
+
+        .live-chat__header {
+            display: flex;
+            margin-bottom: 17px;
+
+            @media (min-width: $mobile-breakpoint) {
+                justify-content: center;
+            }
+        }
+    }
+
+    & > .container {
+        width: 95vw;
+        transform: translateY(-60px);
+        @media (min-width: $mobile-breakpoint) {
+          position: absolute;
+          top: 0;
+          right: 60px;
+          display: block;
+          float: left;
+          height: 100%;
+          width: 40vw;
+          transform: translate(-10%, 14%);
+        }
+      }
+    & > .container > div {
+        background: #EDF6F3;
+    }
+    & > .terminal-block {
+        overflow: hidden;
+        height: auto;
+        min-height: 335px;
+
+        @media (min-width: 750px) {
+          display: block;
+          height: 100%;
+          width: 55vw;
+        }
+    }
+
+    .button {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-family: Telenor Evolution;
+        background: #000F3C;
+        border-radius: 48px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 24px;
+        padding: 10px 20px 8px;
+        color: #fff;
+        border-color: #000F3C;
+
+
+        @media (min-width: 750px) {
+            padding: 8px 20px 8px 24px;
+        }
+    }
+
+    .button__icon {
+        padding-left: 5px;
+        padding-top: 5px;
+    }
+}
