@@ -15,6 +15,10 @@ import EmblaCarousel from 'embla-carousel'
         return;
     }
 
+    const productList = ".products-list__root  .products-list__main > .product-list__item";
+    const querySelector = `${productList}`;
+    const CLASS_NAME = 'observed';
+
     // Sliders
     const emblaCarousels = [
         {
@@ -66,6 +70,28 @@ import EmblaCarousel from 'embla-carousel'
 
             setupPrevNextBtns(prevBtn, nextBtn, embla);
         }
+    });
+
+    const defaultObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add(CLASS_NAME);
+                    // Splitting({
+                    //     by: "lines",
+                    // });
+                    defaultObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0,
+            rootMargin: "0px"
+        }
+    );
+
+    // Add Default intersection observer
+    document.querySelectorAll(querySelector).forEach((i) => {
+        defaultObserver.observe(i);
     });
 
 })();

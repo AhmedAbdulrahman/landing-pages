@@ -1,3 +1,5 @@
+$product-list-coefficient: 0.10;
+
 .products-list__root {
     padding-top: 48px;
     padding-bottom: 48px;
@@ -84,9 +86,22 @@
             grid-auto-columns: 24%; /* Each slide covers 80% of the viewport */
             gap: 20px
         }
+
+        @for $i from 1 through 20 {
+            .product-list__item:nth-child(#{$i}n) {
+            //   animation-delay: #{$i * $product-list-coefficient}s;
+                transform: translateX(#{$i * $item-length}px);
+            }
+          }
     }
 
     .product-list__item {
+        &.observed {
+            animation-name: product-list-slide-in-desktop;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
         .img-background {
             &:hover {
               &:before {
@@ -221,3 +236,27 @@
         }
     }
 }
+
+
+@keyframes product-list-desktop {
+    0% {
+      opacity: 0;
+      transform: translateY(80px);
+    }
+    30%{
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+@keyframes product-list-slide-in-desktop {
+    0% {
+      transform: translateX(50vw);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
