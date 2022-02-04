@@ -38,13 +38,14 @@ import EmblaCarousel from 'embla-carousel'
             viewport: '.produts-list__slider.embla__viewport',
             options: {
                 slidesToScroll: 1,
-        containScroll: "trimSnaps",
+                containScroll: "trimSnaps",
             }
         },
         {
             container: '.benefit-list__slider',
             viewport: '.benefit-list__slider.embla__viewport',
             options: {
+                dragFree: true,
                 slidesToScroll: 1,
                 containScroll: "trimSnaps",
             }
