@@ -2,9 +2,9 @@
   padding-top: 48px;
   padding-bottom: 48px;
 
-  @media (min-width: 750px) {
-    padding-top: 102px;
-    padding-bottom: 80px;
+  @include breakpoint-min($bp-medium) {
+    padding-top: 85px;
+    padding-bottom: 85px;
   }
 
   .benefit-list__container {

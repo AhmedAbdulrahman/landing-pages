@@ -1,7 +1,37 @@
 .imagelist-root {
     padding-top: 85px;
 
-    .imagelist__items {
+    .imagelist__items-container {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 90%; /* Each slide covers 80% of the viewport */
+        gap: 14px;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -khtml-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+
+        @include breakpoint-min($bp-large) {
+            grid-auto-columns: 32.2%; /* Each slide covers 80% of the viewport */
+        }
+
+        @include breakpoint-min($bp-large) {
+            // margin-left: 100px;
+            grid-auto-columns: 32%; /* Each slide covers 80% of the viewport */
+
+        }
+
+        @include breakpoint-max($bp-small) {
+            width: 100%;
+        }
+
+        // @media (min-width: 750px) {
+        //     margin-left: 10px;
+        //     grid-auto-columns: 24%; /* Each slide covers 80% of the viewport */
+        //     gap: 20px
+        // }
+    }
+    .imagelist__items-container {
 
 
         // > * + *  {
@@ -25,7 +55,8 @@
 
         &:hover {
             .imagelist-image {
-                transform: scale(1.1);
+                cursor: pointer;
+                transform: translate(-50%, -50%) scale(1.2);
             }
             .imagelist-item-content {
                 background-color: #B4FFFF;
@@ -38,19 +69,23 @@
 
         }
 
-        .imagelist-loader {
-            height: 100%;
-            width: 100%;
-            display: block;
+        .imagelist-loader__inner {
             position: relative;
             overflow: hidden;
+            height: 200px;
+
         }
         .imagelist-image {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
+            position: absolute;
             display: block;
-            transition: all .3s ease-in-out;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            min-height: 100%;
+            min-width: 100%;
+            max-width: none;
+            transform: translate(-50%, -50%);
+            transition: transform 0.3s cubic-bezier(0.1, 0.2, 0.3, 0.4),
         }
         .imagelist-item-content {
             min-height: 104px;
