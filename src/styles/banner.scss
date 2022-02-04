@@ -1,9 +1,25 @@
 .banner--root {
     background-color: #F6F4EE;
 
-    @media (max-width: 750px) {
+    margin-top: 48px;
+    margin-bottom: 48px;
+
+    @include breakpoint-min($bp-medium) {
+      margin-top: 85px;
+      margin-bottom: 85px;
+    }
+
+    @include breakpoint-max($bp-small) {
       margin-left: 16px;
       margin-right: 16px;
+    }
+
+    &.dark {
+      background: #000F3C;
+
+      .banner--content {
+        color: #B4FFFF
+      }
     }
 
     .banner__container {
@@ -26,12 +42,14 @@
           align-items: center;
         }
     }
-    .banner--loader {
 
+    .banner--loader {
       @media (max-width: 750px) {
         align-self: stretch;
         img {
           max-width: 100px;
+          height: 130px;
+          object-fit: cover;
         }
       }
 
