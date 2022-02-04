@@ -1,0 +1,100 @@
+.products-list__root {
+    padding-top: 85px;
+    padding-bottom: 80px;
+
+    .produts-list__container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 32px;
+        padding-right: 32px;
+
+        .heading {
+            color: #000F3C
+        }
+    }
+
+    .products-list__main {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 70%; /* Each slide covers 80% of the viewport */
+        user-select: none;
+        -webkit-touch-callout: none;
+        -khtml-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        margin-left: 5px;
+
+        @media (min-width: 750px) {
+            margin-left: 10px;
+            grid-auto-columns: 24%; /* Each slide covers 80% of the viewport */
+        }
+
+        & > * {
+            margin-right: 24px;
+        }
+    }
+
+    .product-list__item {
+        .product-block__image-loader {}
+        .product-list__item-image{
+            display: inline-block;
+            height: 132px;
+            max-width: 100%;
+            padding: 0;
+            vertical-align: bottom;
+        }
+        .product-list__item-badge-holder {
+            bottom: 8px;
+            left: 0;
+            position: absolute;
+            right: 8px;
+            z-index: 1;
+          }
+        .product-list__item-badge {
+            color: #0c1026;
+            background-color: #00C8FF;
+            display: inline-block;
+            font-size: 14px;
+            line-height: 32px;
+            padding: 0 16px;
+            white-space: nowrap;
+        }
+
+        .product-list__item-content, .product-list__item-content a {
+            color: #000F3C;
+        }
+
+        .product-list__item-content {
+            .product-list__colors-list {
+                display: flex;
+                li:not(:last-of-type) {
+                    margin-right: 10px;
+                }
+            }
+            .colors-list:checked ~ .colors-list__label, .colors-list:focus ~ .colors-list__label {
+                -webkit-box-shadow: 0 0 0 2px var(--tooltip-color);
+                box-shadow: 0 0 0 2px var(--tooltip-color);
+            }
+            .colors-list__label {
+                position: relative;
+                border: 12px solid var(--tooltip-color);
+                border-radius: 50%;
+                cursor: pointer;
+                display: block;
+                height: 8px;
+                width: 8px;
+            }
+
+            @media (max-width: 750px) {
+                .screen-change {
+                    display: none
+                }
+                a > h3 {
+                    font-size: 16px;
+                    line-height: 24px;
+                    margin-bottom: 18px;
+                }
+            }
+        }
+    }
+}
