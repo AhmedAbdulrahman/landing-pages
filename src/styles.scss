@@ -37,11 +37,17 @@
 
 //@import "./base-style.scss";
 @import "./styles/_variables.scss";
+@import "./styles/embla.scss";
 @import "./styles/video.scss";
 @import "./styles/side-by-side.scss";
 @import "./styles/leader.scss";
 @import "./styles/circle-spinner.scss";
 @import "./styles/benefit-list.scss";
-@import "./styles/product-list.scss";
 @import "./styles/quote.scss";
-@import "./styles/hero-a.scss";
+@import "./styles/hero.scss";
+@import "./styles/image-list.scss";
+@import "./styles/product-category.scss";
+@import "./styles/banner.scss";
+@import "./styles/products-list.scss";
+@import "./styles/live-chat.scss";
+@import "./styles/support.scss";
