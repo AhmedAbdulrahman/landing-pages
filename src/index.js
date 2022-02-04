@@ -18,21 +18,20 @@ import EmblaCarousel from 'embla-carousel'
     // Sliders
     const emblaCarousels = [
         {
-            container: '.embla',
-            viewport: '.embla__viewport',
+            container: '.imagelist__slider.embla',
+            viewport: '.imagelist__main.embla__viewport',
             options: {
-                dragFree: true,
                 containScroll: 'trimSnaps',
-                slidesToScroll: 3
+                draggable: true,
+                skipSnaps: false
             }
         },
         {
             container: '.product-category--main.embla',
             viewport: '.product-category-viewport.embla__viewport',
             options: {
-                dragFree: true,
-                slidesToScroll: 3,
-                startIndex: 1
+                containScroll: 'trimSnaps',
+                draggable: true,
             }
         },
         {
