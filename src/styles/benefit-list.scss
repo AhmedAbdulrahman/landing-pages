@@ -1,92 +1,89 @@
-/* styling */
-.benefit-list {
-  margin-bottom: 56px;
-
-  > article {
-    padding-left: 17px;
-    padding-right: 17px;
-  }
+.benefit-list__root {
+  padding-top: 48px;
+  padding-bottom: 48px;
 
   @media (min-width: 750px) {
-    margin-bottom: 80px;
+    padding-top: 102px;
+    padding-bottom: 80px;
   }
 
-  header {
-    text-align: left;
-    margin-bottom: 16px;
-  }
-  h2 {
-    font-style: italic;
-    font-weight: 800;
-    font-size: 32px;
-    line-height: 24px;
-    margin-bottom: 20px;
-  }
-  p {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 24px;
-  }
+  .benefit-list__container {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 32px;
+      padding-right: 32px;
 
-  .benefit-list__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    &-item {
-      padding-left: 30px;
-
-      &:before {
-        display: none;
-      }
-      .icon--small {
-        position: absolute;
-        top: 0;
-        left: 4px;
+      .benefit-list__heading {
+          color: #000F3C;
+          text-align: center;
       }
 
-      &-text {
+      .benefit-list__main {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 70%; /* Each slide covers 80% of the viewport */
+        user-select: none;
+        -webkit-touch-callout: none;
+        -khtml-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        margin-left: 5px;
 
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 400;
+
+        @media (min-width: 750px) {
+          margin-left: 10px;
+          grid-auto-columns: 24%; /* Each slide covers 80% of the viewport */
+        }
+
       }
-    }
-  }
-}
+      .benefit-list__item {
+        text-align: center;
 
-/* Animation */
-$benefit-delay-offset: 0.2;
-$benefit-coefficient: 0.2;
-$benefit-duration: 0.8s;
+        svg {
+          rect {
+            fill: #EEF9FF
+          }
 
-.benefit-list__list {
-  .benefit-list__list-item.observed > .icon--small > img {
-    opacity: 0;
-    animation-duration: $benefit-duration;
-    animation-fill-mode: forwards;
-    animation-name: check-mark-animation;
-    animation-timing-function: ease-in-out;
-  }
-}
-.benefit-list__list {
-  @for $i from 1 through 10 {
-    .benefit-list__list-item.observed:nth-child(#{$i}n) {
-      & > .icon--small > img {
-        animation-delay: #{$benefit-delay-offset + $i * $benefit-coefficient}s;
+          circle {
+            fill: #000F3C
+          }
+        }
+
+        @media (max-width: $mobile-breakpoint) {
+          background-color: #EEF9FF;
+          padding: 24px;
+
+          svg {
+            rect {
+              fill: #fff;
+            }
+
+            circle {
+              fill: #0C1026;
+            }
+          }
+        }
+
+        h4, p {
+          color: #000F3C;
+        }
+
+        .button {
+          display: inline-flex;
+          background: #2028CD;
+          border-radius: 48px;
+          margin-top: 16px;
+          border-color: #2028CD;
+          min-width: 40px;
+          height: 40px;
+          padding: 8px 8px 8px 10px;
+
+          @media (min-width: 750px) {
+              svg path {
+                fill: #fff;
+              }
+          }
+        }
       }
-    }
-  }
-}
-
-@keyframes check-mark-animation {
-  0% {
-    opacity: 0;
-    transform: scale(2.8);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
   }
 }
