@@ -15,11 +15,7 @@
     }
 
     @include breakpoint-min($bp-medium) {
-      height: calc(100vh - 100px);
-    }
-
-    @include breakpoint-min($bp-large) {
-      height: calc(100vh - 200px);
+      height: calc(100vh - 30px);
     }
 
     .hero-image-container {
