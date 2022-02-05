@@ -16,6 +16,7 @@ import EmblaCarousel from 'embla-carousel'
     }
 
     const productList = ".products-list__root  .products-list__main > .product-list__item";
+    const liveChatImage = document.querySelector('.live-chat__image');
     const querySelector = `${productList}`;
     const CLASS_NAME = 'observed';
 
