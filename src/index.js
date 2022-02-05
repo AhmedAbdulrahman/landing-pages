@@ -9,7 +9,7 @@ import EmblaCarousel from 'embla-carousel'
     if (!"IntersectionObserver" in window) {
         document.querySelectorAll(querySelector).forEach((i) => {
             if (i) {
-                i.classList.add(className);
+                i.classList.add(CLASS_NAME);
             }
         });
         return;
@@ -72,14 +72,37 @@ import EmblaCarousel from 'embla-carousel'
         }
     });
 
+    // Helpers
+    function calculateVerticalPercentage(
+        bounds,
+        threshold = 0,
+        root = window,
+    ) {
+        if (!root) return 0
+        const vh =
+            (root instanceof Element ? root.clientHeight : root.innerHeight) || 0
+        const offset = threshold * bounds.height
+        const percentage =
+            (bounds.bottom - offset) / (vh + bounds.height - offset * 2)
+
+        return 1 - Math.max(0, Math.min(1, percentage))
+    }
+
+    // Private Handlers
+    function liveChatScrollHandler () {
+        const liveChatSection = document.querySelector('.live-chat__root')
+
+        requestAnimationFrame(() => {
+            const percentage = calculateVerticalPercentage(liveChatSection.getBoundingClientRect(), 0, window)
+            liveChatImage.style.transform = `scale(${1 + percentage * 0.1})`;
+        })
+    }
+
     const defaultObserver = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add(CLASS_NAME);
-                    // Splitting({
-                    //     by: "lines",
-                    // });
                     defaultObserver.unobserve(entry.target);
                 }
             });
@@ -89,9 +112,26 @@ import EmblaCarousel from 'embla-carousel'
         }
     );
 
+    const liveChatObserver = new IntersectionObserver(
+        (entries) => {
+            const anyInteriesIntersection = entries.some(entry => entry.isIntersecting)
+
+            if (anyInteriesIntersection) {
+                document.addEventListener('scroll', liveChatScrollHandler, true);
+            } else {
+                document.removeEventListener('scroll', liveChatScrollHandler, true)
+            }
+        },
+    );
+
     // Add Default intersection observer
     document.querySelectorAll(querySelector).forEach((i) => {
         defaultObserver.observe(i);
     });
+
+     // Add intersection observer for live chat
+     document.querySelectorAll(".live-chat__root").forEach((i) => {
+        liveChatObserver.observe(i);
+    })
 
 })();
