@@ -143,9 +143,6 @@
                 transform: scale(1.2);
               }
 
-              .button {
-                  opacity: 1;
-              }
             }
 
             &:before,
@@ -255,6 +252,16 @@
         @include breakpoint-min($bp-medium) {
             width: calc(100% / 4);
 
+            &:hover {
+                .product-list__item-content .button {
+                    opacity: 1;
+
+                    .button__icon svg {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                }
+            }
         }
     }
 }
