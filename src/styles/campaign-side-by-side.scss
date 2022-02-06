@@ -1,0 +1,166 @@
+.side-by-side__root {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    position: relative;
+
+    &.light {
+        .side-by-side__header {
+            .side-by-side__icon {
+                fill: $midBlue;
+                path {
+                    fill: $midBlue;
+                }
+            }
+        }
+        .side-by-side__content {
+            background-color: $telenorLightBlue;
+            color: $midBlue;
+
+            .btn {
+                background: $midBlue;
+                color: $telenorLightBlue;
+                border-color: $telenorLightBlue;
+                font-size: 14px;
+                line-height: 24px;
+
+                label {
+                    font-size: 14px;
+                    line-height: 24px;
+                }
+            }
+
+            .btn__icon {
+                path {
+                    fill: $telenorBlue;
+                }
+            }
+        }
+    }
+
+    &.dark {
+        .side-by-side__header {
+            .side-by-side__icon {
+                fill: $telenorLightBlue;
+                path {
+                    fill: $telenorLightBlue;
+                }
+            }
+        }
+        .side-by-side__content {
+            background-color: $darkBlue;
+            color: $telenorLightBlue;
+
+            .btn {
+                background: $telenorLightBlue;
+                color: $midBlue;
+                border-color: $telenorLightBlue;
+                font-size: 14px;
+                line-height: 24px;
+
+                label {
+                    font-size: 14px;
+                    line-height: 24px;
+                }
+            }
+
+            .btn__icon {
+                path {
+                    fill: $midBlue;
+                }
+            }
+        }
+    }
+
+    @include breakpoint-min($bp-medium) {
+        padding-top: 65px;
+        padding-bottom: 65px;
+    }
+
+    .side-by-side__container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 16px;
+        padding-right: 16px;
+        position: relative;
+
+        @include breakpoint-min($bp-medium) {
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+    }
+
+    .side-by-side__main {
+        display: flex;
+        > * {
+            width: 50%;
+        }
+    }
+
+    .side-by-side__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        background-color: $midBlue;
+        color: $telenorLightBlue;
+
+        padding: 92px 120px;
+
+        .btn {
+            display: inline-flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background: $telenorLightBlue;
+            color: $midBlue;
+            border: none;
+            border-radius: 48px;
+            padding: 12px 28px;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+        }
+
+        .btn__icon {
+            padding-left: 5px;
+            padding-top: 5px;
+
+            path {
+                fill: $midBlue;
+            }
+        }
+    }
+
+    .side-by-side__header {
+        display: flex;
+        align-items: center;
+
+        .side-by-side__icon {
+            margin-right: 8px;
+
+            fill: $telenorLightBlue;
+            path {
+                fill: $telenorLightBlue;
+            }
+        }
+    }
+
+    .side-by-side__media {
+        background-color: $grey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-height: 600px;
+
+        .side-by-side__image {
+            height: 100%;
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+    }
+}
