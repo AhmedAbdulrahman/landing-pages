@@ -28,3 +28,33 @@ $bp-xlarge: 1440px;
         @content;
     }
 }
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes $animation-name {
+      @content;
+    }
+    @-moz-keyframes $animation-name {
+      @content;
+    }
+    @keyframes $animation-name {
+      @content;
+    }
+}
+
+@mixin animation($str) {
+    animation-name: #{$str};
+}
+
+@include keyframes(fade-in-transition) {
+    0% {
+        opacity: 0;
+        transform: translateY(50vw);
+      }
+      30%{
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+  }
