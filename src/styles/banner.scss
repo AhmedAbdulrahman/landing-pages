@@ -15,10 +15,18 @@
     }
 
     &.dark {
-      background: #000F3C;
+      background: $darkBlue;
 
       .banner--content {
         color: #B4FFFF
+      }
+    }
+
+    &.light {
+      background: $telenorWhite;
+
+      .banner--content {
+        color: $darkBlue;
       }
     }
 
@@ -107,6 +115,17 @@
         @media (min-width: 750px) {
           padding: 10px 42px 8px;
         }
+
+        &.button__small {
+          line-height: 24px;
+          font-size: 14px;
+
+          span {
+            line-height: 24px;
+            font-size: 14px;
+          }
+        }
+
       }
 
       .button__icon {
