@@ -14,9 +14,9 @@
         @for $i from 1 through 4 {
             .imagelist-item.observed:nth-child(#{$i}n) {
                 animation-delay: #{$i * $list-coefficient}s;
-                animation-name: fade-in-transition;
                 animation-duration: 1s;
                 animation-fill-mode: forwards;
+                @include animation('fade-in-transition');
             }
         }
 
@@ -112,18 +112,4 @@
             align-self: center;
         }
     }
-}
-
-@keyframes fade-in-transition {
-    0% {
-        opacity: 0;
-        transform: translateY(50vw);
-      }
-      30%{
-        opacity: 0.5;
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
 }

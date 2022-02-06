@@ -1,4 +1,4 @@
-.product-category-root {
+.product-category__root {
     padding-top: 48px;
     padding-bottom: 48px;
 
@@ -7,9 +7,45 @@
         padding-bottom: 85px;
     }
 
-    .product-category-container  {
+    .product-category__container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 80px;
+        padding-right: 80px;
+
+        @include breakpoint-max($bp-small) {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+    }
+
+    .product-category__viewport {
+        overflow: hidden;
         display: flex;
-        margin-left: -1px;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .product-category__main  {
+        display: flex;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -khtml-user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        margin-right: 32%;
+        margin-left: auto;
+        transform: translateX(20vw);
+
+        @for $i from 1 through 4 {
+            .product-category--item.observed:nth-child(#{$i}n) {
+                animation-delay: #{$i * $list-coefficient}s;
+                animation-duration: 2s;
+                animation-fill-mode: forwards;
+                @include animation('fade-in-transition');
+            }
+        }
 
         @include breakpoint-min($bp-medium) {
              justify-content: center;
@@ -23,10 +59,16 @@
         flex-shrink: 0;
         padding-left: 1px;
         width: calc(100% / 3.5);
+        opacity: 0;
 
-        @include breakpoint-min($bp-medium) {
-            width: calc(100% / 7);
+         &:not(.observed) {
+            opacity: 1;
+         }
+
+        @include breakpoint-max($bp-medium) {
+            width: calc(100% / 2.5);
        }
+
 
         &:hover {
             cursor: pointer;

@@ -9,6 +9,24 @@
         color: #B4FFFF;
         text-align: center;
         padding: 48px 24px;
+        overflow: hidden;
+        width: 100%;
+
+        > * {
+            opacity: 0;
+
+            &:not(.observed) {
+                opacity: 1;
+            }
+        }
+        @for $i from 1 through 4 {
+            > *.observed:nth-child(#{$i}n) {
+              animation-delay: #{$i * $list-coefficient}s;
+              animation-duration: 1s;
+              animation-fill-mode: forwards;
+              @include animation('fade-in-transition');
+            }
+        }
 
         @media (min-width: 750px) {
             p {

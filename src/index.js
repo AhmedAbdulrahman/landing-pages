@@ -15,11 +15,16 @@ import EmblaCarousel from 'embla-carousel'
         return;
     }
 
-    const productList   = ".products-list__root  .products-list__main > .product-list__item:nth-child(-n+4)";
-    const imagesList    = ".imagelist-root  .imagelist__main .imagelist__items-container > .imagelist-item:nth-child(-n+3)";
-    const liveChatImage = document.querySelector('.live-chat__image');
-    const querySelector = `${productList}, ${imagesList}`;
+    const productList       = ".products-list__root  .products-list__main > .product-list__item:nth-child(-n+4)";
+    const productCategory   = ".product-category__root  .product-category__main > .product-category--item:nth-child(-n+4)";
+    const imagesList        = ".imagelist-root  .imagelist__main .imagelist__items-container > .imagelist-item:nth-child(-n+3)";
+    const benefitList       = ".benefit-list__root  .benefit-list__slider .benefit-list__slider.embla__viewport .benefit-list__main > .benefit-list__item";
+    const supportContent    = ".support__root .container .support__content > *";
+
+    const querySelector = `${productList}, ${imagesList}, ${benefitList}, ${supportContent}, ${productCategory}`;
     const CLASS_NAME = 'observed';
+
+    const liveChatImage = document.querySelector('.live-chat__image');
 
     // Sliders
     const emblaCarousels = [
@@ -33,16 +38,18 @@ import EmblaCarousel from 'embla-carousel'
             }
         },
         {
-            container: '.product-category--main.embla',
-            viewport: '.product-category-viewport.embla__viewport',
+            container: '.product-category__slider',
+            viewport: '.product-category__viewport',
             options: {
-                containScroll: 'trimSnaps',
-                draggable: true,
+                slidesToScroll: 1,
+                containScroll: "trimSnaps",
+                skipSnaps: false,
+                dragFree: true,
             }
         },
         {
             container: '.produts-list__slider',
-            viewport: '.produts-list__slider.embla__viewport',
+            viewport: '.produts-list__viewport',
             prevBtn: '.embla__button--prev',
             nextBtn: '.embla__button--next',
             options: {

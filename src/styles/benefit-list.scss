@@ -20,26 +20,51 @@
       }
 
       .benefit-list__main {
-        display: grid;
-        grid-auto-flow: column;
-        grid-auto-columns: 100%; /* Each slide covers 80% of the viewport */
-        gap: 24px;
+        display: flex;
         user-select: none;
         -webkit-touch-callout: none;
         -khtml-user-select: none;
         -webkit-tap-highlight-color: transparent;
-        margin-left: 5px;
+        margin-left: 0px;
+
+        @for $i from 1 through 4 {
+          .benefit-list__item.observed:nth-child(#{$i}n) {
+            animation-delay: #{$i * $list-coefficient}s;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            @include animation('fade-in-transition');
+          }
+        }
 
 
-        @media (min-width: 750px) {
+        @include breakpoint-min($bp-small) {
           margin-left: 10px;
           grid-auto-columns: 24%; /* Each slide covers 80% of the viewport */
         }
 
       }
       .benefit-list__item {
+        flex-shrink: 0;
+        width: calc(100% / 1.1);
+        margin-left: 10px;
         text-align: center;
         padding: 10px 0;
+        opacity: 0;
+
+        @include breakpoint-min($bp-medium) {
+          width: calc(100% / 4);
+        }
+
+        @include breakpoint-max($bp-small) {
+          &:nth-child(n+3) {
+            transform: translateX(0) !important;
+            opacity: 1 !important;
+          }
+        }
+
+         &:not(.observed) {
+            opacity: 1;
+         }
 
         svg {
           rect {
