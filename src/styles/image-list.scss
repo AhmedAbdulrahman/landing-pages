@@ -11,32 +11,22 @@
         -khtml-user-select: none;
         -webkit-tap-highlight-color: transparent;
 
-        @include breakpoint-min($bp-large) {
-            grid-auto-columns: 32.2%; /* Each slide covers 80% of the viewport */
+        @for $i from 1 through 4 {
+            .imagelist-item.observed:nth-child(#{$i}n) {
+                animation-delay: #{$i * $list-coefficient}s;
+                animation-name: fade-in-transition;
+                animation-duration: 1s;
+                animation-fill-mode: forwards;
+            }
         }
 
         @include breakpoint-min($bp-large) {
-            // margin-left: 100px;
-            grid-auto-columns: 32%; /* Each slide covers 80% of the viewport */
-
+            grid-auto-columns: 32.5%; /* Each slide covers 80% of the viewport */
         }
 
         @include breakpoint-max($bp-small) {
             width: 100%;
         }
-
-        // @media (min-width: 750px) {
-        //     margin-left: 10px;
-        //     grid-auto-columns: 24%; /* Each slide covers 80% of the viewport */
-        //     gap: 20px
-        // }
-    }
-    .imagelist__items-container {
-
-
-        // > * + *  {
-        //     margin-top: 24px;
-        // }
     }
 
     .imagelist-heading {
@@ -53,6 +43,12 @@
         text-align: left;
         overflow: hidden;
 
+        opacity: 0;
+
+         &:not(.observed) {
+            opacity: 1;
+         }
+
         &:hover {
             .imagelist-image {
                 cursor: pointer;
@@ -66,14 +62,12 @@
                     fill: #2028CD
                 }
             }
-
         }
 
         .imagelist-loader__inner {
             position: relative;
             overflow: hidden;
             height: 200px;
-
         }
         .imagelist-image {
             position: absolute;
@@ -89,7 +83,7 @@
         }
         .imagelist-item-content {
             min-height: 104px;
-            padding: 16px 22px;
+            padding: 16px;
             display: flex;
             align-items: center;
             background-color: #2028CD;
@@ -97,6 +91,11 @@
             transition: background-color 0.2s ease-in-out,
             color 0.2s linear;
             z-index: 2;
+
+            @include breakpoint-min($bp-medium) {
+                padding: 16px 22px;
+            }
+
 
             svg {
                 margin-right: 20px;
@@ -113,4 +112,18 @@
             align-self: center;
         }
     }
+}
+
+@keyframes fade-in-transition {
+    0% {
+        opacity: 0;
+        transform: translateY(50vw);
+      }
+      30%{
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
 }

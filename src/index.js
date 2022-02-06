@@ -15,9 +15,10 @@ import EmblaCarousel from 'embla-carousel'
         return;
     }
 
-    const productList = ".products-list__root  .products-list__main > .product-list__item";
+    const productList   = ".products-list__root  .products-list__main > .product-list__item:nth-child(-n+4)";
+    const imagesList    = ".imagelist-root  .imagelist__main .imagelist__items-container > .imagelist-item:nth-child(-n+3)";
     const liveChatImage = document.querySelector('.live-chat__image');
-    const querySelector = `${productList}`;
+    const querySelector = `${productList}, ${imagesList}`;
     const CLASS_NAME = 'observed';
 
     // Sliders
@@ -47,6 +48,8 @@ import EmblaCarousel from 'embla-carousel'
             options: {
                 slidesToScroll: 1,
                 containScroll: "trimSnaps",
+                skipSnaps: false,
+                dragFree: true,
             }
         },
         {

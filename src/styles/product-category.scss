@@ -8,29 +8,25 @@
     }
 
     .product-category-container  {
-        display: grid;
-        grid-auto-flow: column;
-        grid-auto-columns: 15%; /* Each slide covers 80% of the viewport */
-        gap: 14px;
-        user-select: none;
-        -webkit-touch-callout: none;
-        -khtml-user-select: none;
-        -webkit-tap-highlight-color: transparent;
+        display: flex;
+        margin-left: -1px;
 
         @include breakpoint-min($bp-medium) {
              justify-content: center;
         }
 
-        @include breakpoint-max($bp-small) {
-            gap: 0;
-            grid-auto-columns: 33.3333%; /* Each slide covers 80% of the viewport */
-            margin-left: 5px;
-        }
     }
 
     .product-category--item {
         position: relative;
         text-align: center;
+        flex-shrink: 0;
+        padding-left: 1px;
+        width: calc(100% / 3.5);
+
+        @include breakpoint-min($bp-medium) {
+            width: calc(100% / 7);
+       }
 
         &:hover {
             cursor: pointer;
