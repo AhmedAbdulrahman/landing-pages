@@ -92,8 +92,16 @@
 
     .side-by-side__main {
         display: flex;
+
+        @include breakpoint-max($bp-medium) {
+            flex-direction: column-reverse;
+        }
+
         > * {
-            width: 50%;
+
+            @include breakpoint-min($bp-small) {
+                width: 50%;
+            }
         }
     }
 
@@ -109,6 +117,10 @@
 
         padding: 92px 120px;
 
+        @include breakpoint-max($bp-medium) {
+            padding: 32px 24px;
+        }
+
         > * {
             opacity: 0;
 
@@ -116,6 +128,7 @@
                 opacity: 1;
             }
         }
+
         @for $i from 1 through 4 {
             > *.observed:nth-child(#{$i}n) {
               @include animation('fade-in-transition', $delay: #{$i * $list-coefficient}s);

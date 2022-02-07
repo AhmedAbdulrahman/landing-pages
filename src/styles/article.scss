@@ -1,3 +1,14 @@
+.articls-all {
+
+    padding: 0 48px;
+
+    @include breakpoint-max($bp-medium) {
+        flex-direction: column;
+        padding: 0;
+    }
+
+}
+
 .article__root {
     overflow: hidden;
 
@@ -22,7 +33,13 @@
     }
 
     & + & {
-        margin-left: 20px;
+        @include breakpoint-min($bp-medium) {
+            margin-left: 20px;
+        }
+
+        @include breakpoint-max($bp-medium) {
+            margin-top: 32px;
+        }
     }
 
     .article__main {

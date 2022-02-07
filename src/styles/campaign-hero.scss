@@ -68,11 +68,17 @@
             }
           }
     }
+
     .brand-hero__image-loader {
         background-color: $grey;
         display: flex;
         justify-content: center;
         align-items: center;
+
+        @include breakpoint-max($bp-medium) {
+            overflow: hidden;
+        }
+
     }
 
     .brand-hero__image {
