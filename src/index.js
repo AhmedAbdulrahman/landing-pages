@@ -27,6 +27,7 @@ import EmblaCarousel from 'embla-carousel'
     const CLASS_NAME = 'observed';
 
     const liveChatImage = document.querySelector('.live-chat__image');
+    const sideBySideImage = document.querySelector('.side-by-side__image');
 
     // Sliders
     const emblaCarousels = [
@@ -113,6 +114,15 @@ import EmblaCarousel from 'embla-carousel'
         })
     }
 
+    function sideBySideScrollHandler () {
+        const sideBySideSection = document.querySelector('.side-by-side__root')
+
+        requestAnimationFrame(() => {
+            const percentage = calculateVerticalPercentage(sideBySideSection.getBoundingClientRect(), 0, window)
+            sideBySideImage.style.transform = `scale(${1 + percentage * 0.3})`;
+        })
+    }
+
     const defaultObserver = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
@@ -139,6 +149,18 @@ import EmblaCarousel from 'embla-carousel'
         },
     );
 
+    const sideBySideObserver = new IntersectionObserver(
+        (entries) => {
+            const anyInteriesIntersection = entries.some(entry => entry.isIntersecting)
+
+            if (anyInteriesIntersection) {
+                document.addEventListener('scroll', sideBySideScrollHandler, true);
+            } else {
+                document.removeEventListener('scroll', sideBySideScrollHandler, true)
+            }
+        },
+    );
+
     // Add Default intersection observer
     document.querySelectorAll(querySelector).forEach((i) => {
         defaultObserver.observe(i);
@@ -147,6 +169,11 @@ import EmblaCarousel from 'embla-carousel'
      // Add intersection observer for live chat
      document.querySelectorAll(".live-chat__root").forEach((i) => {
         liveChatObserver.observe(i);
+    })
+
+     // Add intersection observer for live chat
+     document.querySelectorAll(".side-by-side__root").forEach((i) => {
+        sideBySideObserver.observe(i);
     })
 
 })();
