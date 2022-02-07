@@ -13,10 +13,7 @@
 
         @for $i from 1 through 4 {
             .imagelist-item.observed:nth-child(#{$i}n) {
-                animation-delay: #{$i * $list-coefficient}s;
-                animation-duration: 1s;
-                animation-fill-mode: forwards;
-                @include animation('fade-in-transition');
+                @include animation('fade-in-transition', $delay: #{$i * $list-coefficient}s);
             }
         }
 

@@ -36,20 +36,28 @@ $bp-xlarge: 1440px;
     }
 }
 
-@mixin keyframes($animation-name) {
-    @-webkit-keyframes $animation-name {
-      @content;
-    }
-    @-moz-keyframes $animation-name {
-      @content;
-    }
-    @keyframes $animation-name {
-      @content;
-    }
+@mixin animation($name,
+                 $duration: 1s,
+                 $timing-function:ease,
+                 $delay:0s,
+                 $iteration-count: 1,
+                 $direction: normal,
+                 $fill-mode: forwards,) {
+  -webkit-animation: $name $duration $timing-function $delay $iteration-count $direction $fill-mode;
+  -moz-animation: $name $duration $timing-function $delay $iteration-count $direction $fill-mode;
+  animation: $name $duration $timing-function $delay $iteration-count $direction $fill-mode;
 }
 
-@mixin animation($str) {
-    animation-name: #{$str};
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+      @content;
+  }
+  @-moz-keyframes #{$name} {
+      @content;
+  }
+  @keyframes #{$name} {
+      @content;
+  }
 }
 
 @include keyframes(fade-in-transition) {
@@ -64,4 +72,18 @@ $bp-xlarge: 1440px;
         opacity: 1;
         transform: translateY(0);
       }
-  }
+}
+
+@include keyframes(fade-in-toleft-transition) {
+  0% {
+      opacity: 0;
+      transform: translateX(50vw);
+    }
+    30%{
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}

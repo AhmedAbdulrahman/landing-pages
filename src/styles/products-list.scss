@@ -88,10 +88,7 @@
 
         @for $i from 1 through 4 {
             .product-list__item.observed:nth-child(#{$i}n) {
-                animation-delay: #{$i * $list-coefficient}s;
-                animation-name: product-list-desktop;
-                animation-duration: 2s;
-                animation-fill-mode: forwards;
+                @include animation('fade-in-toleft-transition', $duration: 2s, $delay: #{$i * $list-coefficient}s);
             }
         }
     }
@@ -281,20 +278,5 @@
                 }
             }
         }
-    }
-}
-
-
-@keyframes product-list-desktop {
-    0% {
-      opacity: 0;
-      transform: translateX(50vw);
-    }
-    30%{
-      opacity: 0.5;
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
     }
 }

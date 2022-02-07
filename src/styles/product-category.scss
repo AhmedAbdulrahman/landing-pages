@@ -40,10 +40,7 @@
 
         @for $i from 1 through 4 {
             .product-category--item.observed:nth-child(#{$i}n) {
-                animation-delay: #{$i * $list-coefficient}s;
-                animation-duration: 2s;
-                animation-fill-mode: forwards;
-                @include animation('fade-in-transition');
+                @include animation('fade-in-transition', $duration: 2s, $delay: #{$i * $list-coefficient}s);
             }
         }
 
