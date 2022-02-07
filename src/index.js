@@ -20,8 +20,10 @@ import EmblaCarousel from 'embla-carousel'
     const imagesList        = ".imagelist-root  .imagelist__main .imagelist__items-container > .imagelist-item:nth-child(-n+3)";
     const benefitList       = ".benefit-list__root  .benefit-list__slider .benefit-list__slider.embla__viewport .benefit-list__main > .benefit-list__item";
     const supportContent    = ".support__root .container .support__content > *";
+    const sideBySideContent    = ".side-by-side__main .side-by-side__content > *";
+    const editorialImage    = ".editorial__main .editorial__media > *";
 
-    const querySelector = `${productList}, ${imagesList}, ${benefitList}, ${supportContent}, ${productCategory}`;
+    const querySelector = `${productList}, ${imagesList}, ${benefitList}, ${supportContent}, ${productCategory}, ${sideBySideContent}, ${editorialImage}`;
     const CLASS_NAME = 'observed';
 
     const liveChatImage = document.querySelector('.live-chat__image');
@@ -72,14 +74,16 @@ import EmblaCarousel from 'embla-carousel'
 
     emblaCarousels.forEach(emblaCarousel => {
         const wrap = document.querySelector(emblaCarousel.container);
-        const viewPort = wrap.querySelector(emblaCarousel.viewport);
-        const embla = EmblaCarousel(viewPort, emblaCarousel.options);
+        if (wrap !== null) {
+            const viewPort = wrap.querySelector(emblaCarousel.viewport);
+            const embla = EmblaCarousel(viewPort, emblaCarousel.options);
 
-        if ( emblaCarousel.prevBtn !== undefined && emblaCarousel.nextBtn !== undefined ) {
-            const prevBtn = wrap.querySelector( emblaCarousel.prevBtn);
-            const nextBtn = wrap.querySelector( emblaCarousel.nextBtn);
+            if ( emblaCarousel.prevBtn !== undefined && emblaCarousel.nextBtn !== undefined ) {
+                const prevBtn = wrap.querySelector( emblaCarousel.prevBtn);
+                const nextBtn = wrap.querySelector( emblaCarousel.nextBtn);
 
-            setupPrevNextBtns(prevBtn, nextBtn, embla);
+                setupPrevNextBtns(prevBtn, nextBtn, embla);
+            }
         }
     });
 

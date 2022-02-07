@@ -15,6 +15,7 @@
         padding-left: 16px;
         padding-right: 16px;
         position: relative;
+        overflow: hidden;
 
         @include breakpoint-min($bp-medium) {
             padding-left: 50px;
@@ -24,9 +25,13 @@
 
     .editorial__main {
         display: flex;
-        // > * {
-        //     width: 50%;
-        // }
+
+        &.dir--row-reverse {
+            .editorial__content {
+                margin-right: 0;
+                margin-left: 64px
+            }
+        }
     }
 
     .editorial__content {
@@ -34,14 +39,27 @@
         flex-direction: column;
         justify-content: center;
         color: $darkBlue;
+        margin-right: 64px
     }
 
     .editorial__media {
         flex: 1 1 75%;
-        background-color: $grey;
         display: flex;
         justify-content: center;
         align-items: center;
+
+        > * {
+            opacity: 0;
+
+            &:not(.observed) {
+                opacity: 1;
+            }
+        }
+        @for $i from 1 through 4 {
+            > *.observed:nth-child(#{$i}n) {
+              @include animation('fade-in-transition', $delay: #{$i * $list-coefficient}s);
+            }
+        }
 
         .editorial__image {
             height: 100%;
