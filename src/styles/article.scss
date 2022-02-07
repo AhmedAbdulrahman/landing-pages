@@ -1,10 +1,17 @@
 .articls-all {
 
-    padding: 0 48px;
+    padding: 65px 48px;
+
+    @include breakpoint-max($bp-large) {
+        padding: 24px 50px;
+    }
 
     @include breakpoint-max($bp-medium) {
+        padding: 24px 16px;
+    }
+
+    @include breakpoint-max($bp-large) {
         flex-direction: column;
-        padding: 0;
     }
 
 }
@@ -33,11 +40,11 @@
     }
 
     & + & {
-        @include breakpoint-min($bp-medium) {
+        @include breakpoint-min($bp-large) {
             margin-left: 20px;
         }
 
-        @include breakpoint-max($bp-medium) {
+        @include breakpoint-max($bp-large) {
             margin-top: 32px;
         }
     }
