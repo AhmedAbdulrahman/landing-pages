@@ -3,7 +3,13 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const  CopyWebpackPlugin  = require("copy-webpack-plugin");
 
-
+const htmlPageNames = ['brand-campaign'];
+const multipleHtmlPlugins = htmlPageNames.map(name => {
+  return new HtmlWebpackPlugin({
+    template: `./src/${name}.html`, // relative path to the HTML files
+    filename: `${name}.html`, // output HTML files
+  })
+});
 
 module.exports = function (env, argv) {
   let distPath = argv.mode === 'development' ? '/' : ''
@@ -49,7 +55,7 @@ module.exports = function (env, argv) {
         minify: false
       }),
       new CleanWebpackPlugin(),
-    ],
+    ].concat(multipleHtmlPlugins),
   }
 
 };
