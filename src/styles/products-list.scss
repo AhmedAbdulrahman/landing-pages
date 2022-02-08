@@ -140,6 +140,8 @@
             align-items: center;
             overflow: hidden;
             height: 190px;
+            background-color: #e6eef4;
+            transition: background-color 0.4s ease-out;
 
             @include breakpoint-min($bp-medium) {
                 height: 280px;
@@ -362,6 +364,12 @@
                     line-height: 24px;
                     color: $darkBlue
                 }
+            }
+        }
+
+        &:hover {
+            .img-background {
+                background-color: white;
             }
         }
 
