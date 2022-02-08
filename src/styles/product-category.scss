@@ -71,6 +71,7 @@
             cursor: pointer;
             .product-category--loader::before {
                 transform: scale(0.7);
+                background: $telenorLightBlue;
             }
             .product-category--image {
                 transform: scale(1.4);
