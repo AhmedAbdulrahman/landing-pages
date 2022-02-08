@@ -38,7 +38,7 @@
             .editorial__content {
                 margin-right: 0;
 
-                @include breakpoint-min($bp-medium) {
+                @include breakpoint-min($bp-large) {
                     margin-left: 64px;
                 }
             }
@@ -56,9 +56,7 @@
         justify-content: center;
         color: $darkBlue;
 
-        @include breakpoint-min($bp-medium) {
-            margin-right: 64px;
-        }
+
     }
 
     .editorial__media {
