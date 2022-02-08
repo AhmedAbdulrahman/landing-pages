@@ -1,6 +1,6 @@
 .banner--root {
     background-color: #F6F4EE;
-
+    overflow: hidden;
     margin-top: 48px;
     margin-bottom: 48px;
 
@@ -46,17 +46,24 @@
 
     .banner--main {
         display: flex;
+        position: relative;
+
         @media (max-width: 750px) {
           align-items: center;
         }
     }
 
     .banner--loader {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
       @media (max-width: 750px) {
         align-self: stretch;
         img {
           max-width: 100px;
-          height: 130px;
           object-fit: cover;
         }
       }
@@ -71,9 +78,9 @@
         padding-top: 17px;
         padding-bottom: 17px;
         text-align: center;
+        flex: 1;
 
         @media (min-width: 750px) {
-          flex: 0 0 70%;
           padding-top: 32px;
           padding-bottom: 32px;
         }
