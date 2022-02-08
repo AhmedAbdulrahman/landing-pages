@@ -1,15 +1,18 @@
 .imagelist-root {
     padding-top: 85px;
 
+    .imagelist__main__viewport {
+        width: 100%;
+    }
+
     .imagelist__items-container {
-        display: grid;
-        grid-auto-flow: column;
-        grid-auto-columns: 90%; /* Each slide covers 80% of the viewport */
-        gap: 14px;
+        display: flex;
         user-select: none;
         -webkit-touch-callout: none;
         -khtml-user-select: none;
         -webkit-tap-highlight-color: transparent;
+        margin-left: 0px;
+        transform: translateX(20vw);
 
         @for $i from 1 through 4 {
             .imagelist-item.observed:nth-child(#{$i}n) {
@@ -17,13 +20,6 @@
             }
         }
 
-        @include breakpoint-min($bp-large) {
-            grid-auto-columns: 32.5%; /* Each slide covers 80% of the viewport */
-        }
-
-        @include breakpoint-max($bp-small) {
-            width: 100%;
-        }
     }
 
     .imagelist-heading {
@@ -39,17 +35,26 @@
         flex-direction: column;
         text-align: left;
         overflow: hidden;
-
+        flex-shrink: 0;
+        width: calc(100% / 1);
         opacity: 0;
 
          &:not(.observed) {
             opacity: 1;
          }
 
+        &:not(:last-of-type) {
+            margin-right: 12px;
+        }
+
+        @include breakpoint-min($bp-medium) {
+            width: calc(100% / 3);
+        }
+
         &:hover {
             .imagelist-image {
                 cursor: pointer;
-                transform: translate(-50%, -50%) scale(1.2);
+                transform: scale(1.2);
             }
             .imagelist-item-content {
                 background-color: #B4FFFF;
@@ -63,19 +68,33 @@
 
         .imagelist-loader__inner {
             position: relative;
-            overflow: hidden;
             height: 200px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: $grey;
+            width: 100%;
+            position: relative;
+            background: url(/images/media-placeholder.png) no-repeat center center fixed;
+            background-size: cover;
+
+            &:before {
+                padding-top: calc((1 / (4/3)) * 100%);
+
+
+                @supports (aspect-ratio: 1) {
+                    aspect-ratio: 4/3;
+                    padding-top: initial;
+                }
+            }
         }
+
         .imagelist-image {
-            position: absolute;
             display: block;
-            top: 50%;
-            left: 50%;
-            width: auto;
-            min-height: 100%;
-            min-width: 100%;
-            max-width: none;
-            transform: translate(-50%, -50%);
+            // min-height: 100%;
+            object-fit: cover;
             transition: transform 0.3s cubic-bezier(0.1, 0.2, 0.3, 0.4),
         }
         .imagelist-item-content {
