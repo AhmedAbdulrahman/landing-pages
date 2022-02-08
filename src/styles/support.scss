@@ -33,17 +33,54 @@
         }
     }
 
-    .button {
-        display: inline-flex;
-        background: #B4FFFF;
+    .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $telenorLightBlue;
+        color: $midBlue;
         border-radius: 48px;
-        border-color: #B4FFFF;
+        margin-top: 16px;
         min-width: 40px;
-        height: 40px;
-        padding: 8px 8px 8px 10px;
+        padding: 14px 5px;
+        border: none;
+        overflow: hidden;
+        transition: background 0.3s ease-out;
 
-        svg path {
-            fill: #2028CD;
-          }
+        &:hover {
+            cursor: pointer;
+            background: transparent;
+
+            svg.dark-arrow {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+
+            svg.light-arrow {
+                opacity: 1;
+                transform: translateX(0px);
+            }
+        }
+
+        svg {
+            transition: transform 0.3s ease-out;
+        }
+        svg.dark-arrow {
+            opacity: 1;
+            transform: translateX(8px);
+
+            path {
+                fill: $midBlue;
+            }
+        }
+
+        svg.light-arrow {
+            opacity: 0;
+            transform: translateX(-50px);
+
+            path {
+                fill: $telenorLightBlue;
+            }
+        }
       }
 }
