@@ -34,9 +34,8 @@
         -webkit-touch-callout: none;
         -khtml-user-select: none;
         -webkit-tap-highlight-color: transparent;
-        margin-right: 34%;
         margin-left: auto;
-        transform: translateX(20vw);
+        margin-right: 10%;
 
         @for $i from 1 through 4 {
             .product-category--item.observed:nth-child(#{$i}n) {
@@ -46,6 +45,8 @@
 
         @include breakpoint-min($bp-medium) {
              justify-content: center;
+             transform: translateX(20vw);
+             margin-right: 34%;
         }
 
     }
@@ -63,7 +64,7 @@
          }
 
         @include breakpoint-max($bp-medium) {
-            width: calc(100% / 2.5);
+            width: calc(100% / 3);
        }
 
 
