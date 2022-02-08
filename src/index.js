@@ -20,14 +20,19 @@ import EmblaCarousel from 'embla-carousel'
     const imagesList        = ".imagelist-root  .imagelist__main .imagelist__items-container > .imagelist-item:nth-child(-n+3)";
     const benefitList       = ".benefit-list__root  .benefit-list__slider .benefit-list__slider.embla__viewport .benefit-list__main > .benefit-list__item";
     const supportContent    = ".support__root .container .support__content > *";
-    const sideBySideContent    = ".side-by-side__main .side-by-side__content > *";
+    const sideBySideContent = ".side-by-side__main .side-by-side__content > * , .side-by-side__main .side-by-side__media > *";
     const editorialImage    = ".editorial__main .editorial__media > *";
 
     const querySelector = `${productList}, ${imagesList}, ${benefitList}, ${supportContent}, ${productCategory}, ${sideBySideContent}, ${editorialImage}`;
     const CLASS_NAME = 'observed';
 
-    const liveChatImage = document.querySelector('.live-chat__image');
-    const sideBySideImage = document.querySelector('.side-by-side__image');
+    // Images Selector
+    const liveChatImage     = '.live-chat__image';
+    const sideBySideImage   = '.side-by-side__image';
+    const brandHeroImage    = '.brand-hero__image';
+
+    const observerIntersectionSelectors = `${liveChatImage}, ${sideBySideImage}, ${brandHeroImage}`
+    const mediaQuery = window.matchMedia('(min-width: 768px)')
 
     // Sliders
     const emblaCarousels = [
@@ -78,12 +83,15 @@ import EmblaCarousel from 'embla-carousel'
         if (wrap !== null) {
             const viewPort = wrap.querySelector(emblaCarousel.viewport);
             const embla = EmblaCarousel(viewPort, emblaCarousel.options);
-
+            console.log('emblaCarousel.prevBtn', emblaCarousel.prevBtn)
             if ( emblaCarousel.prevBtn !== undefined && emblaCarousel.nextBtn !== undefined ) {
-                const prevBtn = wrap.querySelector( emblaCarousel.prevBtn);
-                const nextBtn = wrap.querySelector( emblaCarousel.nextBtn);
+                const prevBtn = wrap.querySelector(emblaCarousel.prevBtn);
+                const nextBtn = wrap.querySelector(emblaCarousel.nextBtn);
 
-                setupPrevNextBtns(prevBtn, nextBtn, embla);
+                if (prevBtn !== null || nextBtn !== null) {
+                    setupPrevNextBtns(prevBtn, nextBtn, embla);
+                }
+
             }
         }
     });
@@ -106,21 +114,72 @@ import EmblaCarousel from 'embla-carousel'
 
     // Private Handlers
     function liveChatScrollHandler () {
-        const liveChatSection = document.querySelector('.live-chat__root')
+        const liveChatSection   = document.querySelector('.live-chat__root')
+        const liveChatImage     = document.querySelector('.live-chat__image')
 
-        requestAnimationFrame(() => {
-            const percentage = calculateVerticalPercentage(liveChatSection.getBoundingClientRect(), 0, window)
-            liveChatImage.style.transform = `scale(${1 + percentage * 0.1})`;
-        })
+        if (liveChatSection !== null) {
+            requestAnimationFrame(() => {
+                const percentage = calculateVerticalPercentage(liveChatSection.getBoundingClientRect(), 0, window)
+                liveChatImage.style.transform = `scale(${1 + percentage * 0.1})`;
+            })
+        }
+    }
+
+    function brandHeroScrollHandler () {
+        const brandHeroSection  = document.querySelector('.brand-hero__root')
+        const brandHeroImage    = document.querySelector('.brand-hero__image');
+
+        if (brandHeroSection !== null) {
+            requestAnimationFrame(() => {
+                const percentage = calculateVerticalPercentage(brandHeroSection.getBoundingClientRect(), 0, window)
+                brandHeroImage.style.transform = `scale(${1 + percentage * 0.5})`;
+            })
+        }
     }
 
     function sideBySideScrollHandler () {
         const sideBySideSection = document.querySelector('.side-by-side__root')
+        const sideBySideImage   = document.querySelector('.side-by-side__image.observed');
 
-        requestAnimationFrame(() => {
-            const percentage = calculateVerticalPercentage(sideBySideSection.getBoundingClientRect(), 0, window)
-            sideBySideImage.style.transform = `scale(${1 + percentage * 0.3})`;
-        })
+        if (sideBySideSection !== null && sideBySideImage !== null) {
+            requestAnimationFrame(() => {
+                const percentage = calculateVerticalPercentage(sideBySideSection.getBoundingClientRect(), 0, window)
+
+                sideBySideImage.style.opacity = 1;
+
+                if (sideBySideImage.classList.contains('animate-transform-right')) {
+                    if (mediaQuery.matches) {
+                        sideBySideImage.style.transform = `translateX(${1 + percentage * 200}px)`;
+                    } else {
+                        sideBySideImage.style.transform = `translateY(${1 + percentage * -80}px)`;
+                    }
+                }
+                else {
+                    sideBySideImage.style.transform = `scale(${1 + percentage * 0.3})`;
+                }
+            })
+        }
+    }
+
+    function handleOnShowMoreClick () {
+        const linkText = this.children[0].innerHTML.toUpperCase();
+
+        if (linkText === "SHOW MORE") {
+            this.children[0].innerHTML = "Show less";
+            this.previousElementSibling.classList.add("remove-fade");
+            this.children[0].classList.remove("show-more-label");
+            this.children[0].classList.add("show-less-label");
+
+            this.parentNode.parentNode.children[0].classList.add("showContent");
+        }
+        else {
+            this.children[0].innerHTML = "Show more";
+            this.previousElementSibling.classList.remove("remove-fade");
+            this.children[0].classList.remove("show-less-label");
+            this.children[0].classList.add("show-more-label");
+
+            this.parentNode.parentNode.children[0].classList.remove("showContent");
+        }
     }
 
     const defaultObserver = new IntersectionObserver(
@@ -137,14 +196,16 @@ import EmblaCarousel from 'embla-carousel'
         }
     );
 
-    const liveChatObserver = new IntersectionObserver(
+    const imagesObserver = new IntersectionObserver(
         (entries) => {
             const anyInteriesIntersection = entries.some(entry => entry.isIntersecting)
 
             if (anyInteriesIntersection) {
                 document.addEventListener('scroll', liveChatScrollHandler, true);
+                document.addEventListener('scroll', brandHeroScrollHandler, true);
             } else {
                 document.removeEventListener('scroll', liveChatScrollHandler, true)
+                document.removeEventListener('scroll', brandHeroScrollHandler, true);
             }
         },
     );
@@ -167,13 +228,17 @@ import EmblaCarousel from 'embla-carousel'
     });
 
      // Add intersection observer for live chat
-     document.querySelectorAll(".live-chat__root").forEach((i) => {
-        liveChatObserver.observe(i);
+     document.querySelectorAll(observerIntersectionSelectors).forEach((i) => {
+        imagesObserver.observe(i);
     })
 
-     // Add intersection observer for live chat
      document.querySelectorAll(".side-by-side__root").forEach((i) => {
         sideBySideObserver.observe(i);
+    })
+
+    // Show More
+    document.querySelectorAll('.show-more-btn').forEach((i)  => {
+        i.addEventListener('click', handleOnShowMoreClick, false);
     })
 
 })();
