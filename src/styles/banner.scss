@@ -60,6 +60,10 @@
       right: 0;
       bottom: 0;
 
+      @include breakpoint-min($bp-medium) {
+        left: 10%;
+      }
+
       @media (max-width: 750px) {
         align-self: stretch;
         img {
@@ -79,13 +83,28 @@
         padding-bottom: 17px;
         text-align: center;
         flex: 1;
+        color: $darkBlue;
 
-        @media (min-width: 750px) {
+
+        @include breakpoint-min($bp-small) {
           padding-top: 32px;
           padding-bottom: 32px;
+
+          .banner--content-inner {
+            margin-bottom: 24px;
+          }
+
         }
 
-        @media (max-width: 750px) {
+        @include breakpoint-max($bp-small) {
+          flex-direction: row;
+
+          .banner--content-inner {
+            flex: 1;
+            margin-left: auto;
+            max-width: 210px;
+          }
+
           .heading {
             font-size: 16px;
             line-height: 22px;
@@ -96,47 +115,42 @@
             line-height: 22px;
           }
         }
+
     }
 
-    .button {
+    .btn {
         display: inline-flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        font-family: Telenor Evolution;
-        background: #2028CD;
+        background: $midBlue;
+        color: white;
+        border: none;
         border-radius: 48px;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 24px;
-        padding: 10px 20px 8px;
-        color: #fff;
-        margin-top: 16px;
-        border-color: #2028CD;
+        padding: 8px 28px;
 
-        @media (max-width: 750px) {
-          display: none;
+        &:hover {
+          cursor: pointer;
         }
 
-        @media (min-width: 750px) {
-          padding: 10px 42px 8px;
-        }
+        .btn__icon {
+          padding-left: 5px;
+          padding-top: 5px;
+      }
 
-        &.button__small {
-          line-height: 24px;
-          font-size: 14px;
+        @include breakpoint-max($bp-small) {
+          background: transparent;
+          min-width: 0;
+          padding: 10px;
 
-          span {
-            line-height: 24px;
-            font-size: 14px;
+          .btn__label {
+            display: none;
+          }
+
+          .btn__icon svg path {
+            fill: $midBlue
           }
         }
 
-      }
-
-      .button__icon {
-        padding-left: 5px;
-        padding-top: 5px;
       }
 }

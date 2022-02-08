@@ -18,6 +18,25 @@
       height: calc(100vh - 30px);
     }
 
+    .hero__container {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 16px;
+      padding-right: 16px;
+      position: relative;
+      height: 100%;
+
+      @include breakpoint-min($bp-medium) {
+          padding-left: 50px;
+          padding-right: 50px;
+      }
+    }
+
+    .hero-content__container {
+      height: 100%;
+    }
+
     .hero-image-container {
         top: 0;
         left: 0;
@@ -28,12 +47,14 @@
         clip-path: inset(0 0 0 0);
         -webkit-clip-path: inset(0 0 0 0);
     }
+
     .hero-image-loader {
         height: 100%;
         width: 100%;
         display: block;
         position: relative;
     }
+
     .hero-image {
         object-fit: cover;
         width: 100%;
@@ -42,7 +63,10 @@
     }
     .hero-content {
       padding: 20px;
+      height: 100%;
+      justify-content: center;
     }
+
     .hero-heading {
         font-size: 56px;
         line-height: 64px;
