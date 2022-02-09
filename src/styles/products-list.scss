@@ -84,19 +84,9 @@
         -khtml-user-select: none;
         -webkit-tap-highlight-color: transparent;
         margin-left: 0px;
-        transform: translateX(20vw);
-
-        @for $i from 1 through 4 {
-            .product-list__item.observed:nth-child(#{$i}n) {
-                @include animation('fade-in-toleft-transition', $duration: 2s, $delay: #{$i * $list-coefficient}s);
-                &.fade-in-transition {
-                    @include animation('fade-in-transition', $duration: 2s, $delay: #{$i * $list-coefficient}s);
-                }
-            }
-        }
 
         &.three-columns {
-            overflow: hidden;
+            // overflow: hidden;
             height: 100%;
             max-height: 800px;
             // transition: all 0.3s linear;
@@ -121,18 +111,6 @@
         flex-shrink: 0;
         width: calc(100% / 2.8);
         margin-left: 10px;
-        opacity: 0;
-
-        @include breakpoint-max($bp-small) {
-            &:nth-child(n+4) {
-              transform: translateX(0) !important;
-              opacity: 1 !important;
-            }
-        }
-
-         &:not(.observed) {
-            opacity: 1
-         }
 
         .img-background {
             display: flex;
@@ -185,6 +163,14 @@
                 transform: scale(1.2);
               }
 
+              @media (hover: none) {
+                &:before {
+                    background-color: #e6eef4;
+                }
+                .visual-block__image {
+                    transform: scale(1);
+                  }
+                }
             }
 
             &:before,
@@ -206,6 +192,7 @@
             padding: 0;
             vertical-align: bottom;
         }
+
         .product-list__item-badge-holder {
             bottom: 8px;
             left: 0;
@@ -395,10 +382,12 @@
         max-height: 200px;
 
         .product-list__show-more {
-            background: linear-gradient(to bottom, rgba(#C4C4C4,0) 0%,rgba(#FFFFFF,1) 75%);
-            height: 100px;
-            margin-top: -100px;
-            position: relative;
+            position: absolute;
+            left: 0;
+            background: linear-gradient(to bottom, rgba(196, 196, 196, 0) 0%, white 75%);
+            height: 100%;
+            width: 100%;
+            z-index: 0;
 
             &.remove-fade {
                 transition: background 850ms cubic-bezier(0.1, 0.2, 0.3, 0.4);
@@ -411,6 +400,8 @@
             flex-direction: row-reverse;
             justify-content: center;
             align-items: center;
+            z-index: 1;
+            position: relative;
 
             .button__label {
                 margin-left: 10px;

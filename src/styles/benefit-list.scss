@@ -7,12 +7,25 @@
     padding-bottom: 85px;
   }
 
+  .benefit-list__viewport {
+    width: 100%;
+
+    @include breakpoint-max($bp-small) {
+      overflow: hidden;
+    }
+}
+
   .benefit-list__container {
       width: 100%;
       margin-left: auto;
       margin-right: auto;
-      padding-left: 32px;
-      padding-right: 32px;
+      padding-left: 80px;
+      padding-right: 80px;
+
+      @include breakpoint-max($bp-small) {
+          padding-left: 16px;
+          padding-right: 16px;
+      }
 
       .benefit-list__heading {
           color: #000F3C;
@@ -27,18 +40,6 @@
         -webkit-tap-highlight-color: transparent;
         margin-left: 0px;
 
-        @for $i from 1 through 4 {
-          .benefit-list__item.observed:nth-child(#{$i}n) {
-            @include animation('fade-in-transition', $delay: #{$i * $list-coefficient}s);
-          }
-        }
-
-
-        @include breakpoint-min($bp-small) {
-          margin-left: 10px;
-          grid-auto-columns: 24%; /* Each slide covers 80% of the viewport */
-        }
-
       }
       .benefit-list__item {
         flex-shrink: 0;
@@ -46,22 +47,10 @@
         margin-left: 10px;
         text-align: center;
         padding: 10px 0;
-        opacity: 0;
 
         @include breakpoint-min($bp-medium) {
           width: calc(100% / 4);
         }
-
-        @include breakpoint-max($bp-small) {
-          &:nth-child(n+3) {
-            transform: translateX(0) !important;
-            opacity: 1 !important;
-          }
-        }
-
-         &:not(.observed) {
-            opacity: 1;
-         }
 
         svg {
           rect {

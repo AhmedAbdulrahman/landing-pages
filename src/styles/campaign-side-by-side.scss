@@ -137,21 +137,6 @@
             padding: 48px 100px;
         }
 
-        > * {
-            opacity: 0;
-
-            &:not(.observed) {
-                opacity: 1;
-            }
-        }
-
-
-        @for $i from 1 through 4 {
-            > *.observed:nth-child(#{$i}n) {
-              @include animation('fade-in-transition', $delay: #{$i * $list-coefficient}s);
-            }
-        }
-
         .side-by-side__heading {
             font-size: 28px;
             line-height: 36px;

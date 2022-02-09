@@ -21,11 +21,14 @@
     }
 
     .product-category__viewport {
-        overflow: hidden;
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
+
+        @include breakpoint-max($bp-small) {
+            overflow: hidden;
+        }
     }
 
     .product-category__main  {
@@ -37,16 +40,11 @@
         margin-left: auto;
         margin-right: 10%;
 
-        @for $i from 1 through 4 {
-            .product-category--item.observed:nth-child(#{$i}n) {
-                @include animation('fade-in-transition', $duration: 2s, $delay: #{$i * $list-coefficient}s);
-            }
-        }
 
         @include breakpoint-min($bp-medium) {
              justify-content: center;
              transform: translateX(20vw);
-             margin-right: 34%;
+             margin-right: 32%;
         }
 
     }
@@ -57,11 +55,11 @@
         flex-shrink: 0;
         padding-left: 1px;
         width: calc(100% / 3.5);
-        opacity: 0;
+        // opacity: 0;
 
-         &:not(.observed) {
-            opacity: 1;
-         }
+        //  &:not(.observed) {
+        //     opacity: 1;
+        //  }
 
         @include breakpoint-max($bp-medium) {
             width: calc(100% / 3);
@@ -76,6 +74,16 @@
             }
             .product-category--image {
                 transform: scale(1.4);
+            }
+            // Reset on touch devices, it doesn't add specificity
+            @media (hover: none) {
+                .product-category--loader::before {
+                    transform: scale(1);
+                    background: #000F3C;
+                }
+                .product-category--image {
+                    transform: scale(1);
+                }
             }
         }
 

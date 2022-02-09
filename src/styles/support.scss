@@ -1,6 +1,12 @@
 .support__root {
     background-color: #2028CD;
 
+    .support__container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .support__content {
         display: flex;
         flex-direction: column;
