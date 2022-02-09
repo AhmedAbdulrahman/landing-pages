@@ -95,6 +95,16 @@ import EmblaCarousel from 'embla-carousel'
     }
   })
 
+  // Helpers
+  function calculateVerticalPercentage(bounds, threshold = 0, root = window) {
+    if (!root) return 0
+    const vh = (root instanceof Element ? root.clientHeight : root.innerHeight) || 0
+    const offset = threshold * bounds.height
+    const percentage = (bounds.bottom - offset) / (vh + bounds.height - offset * 2)
+
+    return 1 - Math.max(0, Math.min(1, percentage))
+  }
+
   // Private Handlers
   function handleOnShowMoreClick() {
     const linkText = this.children[0].innerHTML.toUpperCase()
@@ -131,9 +141,39 @@ import EmblaCarousel from 'embla-carousel'
     },
   )
 
+  function brandHeroScrollHandler() {
+    const brandHeroSection = document.querySelector('.brand-hero__root')
+    const brandHeroImage = document.querySelector('.brand-hero__image')
+
+    if (brandHeroSection !== null) {
+      requestAnimationFrame(() => {
+        const percentage = calculateVerticalPercentage(
+          brandHeroSection.getBoundingClientRect(),
+          0,
+          window,
+        )
+        brandHeroImage.style.transform = `scale(${1 + percentage * 0.5})`
+      })
+    }
+  }
+
+  const imagesObserver = new IntersectionObserver((entries) => {
+    const anyInteriesIntersection = entries.some((entry) => entry.isIntersecting)
+
+    if (anyInteriesIntersection) {
+      document.addEventListener('scroll', brandHeroScrollHandler, true)
+    } else {
+      document.removeEventListener('scroll', brandHeroScrollHandler, true)
+    }
+  })
+
   // Add Default intersection observer
   document.querySelectorAll(querySelector).forEach((i) => {
     defaultObserver.observe(i)
+  })
+
+  document.querySelectorAll('.brand-hero__image').forEach((i) => {
+    imagesObserver.observe(i)
   })
 
   // Show More
