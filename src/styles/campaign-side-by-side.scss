@@ -1,6 +1,6 @@
 .side-by-side__root {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     position: relative;
 
     &.light {
@@ -71,11 +71,6 @@
         }
     }
 
-    @include breakpoint-min($bp-medium) {
-        padding-top: 65px;
-        padding-bottom: 65px;
-    }
-
     .side-by-side__container {
         width: 100%;
         margin-left: auto;
@@ -137,6 +132,13 @@
             padding: 48px 100px;
         }
 
+        .side-by-side__inner-content {
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            overflow: hidden;
+        }
+
         .side-by-side__heading {
             font-size: 28px;
             line-height: 36px;
@@ -178,8 +180,19 @@
         display: flex;
         align-items: center;
 
+        :not(:last-child) {
+            margin-right: 10px;
+        }
+
+        .side-by-sider-header-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+        }
+
         .side-by-side__icon {
-            margin-right: 8px;
+            margin-right: 4px;
 
             fill: $telenorLightBlue;
             path {
@@ -189,14 +202,13 @@
     }
 
     .side-by-side__media {
-        background-color: $grey;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100%;
         // width: 100%;
         position: relative;
-        background: url(/images/media-placeholder.png) no-repeat center center fixed;
+        background-repeat: no-repeat;
         background-size: cover;
 
         &:before {
@@ -211,7 +223,7 @@
 
         .side-by-side__image {
             display: block;
-            // min-height: 100%;
+            width: auto;
             object-fit: cover;
             transition: all 250ms cubic-bezier(0.1, 0.2, 0.3, 0.4);
 

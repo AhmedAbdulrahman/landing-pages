@@ -18,19 +18,6 @@
         overflow: hidden;
         width: 100%;
 
-        > * {
-            opacity: 0;
-
-            &:not(.observed) {
-                opacity: 1;
-            }
-        }
-        @for $i from 1 through 4 {
-            > *.observed:nth-child(#{$i}n) {
-              @include animation('fade-in-transition', $delay: #{$i * $list-coefficient}s);
-            }
-        }
-
         @media (min-width: 750px) {
             p {
                 max-width: 700px;

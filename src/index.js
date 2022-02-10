@@ -1,8 +1,9 @@
 import css from './styles.scss'
+import EmblaCarousel from 'embla-carousel'
 import { setupPrevNextBtns } from './scripts/prevAndNextButtons'
+import { setupDotBtns, generateDotBtns, selectDotBtn } from './scripts/dotButtons'
 import ScrollProgress from './scripts/scrollProgress'
 // const Splitting = require("splitting");
-import EmblaCarousel from 'embla-carousel'
 ;(function () {
   // Fall back for IE
   if (!'IntersectionObserver' in window) {
@@ -31,7 +32,11 @@ import EmblaCarousel from 'embla-carousel'
     '.side-by-side__main .side-by-side__content > * , .side-by-side__main .side-by-side__media > *'
   const editorialImage = '.editorial__main .editorial__media > *'
 
-  const querySelector = `${productList}, ${imagesList}, ${benefitList}, ${supportContent}, ${productCategory}, ${sideBySideContent}, ${editorialImage}`
+  const hardwareImage = '.hardware__main .hardware__media__item:nth-child(-n+1)'
+  const hardwareSelectors = '.hardware__main .hardware__list-selector'
+  const hardwareproductText = '.hardware__payment-details > * > *'
+
+  const querySelector = `${productList}, ${imagesList}, ${benefitList}, ${supportContent}, ${productCategory}, ${sideBySideContent}, ${editorialImage}, ${hardwareImage}, ${hardwareSelectors}, ${hardwareproductText}`
   const CLASS_NAME = 'observed'
 
   // Sliders
@@ -76,6 +81,15 @@ import EmblaCarousel from 'embla-carousel'
         containScroll: 'trimSnaps',
       },
     },
+    {
+      container: '.hardware__media-carousel',
+      viewport: '.hardware__media-viewport',
+      dots: '.hardware__media-carousel__dots',
+      options: {
+        slidesToScroll: 1,
+        skipSnaps: false,
+      },
+    },
   ]
 
   emblaCarousels.forEach((emblaCarousel) => {
@@ -90,6 +104,21 @@ import EmblaCarousel from 'embla-carousel'
 
         if (prevBtn !== null || nextBtn !== null) {
           setupPrevNextBtns(prevBtn, nextBtn, embla)
+        }
+      }
+
+      if (emblaCarousel.dots !== undefined) {
+        const dots = document.querySelector(emblaCarousel.dots)
+
+        if (dots !== null) {
+          const dotsArray = generateDotBtns(dots, embla)
+          console.log('dotsArray', dotsArray)
+          const setSelectedDotBtn = selectDotBtn(dotsArray, embla)
+
+          setupDotBtns(dotsArray, embla)
+
+          embla.on('select', setSelectedDotBtn)
+          embla.on('init', setSelectedDotBtn)
         }
       }
     }

@@ -1,12 +1,7 @@
 .editorial__root {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     position: relative;
-
-    @include breakpoint-min($bp-medium) {
-        padding-top: 65px;
-        padding-bottom: 65px;
-    }
 
     .editorial__container {
         width: 100%;
@@ -41,10 +36,18 @@
                 @include breakpoint-min($bp-large) {
                     margin-left: 64px;
                 }
+
+                .btn {
+                    margin-bottom: 32px;
+                }
             }
 
             @include breakpoint-max($bp-medium) {
                 flex-direction: column;
+
+                .editorial__media {
+                    margin-bottom: 0;
+                 }
             }
 
         }
@@ -54,8 +57,24 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: flex-start;
         color: $darkBlue;
 
+        .btn {
+            display: inline-flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background: $midBlue;
+            color: white;
+            border: none;
+            border-radius: 48px;
+            padding: 12px 28px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
 
     }
 
