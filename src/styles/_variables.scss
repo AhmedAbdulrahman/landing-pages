@@ -87,3 +87,32 @@ $bp-xlarge: 1440px;
       transform: translateX(0);
     }
 }
+
+@include keyframes(fade-in-tobottom-transition) {
+  0% {
+      opacity: 0;
+      transform: translateY(-10vw);
+    }
+    30%{
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+@include keyframes(slide-in-scale-transition) {
+  0% {
+      opacity: 0;
+      transform: translateX(-50vw) scale(0.5);
+    }
+  30%{
+    opacity: 0.5;
+    transform: translateX(0) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform:  scale(1);
+  }
+}

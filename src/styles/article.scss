@@ -35,8 +35,11 @@
             }
         }
 
-        .article__media-holder .article__media {
+        .article__media-holder:not(.has-foregroundImage) {
             transform: scale(1.2);
+        }
+        .article__media-holder .article__media {
+            transform: scale(.95);
         }
     }
 
@@ -68,10 +71,19 @@
         }
     }
 
+    .article__text {}
+
     .article__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex:1;
         background-color: $midBlue;
         color: $telenorLightBlue;
         padding: 24px;
+        position: relative;
+        z-index: 1;
+        min-height: 285px;
 
         .btn {
             display: flex;
@@ -80,11 +92,9 @@
             background: $telenorLightBlue;
             color: $midBlue;
             border-radius: 48px;
-            margin-top: 16px;
-            min-width: 40px;
             padding: 14px 5px;
             border: none;
-            overflow: hidden;
+            margin-top: auto;
 
             &:hover {
                 cursor: pointer;
@@ -123,10 +133,19 @@
 
         background-color: $grey;
         width: 100%;
+        height: 371px;
         position: relative;
-        background: url(/images/media-placeholder.png) no-repeat center center fixed;
+        background-repeat: no-repeat;
         background-size: cover;
+        background-position: center center;
+        transition: all 0.4s ease-out;
 
+        &:not(.has-foregroundImage) {
+
+            @include breakpoint-max($bp-medium) {
+                height: 400px;
+            }
+        }
 
         @supports (aspect-ratio: 1) {
             aspect-ratio: 3/2;
@@ -136,8 +155,10 @@
         .article__media {
             display: block;
             object-fit: cover;
-            transform: scale(1);
+            transform: scale(0.8);
             transition: all 0.4s ease-out;
+            position: relative;
+            z-index: 2;
 
         }
     }

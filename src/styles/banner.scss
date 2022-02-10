@@ -1,17 +1,13 @@
 .banner--root {
     background-color: #F6F4EE;
     overflow: hidden;
-    margin-top: 48px;
-    margin-bottom: 48px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    position: relative;
 
     @include breakpoint-min($bp-medium) {
       margin-top: 35px;
       margin-bottom: 35px;
-    }
-
-    @include breakpoint-max($bp-small) {
-      margin-left: 16px;
-      margin-right: 16px;
     }
 
     &.dark {
@@ -25,7 +21,7 @@
     &.light {
       background: $telenorWhite;
 
-      .banner--content {
+      .heading, p.text {
         color: $darkBlue;
       }
     }
@@ -79,8 +75,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-top: 17px;
-        padding-bottom: 17px;
+        padding: 24px 16px;
         text-align: center;
         flex: 1;
         color: $darkBlue;
@@ -97,60 +92,55 @@
         }
 
         @include breakpoint-max($bp-small) {
-          flex-direction: row;
 
           .banner--content-inner {
             flex: 1;
-            margin-left: auto;
-            max-width: 210px;
-          }
-
-          .heading {
-            font-size: 16px;
-            line-height: 22px;
-            font-weight: 800;
-          }
-          .text {
-            font-size: 14px;
-            line-height: 22px;
           }
         }
 
     }
 
     .btn {
+        border: none;
+        border-radius: 48px;
+        padding: 8px 28px;
         display: inline-flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         background: $midBlue;
-        color: white;
+        color: $midBlue;
         border: none;
         border-radius: 48px;
-        padding: 8px 28px;
+        padding: 8px 24px;
+        color: white;
 
         &:hover {
           cursor: pointer;
         }
 
-        .btn__icon {
-          padding-left: 5px;
-          padding-top: 5px;
-      }
-
-        @include breakpoint-max($bp-small) {
-          background: transparent;
-          min-width: 0;
-          padding: 10px;
-
-          .btn__label {
-            display: none;
+        &.btn--blue {
+          svg path {
+            fill: $telenorBlue
           }
+        }
 
-          .btn__icon svg path {
+        &.btn--light-blue {
+          background: $telenorLightBlue;
+          color: $midBlue;
+          svg path {
             fill: $midBlue
           }
         }
+
+        .btn__label {
+          font-size: 14px;
+          line-height: 24px;
+        }
+
+        .btn__icon {
+          display: flex;
+         }
 
       }
 }

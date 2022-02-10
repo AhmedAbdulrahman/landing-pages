@@ -116,7 +116,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        overflow: hidden;
+        background-repeat: no-repeat;
+        background-size: cover;
 
 
         background-color: $midBlue;
@@ -125,7 +126,7 @@
         padding: 32px 24px;
 
         @include breakpoint-min($bp-large) {
-            padding: 48px 32px;
+            padding: 100px;
         }
 
         @include breakpoint-min($bp-xlarge) {
@@ -210,6 +211,13 @@
         position: relative;
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: center center;
+
+        &:not(.has-foregroundImage) {
+            @include breakpoint-max($bp-medium) {
+                height: 400px;
+            }
+        }
 
         &:before {
             padding-top: calc((1 / (4/3)) * 100%);
