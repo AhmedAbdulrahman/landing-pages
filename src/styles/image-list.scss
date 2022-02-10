@@ -24,15 +24,16 @@
         font-weight: 400;
         margin-bottom: 50px;
         text-align: center;
+        color: $darkBlue;
     }
 
     .imagelist-item {
         display: flex;
         flex-direction: column;
         text-align: left;
-        overflow: hidden;
         flex-shrink: 0;
         width: calc(100% / 1.1);
+        cursor: pointer;
 
         &:not(:last-of-type) {
             margin-right: 12px;
@@ -43,10 +44,14 @@
         }
 
         &:hover {
-            .imagelist-image {
-                cursor: pointer;
+            .imagelist-loader__inner:not(.has-foregroundImage) {
                 transform: scale(1.2);
             }
+
+            .imagelist-loader__inner .imagelist-image {
+                transform: scale(1.2);
+            }
+
             .imagelist-item-content {
                 background-color: #B4FFFF;
                 color: #2028CD;
@@ -70,6 +75,11 @@
                     }
                 }
             }
+
+            .chevron-arrow {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .imagelist-loader__inner {
@@ -83,8 +93,13 @@
             background-color: $grey;
             width: 100%;
             position: relative;
-            background: url(/images/media-placeholder.png) no-repeat center center fixed;
             background-size: cover;
+            background-position: center center;
+            transition: all 0.4s ease-out;
+
+            &.has-foregroundImage {
+                z-index: 3;
+            }
 
             &:before {
                 padding-top: calc((1 / (4/3)) * 100%);
@@ -107,7 +122,6 @@
             min-height: 104px;
             padding: 16px;
             display: flex;
-            align-items: center;
             background-color: #2028CD;
             color: #B4FFFF;
             transition: background-color 0.2s ease-in-out,
@@ -130,8 +144,11 @@
             flex: 1;
             margin-right: 20px;
         }
-        .chevron-icon {
+        .chevron-arrow {
             align-self: center;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.4s ease-out;
         }
     }
 }

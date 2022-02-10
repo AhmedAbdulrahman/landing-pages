@@ -1,8 +1,8 @@
 .banner--root {
     background-color: #F6F4EE;
     overflow: hidden;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    // padding-top: 30px;
+    // padding-bottom: 30px;
     position: relative;
 
     @include breakpoint-min($bp-medium) {
@@ -55,10 +55,6 @@
       left: 0;
       right: 0;
       bottom: 0;
-
-      @include breakpoint-min($bp-medium) {
-        left: 10%;
-      }
 
       @media (max-width: 750px) {
         align-self: stretch;

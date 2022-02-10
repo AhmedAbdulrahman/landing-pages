@@ -6,18 +6,6 @@
 
     height: calc(100vh - 150px);
 
-    &::before {
-      content: '';
-      position: absolute;
-      background-color: rgba(0,0,0, 0.3);
-      width: 100%;
-      height: 100%;
-    }
-
-    @include breakpoint-min($bp-medium) {
-      height: calc(100vh - 30px);
-    }
-
     .hero__container {
       width: 100%;
       margin-left: auto;
@@ -86,22 +74,36 @@
         text-align: left;
     }
 
-    .button,
-    button:hover {
-        background: #B4FFFF;
-        border-radius: 48px;
-        font-family: Telenor Evolution;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 24px;
-        padding: 10px 42px 8px;
-        color: #2028CD;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 16px;
-    }
+    .btn {
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      background: $telenorLightBlue;
+      color: $midBlue;
+      border: none;
+      border-radius: 48px;
+      padding: 12px 20px;
+
+      &:hover {
+          cursor: pointer;
+      }
+
+      &.btn--blue {
+        svg path {
+          fill: $telenorBlue
+        }
+      }
+
+      &.btn--light-blue {
+        background: $telenorLightBlue;
+        color: $midBlue;
+        svg path {
+          fill: $midBlue
+        }
+      }
+
+  }
 
     .down-arrow {
         position: absolute;

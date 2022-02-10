@@ -48,7 +48,7 @@
         }
 
         @include breakpoint-min($bp-large) {
-            margin-right: 30%
+            margin-right: 28%
         }
 
     }
@@ -58,12 +58,7 @@
         text-align: center;
         flex-shrink: 0;
         padding-left: 1px;
-        width: calc(100% / 3.5);
-        // opacity: 0;
-
-        //  &:not(.observed) {
-        //     opacity: 1;
-        //  }
+        width: calc(100% / 2.6);
 
         @include breakpoint-max($bp-medium) {
             width: calc(100% / 3);
