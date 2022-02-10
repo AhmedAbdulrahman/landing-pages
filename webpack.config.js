@@ -1,25 +1,25 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const  CopyWebpackPlugin  = require("copy-webpack-plugin");
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const htmlPageNames = ['brand-campaign'];
-const multipleHtmlPlugins = htmlPageNames.map(name => {
+const htmlPageNames = ['brand-campaign', 'hardware']
+const multipleHtmlPlugins = htmlPageNames.map((name) => {
   return new HtmlWebpackPlugin({
     template: `./src/${name}.html`, // relative path to the HTML files
     filename: `${name}.html`, // output HTML files
   })
-});
+})
 
 module.exports = function (env, argv) {
   let distPath = argv.mode === 'development' ? '/' : ''
   return {
-    entry: "./src/index.js",
-    mode: "development",
+    entry: './src/index.js',
+    mode: 'development',
     devServer: { open: true },
     output: {
-      path: path.resolve(__dirname, "dist"),
-      filename: "bundle.js",
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'bundle.js',
       publicPath: distPath,
     },
     module: {
@@ -28,34 +28,33 @@ module.exports = function (env, argv) {
           test: /\.s[ac]ss$/i,
           use: [
             // Creates `style` nodes from JS strings
-            "style-loader",
+            'style-loader',
             // Translates CSS into CommonJS
-            "css-loader",
+            'css-loader',
             // Compiles Sass to CSS
-            "sass-loader",
+            'sass-loader',
           ],
         },
         {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
-          type: "asset/resource",
+          type: 'asset/resource',
         },
       ],
     },
     plugins: [
       new CopyWebpackPlugin({
         patterns: [
-          { from: "./images", to: "./images" },
-          { from: "./videos", to: "./videos" },
-          { from: "./base-style.css", to: "./base-style.css" },
+          { from: './images', to: './images' },
+          { from: './videos', to: './videos' },
+          { from: './base-style.css', to: './base-style.css' },
         ],
       }),
       new HtmlWebpackPlugin({
-        template: "./src/index.html",
-        filename: "index.html",
-        minify: false
+        template: './src/index.html',
+        filename: 'index.html',
+        minify: false,
       }),
       new CleanWebpackPlugin(),
     ].concat(multipleHtmlPlugins),
   }
-
-};
+}
