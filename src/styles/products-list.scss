@@ -94,15 +94,17 @@
 
             @include breakpoint-min($bp-medium) {
                 width: calc(100% / 3) !important;
-                margin: 10px;
             }
          }
     }
 
     .product-list__item {
         flex-shrink: 0;
-        width: calc(100% / 2.8);
-        margin-left: 10px;
+        width: calc(100% / 2.2);
+
+        &:not(:last-of-type) {
+            padding-right: 20px;
+        }
 
         .img-background {
             display: flex;

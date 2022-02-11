@@ -1044,8 +1044,7 @@ a:hover {
 .telenor-font {
   font-family: "Telenor Evolution", Arial, Helvetica, sans-serif;
 }
-.source-font,
-.subscription__content .currency-label {
+.source-font {
   font-family: "Telenor Evolution", Arial, Helvetica, sans-serif;
 }
 .text-regular {
@@ -2042,7 +2041,7 @@ a:hover {
 .dir-xs--row {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  flex-direction: row;
+  flex-direction: row !important;
 }
 .dir--row-reverse,
 .dir-xs--row-reverse {
@@ -5790,67 +5789,7 @@ input:checked + .check-btl > span:before {
   content: "󱂂";
   font-size: 32px !important;
 }
-.subscription-border {
-  border: 2px solid transparent;
-  border-radius: 3px;
-}
-.subscription-border--with-splashes {
-  border-radius: 0 3px 3px 3px;
-}
-.subscription-border__active {
-  border-color: #007ad0;
-}
-.subscription-border .selling-points:after {
-  content: ",";
-}
-.subscription-border .selling-points:last-of-type:after {
-  content: "";
-}
-.subscription__content {
-  border-radius: 0 3px 3px 3px;
-  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-}
-.subscription__content--hover:hover {
-  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.28);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.28);
-}
-.subscription__content--spacing {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-.subscription__content .currency-label {
-  font-size: 16px;
-  line-height: 24px;
-}
-.subscription__badge {
-  border-radius: 0 3px 0 0;
-  padding: 4px 8px;
-}
-.subscription__badge--torned-out {
-  left: 12px;
-  position: absolute;
-  top: 0;
-}
-.subscription__margin-bottom {
-  margin-bottom: 24px;
-}
-.subscription-radius {
-  border-radius: 0 3px 0 0;
-}
-.subscription__label {
-  background-color: #19aaf8;
-  border-radius: 24px 0;
-  color: #fff;
-  display: inline-block;
-  font-size: 14px;
-  line-height: 20px;
-  padding: 8px 16px;
-  white-space: nowrap;
-}
-.subscription__old-price {
-  display: none;
-}
+
 .agent-lock:before {
   content: "󱁂";
   font-size: 32px !important;
@@ -6643,29 +6582,7 @@ input:checked ~ label .map-grid__store-info {
   top: 8px;
   width: 8px;
 }
-.subscription-search .form__search:before {
-  top: 40px;
-}
-.subcriptions-overview__item {
-  margin-bottom: 2px;
-}
-.subcriptions-overview__item:last-child {
-  margin-bottom: 0;
-}
-.subcriptions-overview__item:hover .subcriptions-overview__details {
-  text-decoration: underline;
-}
-.subcriptions-overview__details {
-  padding-right: 24px;
-  position: relative;
-}
-.subcriptions-overview__details:before {
-  bottom: 0;
-  line-height: 22px;
-  position: absolute;
-  right: 0;
-  text-decoration: none;
-}
+
 .payment-method {
   border-top: 1px solid #d6d6d6;
   padding: 24px 24px 0;
@@ -8444,18 +8361,7 @@ input:checked ~ label .map-grid__store-info {
     padding: 0 12px;
   }
 }
-@media (min-width: 375px) {
-  .subscription__content--spacing {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-  .subscription__badge {
-    padding: 4px 16px;
-  }
-  .subscription__old-price {
-    display: inline-block;
-  }
-}
+
 @media (min-width: 480px) {
   .datepicker--range [class*="col-"] {
     -webkit-box-flex: 1;
@@ -9647,15 +9553,6 @@ input:checked ~ label .map-grid__store-info {
     margin-right: auto;
     max-width: 1080px;
     min-width: auto;
-  }
-  .subscription {
-    width: 20%;
-  }
-  .subscription-border .selling-points:after {
-    content: "";
-  }
-  .subscription__margin-bottom {
-    margin-bottom: -48px;
   }
   .map-grid__list {
     padding: 0;

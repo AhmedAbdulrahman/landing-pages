@@ -61,6 +61,7 @@
         img {
           max-width: 100px;
           object-fit: cover;
+          height: 100%;
         }
       }
 
@@ -111,6 +112,9 @@
         padding: 8px 24px;
         color: white;
 
+        &.btn--no-label {
+          padding: 8px;
+        }
         &:hover {
           cursor: pointer;
         }
@@ -127,6 +131,10 @@
           svg path {
             fill: $midBlue
           }
+        }
+
+        &.btn--default {
+          background: transparent;
         }
 
         .btn__label {
