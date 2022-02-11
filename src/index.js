@@ -179,16 +179,17 @@ import ScrollProgress from './scripts/scrollProgress'
         const percentage = calculateVerticalPercentage(
           brandHeroSection.getBoundingClientRect(),
           0,
-          window,
+          brandHeroSection,
         )
-        brandHeroImage.style.transform = `scale(${1 + percentage * 0.5})`
+
+        brandHeroImage.style.transform = `scale(${1 + percentage * 0.3})`
       })
     }
   }
 
   const imagesObserver = new IntersectionObserver((entries) => {
     const anyInteriesIntersection = entries.some((entry) => entry.isIntersecting)
-
+    console.log('anyInteriesIntersection', anyInteriesIntersection)
     if (anyInteriesIntersection) {
       document.addEventListener('scroll', brandHeroScrollHandler, true)
     } else {

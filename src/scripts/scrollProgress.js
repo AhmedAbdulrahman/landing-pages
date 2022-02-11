@@ -3,6 +3,7 @@ export default class ScrollProgress {
     this.defaults = {
       offset: 0.2,
       distance: 0.3,
+      translateTo: 0,
       translateX: 0,
       translateY: 0,
       translateZ: 0,
@@ -70,6 +71,8 @@ export default class ScrollProgress {
           : this.options.offset
       this.elementsInfo[i].translateX =
         Number(this.elements[i].getAttribute('data-translate-x')) || this.options.translateX
+      this.elementsInfo[i].translateTo =
+        Number(this.elements[i].getAttribute('data-translate-x-to')) || this.options.translateTo
       this.elementsInfo[i].translateY =
         Number(this.elements[i].getAttribute('data-translate-y')) || this.options.translateY
       this.elementsInfo[i].translateZ =
@@ -156,7 +159,7 @@ export default class ScrollProgress {
           factor = 1
         }
 
-        let translateX = (1 - easingFunction(factor)) * info.translateX
+        let translateX = (1 - easingFunction(factor)) * info.translateX + info.translateTo
         let translateY = (1 - easingFunction(factor)) * info.translateY
         let translateZ = (1 - easingFunction(factor)) * info.translateZ
         let unit = info.translateUnit
