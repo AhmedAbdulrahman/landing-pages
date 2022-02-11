@@ -187,9 +187,36 @@ import ScrollProgress from './scripts/scrollProgress'
     }
   }
 
+  function liveChatScrollHandler() {
+    const liveChatSection = document.querySelector('.live-chat__root')
+    const liveChatImage = document.querySelector('.live-chat__image')
+
+    if (liveChatSection !== null) {
+      requestAnimationFrame(() => {
+        const percentage = calculateVerticalPercentage(
+          liveChatSection.getBoundingClientRect(),
+          0,
+          window,
+        )
+
+        liveChatImage.style.transform = `scale(${1 + percentage * 0.3})`
+      })
+    }
+  }
+
+  const liveChatObserver = new IntersectionObserver((entries) => {
+    const anyInteriesIntersection = entries.some((entry) => entry.isIntersecting)
+
+    if (anyInteriesIntersection) {
+      document.addEventListener('scroll', liveChatScrollHandler, true)
+    } else {
+      document.removeEventListener('scroll', liveChatScrollHandler, true)
+    }
+  })
+
   const imagesObserver = new IntersectionObserver((entries) => {
     const anyInteriesIntersection = entries.some((entry) => entry.isIntersecting)
-    console.log('anyInteriesIntersection', anyInteriesIntersection)
+
     if (anyInteriesIntersection) {
       document.addEventListener('scroll', brandHeroScrollHandler, true)
     } else {
@@ -204,6 +231,10 @@ import ScrollProgress from './scripts/scrollProgress'
 
   document.querySelectorAll('.brand-hero__image').forEach((i) => {
     imagesObserver.observe(i)
+  })
+
+  document.querySelectorAll('.live-chat__root').forEach((i) => {
+    liveChatObserver.observe(i)
   })
 
   // Show More
