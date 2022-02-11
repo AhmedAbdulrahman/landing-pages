@@ -12,7 +12,6 @@
         position: relative;
 
         @include breakpoint-min($bp-medium) {
-            margin-bottom: 32px;
             padding-left: 50px;
             padding-right: 50px;
         }
@@ -20,34 +19,11 @@
 
     .editorial__main {
         display: flex;
-        flex-direction: row-reverse;
 
         @include breakpoint-max($bp-medium) {
             flex-direction: column;
         }
 
-        &.dir--row-reverse {
-            .editorial__content {
-                margin-right: 0;
-
-                @include breakpoint-min($bp-large) {
-                    padding-left: 64px;
-                }
-
-                .btn {
-                    margin-bottom: 32px;
-                }
-            }
-
-            @include breakpoint-min($bp-large) {
-                // flex-direction: column;
-
-                .editorial__media {
-                    margin-bottom: 0;
-                 }
-            }
-
-        }
     }
 
     .editorial__content {
@@ -77,10 +53,6 @@
             margin-right: 10px;
         }
 
-        @include breakpoint-min($bp-large) {
-            padding-right: 34px;
-        }
-
     }
 
     .editorial__media {
@@ -88,7 +60,6 @@
         justify-content: center;
 
         @include breakpoint-max($bp-large) {
-            margin-bottom: 32px;
             overflow: hidden;
             height: 400px;
         }

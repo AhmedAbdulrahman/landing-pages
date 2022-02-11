@@ -21,25 +21,27 @@
 .article__root {
 
     &:hover {
-        .article__content .btn {
-            background: transparent;
+        @media (hover: hover) {
+            .article__content .btn {
+                background: transparent;
 
-            svg.dark-arrow {
-                opacity: 0;
-                transform: translateX(100px);
+                .btn__icon svg.dark-arrow {
+                    opacity: 0;
+                    transform: translateX(100px);
+                }
+
+                .btn__icon svg.light-arrow {
+                    opacity: 1;
+                    transform: translateX(0px);
+                }
             }
 
-            svg.light-arrow {
-                opacity: 1;
-                transform: translateX(0px);
+            .article__media-holder:not(.has-foregroundImage) {
+                transform: scale(1.2);
             }
-        }
-
-        .article__media-holder:not(.has-foregroundImage) {
-            transform: scale(1.2);
-        }
-        .article__media-holder .article__media {
-            transform: scale(.95);
+            .article__media-holder .article__media {
+                transform: scale(.95);
+            }
         }
     }
 
@@ -86,19 +88,41 @@
         min-height: 285px;
 
         .btn {
-            display: flex;
+            border: none;
+            border-radius: 48px;
+            display: inline-flex;
+            flex-direction: row;
             justify-content: center;
             align-items: center;
             background: $telenorLightBlue;
+            padding: 15px 6px;
             color: $midBlue;
-            border-radius: 48px;
-            padding: 14px 5px;
-            border: none;
             margin-top: auto;
+
+            @include breakpoint-max($bp-small) {}
 
             &:hover {
                 cursor: pointer;
             }
+
+            .btn__icon {
+                display: flex;
+            }
+            // @include breakpoint-min($bp-medium) {
+            //     svg path {
+            //         fill: $midBlue
+            //     }
+            // }
+
+            .btn__label {
+                font-size: 14px;
+                line-height: 24px;
+
+                @include breakpoint-min($bp-medium) {
+                    display: none;
+                    visibility: hidden;
+                }
+              }
 
             svg.dark-arrow {
                 opacity: 1;

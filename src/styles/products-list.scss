@@ -62,7 +62,7 @@
             // right: -20px;
             // transform: rotate(-180deg);
             right: 0;
-            transform-origin: 70% 20%;
+            transform-origin: 70% 18%;
             transform: rotate(-180deg);
         }
     }
@@ -103,7 +103,7 @@
         width: calc(100% / 2.2);
 
         &:not(:last-of-type) {
-            padding-right: 20px;
+            margin-right: 15px;
         }
 
         .img-background {

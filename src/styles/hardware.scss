@@ -55,7 +55,7 @@
 
             @for $i from 1 through 4 {
                 .hardware__list-selector.observed:nth-child(#{$i}n) {
-                    @include animation('fade-in-tobottom-transition', $duration: 2s, $delay: #{$i * $list-coefficient}s);
+                    @include animation('fade-in-tobottom-transition', $duration: 1s, $delay: #{$i * 0.1}s);
                 }
             }
 
@@ -93,7 +93,7 @@
 
             .hardware__list-selector {
                 .list-selectors__label {
-                    height: 80px !important;
+                    height: 90px !important;
                 }
             }
 

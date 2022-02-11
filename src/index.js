@@ -40,8 +40,9 @@ import ScrollProgress from './scripts/scrollProgress'
   const CLASS_NAME = 'observed'
 
   const editorialElements = document.querySelectorAll('.editorial__root')
-  const editorialElementsInView = new Set()
   const sideBySideElements = document.querySelectorAll('.side-by-side__root')
+
+  const editorialElementsInView = new Set()
   const mediaQuery = window.matchMedia('(min-width: 768px)')
 
   // Sliders
@@ -146,6 +147,7 @@ import ScrollProgress from './scripts/scrollProgress'
       const imageMedia = root.querySelector('img')
       const rect = root.getBoundingClientRect()
       const percentage = calculateVerticalPercentage(rect)
+
       if (imageBackground !== null) {
         imageBackground.style.backgroundSize = `${100 + percentage * 30}%, cover`
       }
