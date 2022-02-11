@@ -1,10 +1,13 @@
 .product-category__root {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    margin-top: 48px;
 
     @include breakpoint-min($bp-medium) {
-        padding-top: 85px;
-        padding-bottom: 85px;
+        margin-top: 85px;
+        margin-bottom: 85px;
+    }
+
+    @include breakpoint-max($bp-small) {
+        overflow: hidden;
     }
 
     .product-category__container {
@@ -25,10 +28,6 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-
-        @include breakpoint-max($bp-small) {
-            overflow: hidden;
-        }
     }
 
     .product-category__main  {
@@ -62,6 +61,7 @@
 
         @include breakpoint-max($bp-medium) {
             width: calc(100% / 3);
+            padding-bottom: 50px;
        }
 
 
