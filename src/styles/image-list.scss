@@ -118,8 +118,9 @@
             background-position: center center;
             transition: all 0.4s ease-out;
 
-            &.has-foregroundImage {
+            &.has-foregroundImage img {
                 z-index: 3;
+                transform: translateY(-20px) scale(1.1);
             }
 
             &:before {
