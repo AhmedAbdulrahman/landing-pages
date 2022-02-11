@@ -3,8 +3,8 @@
   padding-bottom: 48px;
 
   @include breakpoint-min($bp-medium) {
-    padding-top: 85px;
-    padding-bottom: 85px;
+    margin-top: 35px;
+    margin-bottom: 35px;
   }
 
   .benefit-list__viewport {
@@ -23,8 +23,8 @@
       padding-right: 80px;
 
       @include breakpoint-max($bp-small) {
-          padding-left: 16px;
-          padding-right: 16px;
+        padding-left: 32px;
+        padding-right: 32px;
       }
 
       .benefit-list__heading {
