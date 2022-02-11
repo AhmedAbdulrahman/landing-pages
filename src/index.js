@@ -39,6 +39,11 @@ import ScrollProgress from './scripts/scrollProgress'
   const querySelector = `${productList}, ${imagesList}, ${benefitList}, ${supportContent}, ${productCategory}, ${sideBySideContent}, ${editorialImage}, ${hardwareImage}, ${hardwareSelectors}, ${hardwareproductText}`
   const CLASS_NAME = 'observed'
 
+  const editorialElements = document.querySelectorAll('.editorial__root')
+  const editorialElementsInView = new Set()
+  const sideBySideElements = document.querySelectorAll('.side-by-side__root')
+  const mediaQuery = window.matchMedia('(min-width: 768px)')
+
   // Sliders
   const emblaCarousels = [
     {
@@ -134,6 +139,29 @@ import ScrollProgress from './scripts/scrollProgress'
     return 1 - Math.max(0, Math.min(1, percentage))
   }
 
+  function handleDocumentScroll() {
+    editorialElementsInView.forEach((root) => {
+      const imageBackground = root.querySelector('.background-image')
+      const imageForegroundImage = root.querySelector('.has-foregroundImage > img')
+      const imageMedia = root.querySelector('img')
+      const rect = root.getBoundingClientRect()
+      const percentage = calculateVerticalPercentage(rect)
+      if (imageBackground !== null) {
+        imageBackground.style.backgroundSize = `${100 + percentage * 30}%, cover`
+      }
+      if (imageForegroundImage !== null) {
+        // Check if the media query is true
+        if (mediaQuery.matches) {
+          imageForegroundImage.style.transform = `translateX(${50 + percentage * 250}px)`
+        }
+
+        imageForegroundImage.style.opacity = `${percentage * 2.8}`
+      } else {
+        imageMedia.style.transform = `scale(${1 + percentage * 0.5})`
+      }
+    })
+  }
+
   // Private Handlers
   function handleOnShowMoreClick() {
     const linkText = this.children[0].innerHTML.toUpperCase()
@@ -169,6 +197,23 @@ import ScrollProgress from './scripts/scrollProgress'
       rootMargin: '0px',
     },
   )
+
+  function handleEditorialIntersects(entries) {
+    entries.forEach((entry) => {
+      if (entry.intersectionRatio > 0) {
+        editorialElementsInView.add(entry.target)
+      } else {
+        editorialElementsInView.delete(entry.target)
+      }
+    })
+
+    if (editorialElementsInView.size > 0) {
+      document.addEventListener('scroll', handleDocumentScroll, { passive: true })
+      handleDocumentScroll()
+    } else {
+      document.removeEventListener('scroll', handleDocumentScroll, { passive: true })
+    }
+  }
 
   function brandHeroScrollHandler() {
     const brandHeroSection = document.querySelector('.brand-hero__root')
@@ -235,6 +280,16 @@ import ScrollProgress from './scripts/scrollProgress'
 
   document.querySelectorAll('.live-chat__root').forEach((i) => {
     liveChatObserver.observe(i)
+  })
+
+  const editorialObserver = new IntersectionObserver(handleEditorialIntersects)
+
+  editorialElements.forEach((el) => {
+    editorialObserver.observe(el)
+  })
+
+  sideBySideElements.forEach((el) => {
+    editorialObserver.observe(el)
   })
 
   // Show More
