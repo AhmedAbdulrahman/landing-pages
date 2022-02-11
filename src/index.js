@@ -41,6 +41,7 @@ import ScrollProgress from './scripts/scrollProgress'
 
   const editorialElements = document.querySelectorAll('.editorial__root')
   const sideBySideElements = document.querySelectorAll('.side-by-side__root')
+  const subscriptionElements = document.querySelectorAll('.subscription__root')
 
   const editorialElementsInView = new Set()
   const mediaQuery = window.matchMedia('(min-width: 768px)')
@@ -159,7 +160,7 @@ import ScrollProgress from './scripts/scrollProgress'
 
         imageForegroundImage.style.opacity = `${percentage * 2.8}`
       } else {
-        imageMedia.style.transform = `scale(${1 + percentage * 0.5})`
+        imageMedia.style.transform = `scale(${1 + percentage * 0.8})`
       }
     })
   }
@@ -291,6 +292,10 @@ import ScrollProgress from './scripts/scrollProgress'
   })
 
   sideBySideElements.forEach((el) => {
+    editorialObserver.observe(el)
+  })
+
+  subscriptionElements.forEach((el) => {
     editorialObserver.observe(el)
   })
 

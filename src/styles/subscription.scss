@@ -1,0 +1,256 @@
+.subscription__root {
+    background-color: #F6F4EE;
+    // padding-top: 48px;
+    // padding-bottom: 48px;
+    // position: relative;
+
+    @include breakpoint-min($bp-medium) {
+        // padding-top: 65px;
+        // padding-bottom: 65px;
+    }
+
+    .subscription__container {
+        // width: 100%;
+        // margin-left: auto;
+        // margin-right: auto;
+        // // padding-left: 16px;
+        // // padding-right: 16px;
+        // position: relative;
+
+        // @include breakpoint-min($bp-medium) {
+        //     padding-left: 50px;
+        //     padding-right: 50px;
+        // }
+    }
+
+    .subscription__main {
+       display: flex;
+       flex-wrap: wrap;
+       position: relative;
+
+       @include breakpoint-max($bp-medium) {
+            flex-direction: column-reverse;
+        }
+    }
+    .subscription__media {
+
+        img {
+            object-fit: cover;
+            width: 100%;
+        }
+
+        @include breakpoint-min($bp-medium) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 0;
+        }
+    }
+    .subscription__content {
+        padding: 24px;
+        color: $darkBlue;
+        z-index: 1;
+        box-shadow: none;
+
+        @include breakpoint-min($bp-medium) {
+            padding: 80px 48px;
+        }
+
+        .subscription__headline {
+            max-width: 498px;
+
+            @include breakpoint-min($bp-medium) {
+                // padding: 80px 0;
+            }
+        }
+
+        .subscription__features {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            .subscription__feature-item {
+                display: flex;
+                justify-content: center;
+
+                .subscription__feature-item-icon {
+                    margin-right: 8px;
+                }
+            }
+        }
+        .subscription__packages {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px 0;
+            margin-top: 24px;
+
+            @include breakpoint-min($bp-medium) {
+                grid-template-columns: repeat(3, 356px);
+                gap: 0 24px;
+                margin-top: 80px;
+            }
+        }
+        .subscription__package {
+            padding: 24px;
+            background-color: white;
+            -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.1, 0.2, 0.3, 0.4);
+
+            &:hover {
+                @media (hover: hover) {
+                    transform: translateY(-10px);
+                    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.15);
+                }
+            }
+
+            .btn {
+                border: none;
+                border-radius: 48px;
+                padding: 8px 28px;
+                display: inline-flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                background: $midBlue;
+                color: $midBlue;
+                border: none;
+                border-radius: 48px;
+                padding: 8px 24px;
+                color: white;
+                margin-top: 16px;
+
+                &:hover {
+                  cursor: pointer;
+                }
+
+                &.btn--blue {
+                  svg path {
+                    fill: $telenorBlue
+                  }
+                }
+
+                &.btn--light-blue {
+                  background: $telenorLightBlue;
+                  color: $midBlue;
+                  svg path {
+                    fill: $midBlue
+                  }
+                }
+            }
+
+            .subscription__packages-price {
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 1px solid #D6D6D6;
+                padding-bottom: 16px;
+            }
+            .subscription__package-features {
+                margin-top: 12px;
+
+                .subscription__package-feature  {
+                    padding-left: 15px;
+                    &::before {
+                        content: "·";
+                        font-size: 31px;
+                        vertical-align: middle;
+                        line-height: 20px;
+                    }
+                }
+            }
+        }
+
+        .subscription__benefits {
+            display: flex;
+            margin-top: 32px;
+            flex-wrap: wrap;
+
+            @include breakpoint-max($bp-medium) {
+                justify-content: center
+            }
+
+            .subscription__benefit-item {
+                display: flex;
+
+                &:not(:last-of-type) {
+                    margin-right: 16px;
+                }
+
+                .subscription__benefit-item-icon {
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+
+    .subscription__discount-switch {
+        display: flex;
+        align-items: center;
+        background-color: #FAED3C;
+        padding: 16px;
+
+        @include breakpoint-min($bp-medium) {
+            padding: 16px 48px;
+        }
+
+        .subscription__discount-text {
+            flex: 1;
+        }
+        .subscription__discount-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            align-self: flex-end;
+
+            @include breakpoint-max($bp-medium) {
+                width: 100%;
+            }
+
+            .subscription__discount-checkbox-toggle {
+                cursor: pointer;
+                display: inline-block;
+
+                .subscription__discount-toggle-switch {
+                    display: inline-block;
+                    background: #1A1A1A;
+                    border-radius: 16px;
+                    width: 64px;
+                    height: 32px;
+                    position: relative;
+                    vertical-align: middle;
+                    transition: background 0.25s;
+                    &:before,
+                    &:after {
+                        content: "";
+                    }
+                    &:before {
+                        display: block;
+                        background: linear-gradient(to bottom, #fff 0%,#eee 100%);
+                        border-radius: 50%;
+                        box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
+                        width: 24px;
+                        height: 24px;
+                        position: absolute;
+                        top: 4px;
+                        left: 4px;
+                        transition: left 0.25s;
+                    }
+                }
+
+                .subscription__discount-toggle-checkbox {
+                    position: absolute;
+                    visibility: hidden;
+                }
+
+                .subscription__discount-toggle-checkbox:checked + .subscription__discount-toggle-switch {
+                    background: $midBlue;
+                    &:before {
+                        left: 35px;
+                    }
+                }
+            }
+        }
+    }
+}
