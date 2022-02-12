@@ -1053,6 +1053,9 @@ a:hover {
 .text-light {
   font-weight: 300;
 }
+.text-medium {
+  font-weight: 500;
+}
 .text-bold {
   font-weight: 700;
 }
@@ -8775,8 +8778,14 @@ input:checked ~ label .map-grid__store-info {
   .desktop-text-light {
     font-weight: 300;
   }
+  .desktop-text-medium {
+    font-weight: 500;
+  }
   .desktop-text-bold {
     font-weight: 700;
+  }
+  .desktop-text-extra-bold {
+    font-weight: 800;
   }
   .desktop-text-normal {
     font-style: normal;
