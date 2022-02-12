@@ -53,7 +53,7 @@
         box-shadow: none;
 
         @include breakpoint-min($bp-medium) {
-            padding: 80px 48px;
+            padding: 80px 48px 32px;
         }
 
         .subscription__headline {
@@ -211,6 +211,7 @@
             .subscription__discount-checkbox-toggle {
                 cursor: pointer;
                 display: inline-block;
+                margin: 0;
 
                 .subscription__discount-toggle-switch {
                     display: inline-block;
