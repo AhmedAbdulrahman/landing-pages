@@ -303,4 +303,21 @@ import ScrollProgress from './scripts/scrollProgress'
   document.querySelectorAll('.show-more-btn').forEach((i) => {
     i.addEventListener('click', handleOnShowMoreClick, false)
   })
+
+  document.querySelectorAll('.package__tab').forEach((tab) => {
+    tab.addEventListener('click', (event) => {
+      // Remove 'active' class style from previously selected tab
+      document.querySelector('.package__tab.active')?.classList.remove('active') // optional chaining
+
+      // Add 'active' class style to selected tab
+      event.currentTarget.classList.add('active')
+
+      // Hide previously selected tab's content
+      document.querySelector('.package__tab-content.show').classList.remove('show')
+
+      // Show selected tab's respective content
+      const selectedContent = event.currentTarget.dataset.content // see .dataset console.log() above
+      document.querySelector(selectedContent).classList.add('show')
+    })
+  })
 })()

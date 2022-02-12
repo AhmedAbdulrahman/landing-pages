@@ -28,7 +28,7 @@
                             Til dig der vil have frihed til at opleve
                         </h2>
                         <div class="subscription__features">
-                            <div class="subscription__feature-item desktop-margin-trailer--xxsmall">
+                            <div class="subscription__feature-item margin-trailer--xxsmall">
                                 <span class="subscription__feature-item-icon">
                                     <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 0C5.87258 0 0.5 5.37258 0.5 12C0.5 18.6274 5.87258 24 12.5 24C19.1274 24 24.5 18.6274 24.5 12C24.5 8.8174 23.2357 5.76516 20.9853 3.51472C18.7348 1.26428 15.6826 0 12.5 0ZM2.34619 12C2.34594 11.0627 2.4796 10.1302 2.74311 9.23074H4.86619C4.58311 11.066 4.58311 12.9339 4.86619 14.7692H2.74311C2.4796 13.8697 2.34594 12.9372 2.34619 12ZM6.74 9.23074C6.58364 10.1456 6.50337 11.0719 6.5 12C6.50337 12.9281 6.58364 13.8543 6.74 14.7692H11.5769V9.23074H6.74ZM17.8167 7.38469H13.4229V1.98469C15.3152 2.50161 16.9398 4.61546 17.8167 7.38469ZM11.5767 7.38469V1.98469C9.73055 2.50161 8.05978 4.61546 7.18286 7.38469H11.5767ZM11.5767 16.6154V22.0154C9.73055 21.4985 8.05978 19.3847 7.18286 16.6154H11.5767ZM13.4229 16.6154V22.0154C15.3152 21.4985 16.9398 19.3847 17.8167 16.6154H13.4229ZM13.4229 9.23074H18.2598C18.4161 10.1456 18.4964 11.0719 18.4998 12C18.4964 12.9281 18.4161 13.8543 18.2598 14.7692H13.4229V9.23074ZM22.2569 9.23074H20.1338C20.4169 11.066 20.4169 12.9339 20.1338 14.7692H22.2569C22.7861 12.961 22.7861 11.039 22.2569 9.23074ZM21.5369 7.38457H19.7646C19.4152 6.027 18.8579 4.73167 18.1123 3.54457C19.5619 4.51245 20.7406 5.83412 21.5369 7.38457ZM5.2352 7.38457C5.58459 6.027 6.14195 4.73167 6.88751 3.54457C5.43793 4.51245 4.25923 5.83412 3.46289 7.38457H5.2352ZM3.46289 16.6154H5.2352C5.58459 17.973 6.14195 19.2683 6.88751 20.4554C5.43793 19.4875 4.25923 18.1659 3.46289 16.6154ZM19.7646 16.6154C19.4152 17.973 18.8579 19.2683 18.1123 20.4554C19.5619 19.4875 20.7406 18.1659 21.5369 16.6154H19.7646Z" fill="#1A1A1A"/>
@@ -38,7 +38,7 @@
                                     Kan trygt bruges når du er i udlandet
                                 </p>
                             </div>
-                            <div class="subscription__feature-item desktop-margin-trailer--xxsmall">
+                            <div class="subscription__feature-item margin-trailer--xxsmall">
                                 <span class="subscription__feature-item-icon">
                                     <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12.5 12C13.6046 12 14.5 11.1046 14.5 10C14.5 8.89543 13.6046 8 12.5 8C11.3954 8 10.5 8.89543 10.5 10C10.5 11.1046 11.3954 12 12.5 12ZM12.5 12C14.1569 12 15.5 13.3431 15.5 15M12.5 12C10.8431 12 9.5 13.3431 9.5 15M12.5 23C12.5 23 5.85674 20.1529 3.66468 14.4587C3.54884 14.1578 3.5 13.8356 3.5 13.5132V4C10 4 12.5 1 12.5 1C12.5 1 15 4 21.5 4V13.5132C21.5 13.8356 21.4512 14.1578 21.3353 14.4587C19.1433 20.1529 12.5 23 12.5 23Z" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -173,7 +173,7 @@
                     </div>
                 </div>
                 <div class="subscription__discount-switch col-xs-12">
-                    <p class="subscription__discount-text text-size--16 display--none desktop-display--none">
+                    <p class="subscription__discount-text text-size--16 display--none desktop-display--block">
                         Med Samlerabat sparer du 50,- om måneden på alle abonnementer udover det første
                     </p>
                     <div class="subscription__discount-toggle">
@@ -189,6 +189,366 @@
             </div>
         </section>
         <!-- Subscription END -->
+
+        <!-- Packages -->
+        <section class="packages__root">
+            <div class="packages__container">
+                <div class="packages__main">
+                    <div class="packages__content">
+                        <h2 class="packages__headline text-size--24 text-bold margin-trailer--small">
+                            Hvad har du brug for?
+                        </h2>
+
+                        <!-- Tabs nav -->
+                        <ul class="packages__tabs">
+                            <li>
+                                <button class="package__tab active text-medium" data-content="#one">30 GB</button>
+                                <!-- data-content="" >>> relates to event.currentTarget.dataset in JS -->
+                            </li>
+                            <li>
+                                <button class="package__tab text-medium" data-content="#two">60 GB</button>
+                            </li>
+                            <li>
+                                <button class="package__tab text-medium" data-content="#three">Fri data</button>
+                            </li>
+                        </ul>
+
+                        <!-- Tabs content -->
+                        <div id="one" class="package__tab-content show">
+                            <h4 class="package__tab-subtitle text-size--18 text-medium margin-trailer--large">
+                                Med 30 GB data får du dagligt
+                            </h4>
+
+                            <div class="package__features">
+                                <div class="package__feature">
+                                    <div class="package__feature-circle">
+                                        <svg width="81" height="81" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="40" cy="41" r="39.5" stroke="#D6D6D6"/>
+                                            <circle id="heart" cx="40" cy="41" r="39.5" fill="transparent" stroke-linecap="round" stroke="#000F3C" stroke-width="3" stroke-dashoffset="250" stroke-dasharray="250" transform="rotate(-90 40 41)"/>
+                                            <animate
+                                                xlink:href="#heart"
+                                                attributeName="stroke-dashoffset"
+                                                from="250"
+                                                to="190"
+                                                dur="1s"
+                                                begin="0s"
+                                                fill="freeze"
+                                                id="heart-anim"
+                                            />
+                                            <path d="M40 55C39.82 55 39.64 54.95 39.49 54.86C38.85 54.48 24 45.46 24 36C24 30.53 27.53 27 33 27C35.75 27 38.32 28.25 40 30.35C41.68 28.25 44.25 27 47 27C52.47 27 56 30.53 56 36C56 45.46 41.15 54.48 40.51 54.86C40.36 54.95 40.18 55 40 55ZM33 29C29.62 29 26 30.84 26 36C26 43.42 37.42 51.16 40 52.82C42.58 51.16 54 43.42 54 36C54 30.84 50.38 29 47 29C44.44 29 42.1 30.39 40.88 32.62C40.53 33.26 39.48 33.26 39.12 32.62C37.9 30.39 35.56 29 33 29Z" fill="#000F3C"/>
+                                        </svg>
+                                    </div>
+                                    <p class="package__feature-name text-size--14">
+                                        Sociale medier
+                                    </p>
+                                    <h4 class="package__feature-time text-size--16 text-bold">
+                                        9 timer
+                                    </h4>
+                                </div>
+                                <div class="package__feature">
+                                    <div class="package__feature-circle">
+                                        <svg width="80" height="81" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="40" cy="41" r="39.5" stroke="#D6D6D6"/>
+                                            <circle id="movie" cx="40" cy="41" r="39.5" fill="transparent" stroke-linecap="round" stroke="#000F3C" stroke-width="3" stroke-dashoffset="250" stroke-dasharray="250" transform="rotate(-90 40 41)"/>
+                                            <animate
+                                                xlink:href="#movie"
+                                                attributeName="stroke-dashoffset"
+                                                from="250"
+                                                to="230"
+                                                dur="1s"
+                                                begin="heart-anim.begin + .1s"
+                                                fill="freeze"
+                                                id="movie-anim"
+                                            />
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M42 57H55C55.5523 57 56 56.5523 56 56V38C56 37.4477 55.5523 37 55 37H42C41.4477 37 41 37.4477 41 38V56C41 56.5523 41.4477 57 42 57ZM54 55H43V39H54V55Z" fill="#000F3C"/>
+                                            <path d="M36 57H25C24.4477 57 24 56.5523 24 56V26C24 25.4477 24.4477 25 25 25H47C47.5523 25 48 25.4477 48 26V32C48 32.5523 47.5523 33 47 33C46.4477 33 46 32.5523 46 32V27H26V55H36C36.5523 55 37 55.4477 37 56C37 56.5523 36.5523 57 36 57Z" fill="#000F3C"/>
+                                            <path d="M50.8333 43H46.1667C45.5223 43 45 42.5523 45 42C45 41.4477 45.5223 41 46.1667 41H50.8333C51.4777 41 52 41.4477 52 42C52 42.5523 51.4777 43 50.8333 43Z" fill="#000F3C"/>
+                                        </svg>
+                                    </div>
+                                    <p class="package__feature-name text-size--14">
+                                        Film og serier
+                                    </p>
+                                    <h4 class="package__feature-time text-size--16 text-bold">
+                                        1 timer
+                                    </h4>
+                                </div>
+                                <div class="package__feature">
+                                    <div class="package__feature-circle">
+                                        <svg width="81" height="80" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="41" cy="41" r="39.5" stroke="#D6D6D6"/>
+                                            <circle id="music" cx="40" cy="41" r="39.5" fill="transparent" stroke-linecap="round" stroke="#000F3C" stroke-width="3" stroke-dashoffset="250" stroke-dasharray="250" transform="rotate(-90 40 41)"/>
+                                            <animate
+                                                xlink:href="#music"
+                                                attributeName="stroke-dashoffset"
+                                                from="250"
+                                                to="60"
+                                                dur="1s"
+                                                begin="movie-anim.begin + .1s"
+                                                fill="freeze"
+                                                id="music-anim"
+                                            />
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M55.9005 25.0043C56.1824 24.9781 56.4622 25.0725 56.6705 25.2642C56.88 25.4531 56.9998 25.7217 57.0005 26.0038V46.9926C57.0062 49.8233 55.0307 52.2725 52.2617 52.8675C49.4928 53.4626 46.6846 52.0414 45.5258 49.4585C44.3669 46.8756 45.173 43.8345 47.4593 42.1638C49.7456 40.4931 52.8895 40.6478 55.0005 42.535V33.11L37.0005 34.909V50.9904C37.0062 53.8212 35.0307 56.2704 32.2617 56.8654C29.4928 57.4604 26.6846 56.0392 25.5258 53.4563C24.3669 50.8734 25.173 47.8323 27.4593 46.1616C29.7456 44.4909 32.8895 44.6457 35.0005 46.5328V28.0027C34.9979 27.4875 35.3876 27.0548 35.9005 27.0032L55.9005 25.0043ZM27.0005 50.9904C27.0005 53.1984 28.7914 54.9883 31.0005 54.9883C33.2096 54.9883 35.0005 53.1984 35.0005 50.9904C35.0005 48.7825 33.2096 46.9926 31.0005 46.9926C28.7914 46.9926 27.0005 48.7825 27.0005 50.9904ZM37.0005 32.8901V28.8922L55.0005 27.1032V31.1011L37.0005 32.8901ZM47.0005 46.9926C47.0005 49.2005 48.7914 50.9904 51.0005 50.9904C53.2096 50.9904 55.0005 49.2005 55.0005 46.9926C55.0005 44.7846 53.2096 42.9947 51.0005 42.9947C48.7914 42.9947 47.0005 44.7846 47.0005 46.9926Z" fill="#000F3C"/>
+                                        </svg>
+                                    </div>
+                                    <p class="package__feature-name text-size--14">
+                                        Musikstreaming
+                                    </p>
+                                    <h4 class="package__feature-time text-size--16 text-bold">
+                                        19 timer
+                                    </h4>
+                                </div>
+                                <div class="package__feature">
+                                    <div class="package__feature-circle">
+                                        <svg width="82" height="82" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="41" cy="41" r="39.5" stroke="#D6D6D6"/>
+                                            <circle id="messasges" cx="40" cy="41" r="39.5" fill="transparent" stroke-linecap="round" stroke="#000F3C" stroke-width="3" stroke-dashoffset="250" stroke-dasharray="250" transform="rotate(-90 40 41)"/>
+                                            <animate
+                                                xlink:href="#messasges"
+                                                attributeName="stroke-dashoffset"
+                                                from="250"
+                                                to="0"
+                                                dur="1s"
+                                                begin="music-anim.begin + .1s"
+                                                fill="freeze"
+                                                id="messasges-anim"
+                                            />
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M25 31C25 30.4477 25.4477 30 26 30H56C56.5523 30 57 30.4477 57 31V51C57 51.5523 56.5523 52 56 52H26C25.4477 52 25 51.5523 25 51V31ZM55 48.68L46.75 40.9L55 33.28V48.68ZM40.84 43.63L53.44 32H28.52L40.84 43.63ZM35.25 41.1L27 48.72V33.32L35.25 41.1ZM36.71 42.48L28.56 50H53.48L45.28 42.26L41.51 45.73C41.3256 45.9027 41.0826 45.9991 40.83 46C40.5774 45.9991 40.3344 45.9027 40.15 45.73L36.71 42.48Z" fill="#000F3C"/>
+                                        </svg>
+                                    </div>
+                                    <p class="package__feature-name text-size--14">
+                                        Web og email
+                                    </p>
+                                    <h4 class="package__feature-time text-size--16 text-bold">
+                                        Non stop
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="two" class="package__tab-content">
+                            <h4 class="package__tab-subtitle text-size--18 text-medium margin-trailer--large">
+                                Med 60 GB data får du dagligt
+                            </h4>
+
+                            <div class="package__features">
+                                <div class="package__feature">
+                                    <div class="package__feature-circle">
+                                        <svg width="81" height="81" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="40" cy="41" r="39.5" stroke="#D6D6D6"/>
+                                            <circle id="heart2" cx="40" cy="41" r="39.5" fill="transparent" stroke-linecap="round" stroke="#000F3C" stroke-width="3" stroke-dashoffset="250" stroke-dasharray="250" transform="rotate(-90 40 41)"/>
+                                            <animate
+                                                xlink:href="#heart2"
+                                                attributeName="stroke-dashoffset"
+                                                from="250"
+                                                to="190"
+                                                dur="1s"
+                                                begin="0s"
+                                                fill="freeze"
+                                                id="heart2-anim"
+                                            />
+                                            <path d="M40 55C39.82 55 39.64 54.95 39.49 54.86C38.85 54.48 24 45.46 24 36C24 30.53 27.53 27 33 27C35.75 27 38.32 28.25 40 30.35C41.68 28.25 44.25 27 47 27C52.47 27 56 30.53 56 36C56 45.46 41.15 54.48 40.51 54.86C40.36 54.95 40.18 55 40 55ZM33 29C29.62 29 26 30.84 26 36C26 43.42 37.42 51.16 40 52.82C42.58 51.16 54 43.42 54 36C54 30.84 50.38 29 47 29C44.44 29 42.1 30.39 40.88 32.62C40.53 33.26 39.48 33.26 39.12 32.62C37.9 30.39 35.56 29 33 29Z" fill="#000F3C"/>
+                                        </svg>
+                                    </div>
+                                    <p class="package__feature-name text-size--14">
+                                        Sociale medier
+                                    </p>
+                                    <h4 class="package__feature-time text-size--16 text-bold">
+                                        9 timer
+                                    </h4>
+                                </div>
+                                <div class="package__feature">
+                                    <div class="package__feature-circle">
+                                        <svg width="80" height="81" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="40" cy="41" r="39.5" stroke="#D6D6D6"/>
+                                            <circle id="movie2" cx="40" cy="41" r="39.5" fill="transparent" stroke-linecap="round" stroke="#000F3C" stroke-width="3" stroke-dashoffset="250" stroke-dasharray="250" transform="rotate(-90 40 41)"/>
+                                            <animate
+                                                xlink:href="#movie2"
+                                                attributeName="stroke-dashoffset"
+                                                from="250"
+                                                to="230"
+                                                dur="1s"
+                                                begin="heart2-anim.begin + .1s"
+                                                fill="freeze"
+                                                id="movie2-anim"
+                                            />
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M42 57H55C55.5523 57 56 56.5523 56 56V38C56 37.4477 55.5523 37 55 37H42C41.4477 37 41 37.4477 41 38V56C41 56.5523 41.4477 57 42 57ZM54 55H43V39H54V55Z" fill="#000F3C"/>
+                                            <path d="M36 57H25C24.4477 57 24 56.5523 24 56V26C24 25.4477 24.4477 25 25 25H47C47.5523 25 48 25.4477 48 26V32C48 32.5523 47.5523 33 47 33C46.4477 33 46 32.5523 46 32V27H26V55H36C36.5523 55 37 55.4477 37 56C37 56.5523 36.5523 57 36 57Z" fill="#000F3C"/>
+                                            <path d="M50.8333 43H46.1667C45.5223 43 45 42.5523 45 42C45 41.4477 45.5223 41 46.1667 41H50.8333C51.4777 41 52 41.4477 52 42C52 42.5523 51.4777 43 50.8333 43Z" fill="#000F3C"/>
+                                        </svg>
+                                    </div>
+                                    <p class="package__feature-name text-size--14">
+                                        Film og serier
+                                    </p>
+                                    <h4 class="package__feature-time text-size--16 text-bold">
+                                        1 timer
+                                    </h4>
+                                </div>
+                                <div class="package__feature">
+                                    <div class="package__feature-circle">
+                                        <svg width="81" height="80" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="41" cy="41" r="39.5" stroke="#D6D6D6"/>
+                                            <circle id="music2" cx="40" cy="41" r="39.5" fill="transparent" stroke-linecap="round" stroke="#000F3C" stroke-width="3" stroke-dashoffset="250" stroke-dasharray="250" transform="rotate(-90 40 41)"/>
+                                            <animate
+                                                xlink:href="#music2"
+                                                attributeName="stroke-dashoffset"
+                                                from="250"
+                                                to="60"
+                                                dur="1s"
+                                                begin="movie2-anim.begin + .1s"
+                                                fill="freeze"
+                                                id="music2-anim"
+                                            />
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M55.9005 25.0043C56.1824 24.9781 56.4622 25.0725 56.6705 25.2642C56.88 25.4531 56.9998 25.7217 57.0005 26.0038V46.9926C57.0062 49.8233 55.0307 52.2725 52.2617 52.8675C49.4928 53.4626 46.6846 52.0414 45.5258 49.4585C44.3669 46.8756 45.173 43.8345 47.4593 42.1638C49.7456 40.4931 52.8895 40.6478 55.0005 42.535V33.11L37.0005 34.909V50.9904C37.0062 53.8212 35.0307 56.2704 32.2617 56.8654C29.4928 57.4604 26.6846 56.0392 25.5258 53.4563C24.3669 50.8734 25.173 47.8323 27.4593 46.1616C29.7456 44.4909 32.8895 44.6457 35.0005 46.5328V28.0027C34.9979 27.4875 35.3876 27.0548 35.9005 27.0032L55.9005 25.0043ZM27.0005 50.9904C27.0005 53.1984 28.7914 54.9883 31.0005 54.9883C33.2096 54.9883 35.0005 53.1984 35.0005 50.9904C35.0005 48.7825 33.2096 46.9926 31.0005 46.9926C28.7914 46.9926 27.0005 48.7825 27.0005 50.9904ZM37.0005 32.8901V28.8922L55.0005 27.1032V31.1011L37.0005 32.8901ZM47.0005 46.9926C47.0005 49.2005 48.7914 50.9904 51.0005 50.9904C53.2096 50.9904 55.0005 49.2005 55.0005 46.9926C55.0005 44.7846 53.2096 42.9947 51.0005 42.9947C48.7914 42.9947 47.0005 44.7846 47.0005 46.9926Z" fill="#000F3C"/>
+                                        </svg>
+                                    </div>
+                                    <p class="package__feature-name text-size--14">
+                                        Musikstreaming
+                                    </p>
+                                    <h4 class="package__feature-time text-size--16 text-bold">
+                                        19 timer
+                                    </h4>
+                                </div>
+                                <div class="package__feature">
+                                    <div class="package__feature-circle">
+                                        <svg width="82" height="82" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="41" cy="41" r="39.5" stroke="#D6D6D6"/>
+                                            <circle id="messasges2" cx="40" cy="41" r="39.5" fill="transparent" stroke-linecap="round" stroke="#000F3C" stroke-width="3" stroke-dashoffset="250" stroke-dasharray="250" transform="rotate(-90 40 41)"/>
+                                            <animate
+                                                xlink:href="#messasges2"
+                                                attributeName="stroke-dashoffset"
+                                                from="250"
+                                                to="0"
+                                                dur="1s"
+                                                begin="music2-anim.begin + .1s"
+                                                fill="freeze"
+                                                id="messasges2-anim"
+                                            />
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M25 31C25 30.4477 25.4477 30 26 30H56C56.5523 30 57 30.4477 57 31V51C57 51.5523 56.5523 52 56 52H26C25.4477 52 25 51.5523 25 51V31ZM55 48.68L46.75 40.9L55 33.28V48.68ZM40.84 43.63L53.44 32H28.52L40.84 43.63ZM35.25 41.1L27 48.72V33.32L35.25 41.1ZM36.71 42.48L28.56 50H53.48L45.28 42.26L41.51 45.73C41.3256 45.9027 41.0826 45.9991 40.83 46C40.5774 45.9991 40.3344 45.9027 40.15 45.73L36.71 42.48Z" fill="#000F3C"/>
+                                        </svg>
+                                    </div>
+                                    <p class="package__feature-name text-size--14">
+                                        Web og email
+                                    </p>
+                                    <h4 class="package__feature-time text-size--16 text-bold">
+                                        Non stop
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="three" class="package__tab-content">
+                            <h4 class="package__tab-subtitle text-size--18 text-medium margin-trailer--large">
+                                Med Fri data får du dagligt
+                            </h4>
+
+                            <div class="package__features">
+                                <div class="package__feature">
+                                    <div class="package__feature-circle">
+                                        <svg width="81" height="81" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="40" cy="41" r="39.5" stroke="#D6D6D6"/>
+                                            <circle id="heart3" cx="40" cy="41" r="39.5" fill="transparent" stroke-linecap="round" stroke="#000F3C" stroke-width="3" stroke-dashoffset="250" stroke-dasharray="250" transform="rotate(-90 40 41)"/>
+                                            <animate
+                                                xlink:href="#heart3"
+                                                attributeName="stroke-dashoffset"
+                                                from="250"
+                                                to="190"
+                                                dur="1s"
+                                                begin="0s"
+                                                fill="freeze"
+                                                id="heart3-anim"
+                                            />
+                                            <path d="M40 55C39.82 55 39.64 54.95 39.49 54.86C38.85 54.48 24 45.46 24 36C24 30.53 27.53 27 33 27C35.75 27 38.32 28.25 40 30.35C41.68 28.25 44.25 27 47 27C52.47 27 56 30.53 56 36C56 45.46 41.15 54.48 40.51 54.86C40.36 54.95 40.18 55 40 55ZM33 29C29.62 29 26 30.84 26 36C26 43.42 37.42 51.16 40 52.82C42.58 51.16 54 43.42 54 36C54 30.84 50.38 29 47 29C44.44 29 42.1 30.39 40.88 32.62C40.53 33.26 39.48 33.26 39.12 32.62C37.9 30.39 35.56 29 33 29Z" fill="#000F3C"/>
+                                        </svg>
+                                    </div>
+                                    <p class="package__feature-name text-size--14">
+                                        Sociale medier
+                                    </p>
+                                    <h4 class="package__feature-time text-size--16 text-bold">
+                                        9 timer
+                                    </h4>
+                                </div>
+                                <div class="package__feature">
+                                    <div class="package__feature-circle">
+                                        <svg width="80" height="81" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="40" cy="41" r="39.5" stroke="#D6D6D6"/>
+                                            <circle id="movie3" cx="40" cy="41" r="39.5" fill="transparent" stroke-linecap="round" stroke="#000F3C" stroke-width="3" stroke-dashoffset="250" stroke-dasharray="250" transform="rotate(-90 40 41)"/>
+                                            <animate
+                                                xlink:href="#movie3"
+                                                attributeName="stroke-dashoffset"
+                                                from="250"
+                                                to="230"
+                                                dur="1s"
+                                                begin="heart3-anim.begin + .1s"
+                                                fill="freeze"
+                                                id="movie3-anim"
+                                            />
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M42 57H55C55.5523 57 56 56.5523 56 56V38C56 37.4477 55.5523 37 55 37H42C41.4477 37 41 37.4477 41 38V56C41 56.5523 41.4477 57 42 57ZM54 55H43V39H54V55Z" fill="#000F3C"/>
+                                            <path d="M36 57H25C24.4477 57 24 56.5523 24 56V26C24 25.4477 24.4477 25 25 25H47C47.5523 25 48 25.4477 48 26V32C48 32.5523 47.5523 33 47 33C46.4477 33 46 32.5523 46 32V27H26V55H36C36.5523 55 37 55.4477 37 56C37 56.5523 36.5523 57 36 57Z" fill="#000F3C"/>
+                                            <path d="M50.8333 43H46.1667C45.5223 43 45 42.5523 45 42C45 41.4477 45.5223 41 46.1667 41H50.8333C51.4777 41 52 41.4477 52 42C52 42.5523 51.4777 43 50.8333 43Z" fill="#000F3C"/>
+                                        </svg>
+                                    </div>
+                                    <p class="package__feature-name text-size--14">
+                                        Film og serier
+                                    </p>
+                                    <h4 class="package__feature-time text-size--16 text-bold">
+                                        1 timer
+                                    </h4>
+                                </div>
+                                <div class="package__feature">
+                                    <div class="package__feature-circle">
+                                        <svg width="81" height="80" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="41" cy="41" r="39.5" stroke="#D6D6D6"/>
+                                            <circle id="music3" cx="40" cy="41" r="39.5" fill="transparent" stroke-linecap="round" stroke="#000F3C" stroke-width="3" stroke-dashoffset="250" stroke-dasharray="250" transform="rotate(-90 40 41)"/>
+                                            <animate
+                                                xlink:href="#music3"
+                                                attributeName="stroke-dashoffset"
+                                                from="250"
+                                                to="60"
+                                                dur="1s"
+                                                begin="movie3-anim.begin + .1s"
+                                                fill="freeze"
+                                                id="music3-anim"
+                                            />
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M55.9005 25.0043C56.1824 24.9781 56.4622 25.0725 56.6705 25.2642C56.88 25.4531 56.9998 25.7217 57.0005 26.0038V46.9926C57.0062 49.8233 55.0307 52.2725 52.2617 52.8675C49.4928 53.4626 46.6846 52.0414 45.5258 49.4585C44.3669 46.8756 45.173 43.8345 47.4593 42.1638C49.7456 40.4931 52.8895 40.6478 55.0005 42.535V33.11L37.0005 34.909V50.9904C37.0062 53.8212 35.0307 56.2704 32.2617 56.8654C29.4928 57.4604 26.6846 56.0392 25.5258 53.4563C24.3669 50.8734 25.173 47.8323 27.4593 46.1616C29.7456 44.4909 32.8895 44.6457 35.0005 46.5328V28.0027C34.9979 27.4875 35.3876 27.0548 35.9005 27.0032L55.9005 25.0043ZM27.0005 50.9904C27.0005 53.1984 28.7914 54.9883 31.0005 54.9883C33.2096 54.9883 35.0005 53.1984 35.0005 50.9904C35.0005 48.7825 33.2096 46.9926 31.0005 46.9926C28.7914 46.9926 27.0005 48.7825 27.0005 50.9904ZM37.0005 32.8901V28.8922L55.0005 27.1032V31.1011L37.0005 32.8901ZM47.0005 46.9926C47.0005 49.2005 48.7914 50.9904 51.0005 50.9904C53.2096 50.9904 55.0005 49.2005 55.0005 46.9926C55.0005 44.7846 53.2096 42.9947 51.0005 42.9947C48.7914 42.9947 47.0005 44.7846 47.0005 46.9926Z" fill="#000F3C"/>
+                                        </svg>
+                                    </div>
+                                    <p class="package__feature-name text-size--14">
+                                        Musikstreaming
+                                    </p>
+                                    <h4 class="package__feature-time text-size--16 text-bold">
+                                        19 timer
+                                    </h4>
+                                </div>
+                                <div class="package__feature">
+                                    <div class="package__feature-circle">
+                                        <svg width="82" height="82" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="41" cy="41" r="39.5" stroke="#D6D6D6"/>
+                                            <circle id="messasges3" cx="40" cy="41" r="39.5" fill="transparent" stroke-linecap="round" stroke="#000F3C" stroke-width="3" stroke-dashoffset="250" stroke-dasharray="250" transform="rotate(-90 40 41)"/>
+                                            <animate
+                                                xlink:href="#messasges3"
+                                                attributeName="stroke-dashoffset"
+                                                from="250"
+                                                to="0"
+                                                dur="1s"
+                                                begin="music3-anim.begin + .1s"
+                                                fill="freeze"
+                                                id="messasges3-anim"
+                                            />
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M25 31C25 30.4477 25.4477 30 26 30H56C56.5523 30 57 30.4477 57 31V51C57 51.5523 56.5523 52 56 52H26C25.4477 52 25 51.5523 25 51V31ZM55 48.68L46.75 40.9L55 33.28V48.68ZM40.84 43.63L53.44 32H28.52L40.84 43.63ZM35.25 41.1L27 48.72V33.32L35.25 41.1ZM36.71 42.48L28.56 50H53.48L45.28 42.26L41.51 45.73C41.3256 45.9027 41.0826 45.9991 40.83 46C40.5774 45.9991 40.3344 45.9027 40.15 45.73L36.71 42.48Z" fill="#000F3C"/>
+                                        </svg>
+                                    </div>
+                                    <p class="package__feature-name text-size--14">
+                                        Web og email
+                                    </p>
+                                    <h4 class="package__feature-time text-size--16 text-bold">
+                                        Non stop
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Packages END-->
 
    </body>
 </html>
