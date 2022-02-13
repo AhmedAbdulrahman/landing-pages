@@ -57,6 +57,15 @@
                 font-size: 14px;
                 line-height: 24px;
 
+                &.btn--default {
+                    background-color: transparent;
+                    color: $telenorLightBlue;
+
+                    .btn__icon path {
+                        fill: $telenorBlue;
+                    }
+                }
+
                 label {
                     font-size: 14px;
                     line-height: 24px;
