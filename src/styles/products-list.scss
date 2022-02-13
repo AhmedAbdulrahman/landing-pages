@@ -152,10 +152,16 @@
             color: #0c1026;
             background-color: $telenorBlue;
             display: inline-block;
-            font-size: 14px;
-            line-height: 32px;
-            padding: 0 16px;
+            font-size: 12px;
+            line-height: 16px;
+            padding: 4px;
             white-space: nowrap;
+
+            @include breakpoint-min($bp-medium) {
+                font-size: 14px;
+                line-height: 32px;
+                padding: 0 16px;
+              }
         }
 
         .product-list__item-content, .product-list__item-content a {

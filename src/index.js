@@ -91,7 +91,7 @@ import ScrollProgress from './scripts/scrollProgress'
       container: '.benefit-list__slider',
       viewport: '.benefit-list__viewport',
       options: {
-        dragFree: true,
+        dragFree: false,
         slidesToScroll: 1,
         containScroll: 'trimSnaps',
       },
