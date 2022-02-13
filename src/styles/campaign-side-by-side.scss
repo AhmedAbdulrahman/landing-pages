@@ -224,7 +224,7 @@
 
         &:not(.has-foregroundImage) {
             @include breakpoint-max($bp-medium) {
-                height: 310px;
+                min-height: 290px;
             }
         }
 
