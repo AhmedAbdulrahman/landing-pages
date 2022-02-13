@@ -1,0 +1,58 @@
+.tab-list {
+    list-style: none;
+    margin-bottom: 26px;
+    display: flex;
+
+    li {
+        display: flex;
+        margin: 0;
+        padding: 0;
+
+        &:before {
+            content: none;
+        }
+
+        &:not(:last-of-type) {
+            margin-right: 1px;
+        }
+    }
+
+    li:first-of-type .tab-item {
+        border-bottom-left-radius: 40px;
+        border-top-left-radius: 40px;
+    }
+
+    li:last-of-type .tab-item {
+        border-bottom-right-radius: 40px;
+        border-top-right-radius: 40px;
+    }
+
+    .tab-item {
+        color: #E8FDFF;
+        background: $darkBlue;
+        border: none;
+        padding: 8px 24px;
+        cursor: pointer;
+
+        @include breakpoint-min($bp-medium) {
+            padding: 12px 30px;
+        }
+
+        // Selected tab's styles
+        &.active {
+            background: #F5F5F5;
+            color: $darkBlue;
+        }
+    }
+}
+
+.tab-content {
+    flex-direction: column;
+    align-items: center;
+    display: none;
+
+    // Shows tab content
+    &.show {
+        display: flex;
+    }
+}

@@ -1,0 +1,52 @@
+.accordion--items {
+    display: flex;
+    flex-direction: column;
+
+    .accordion--item {
+
+        &:not(:last-of-type) {
+            margin-bottom: 16px;
+        }
+
+        &.expand {
+            .accordion--details {
+                background-color: #F5F5F5;
+                color: $darkBlue;
+                text-align: left;
+            }
+            svg.expand-icon {
+                transform: rotate(45deg);
+                font-size: 1.8em;
+             }
+        }
+    }
+
+    .accordion--summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px;
+        background-color: #F5F5F5;
+        color: $darkBlue;
+        cursor: pointer;
+
+        svg.expand-icon {
+            transition: transform 250ms ease-in-out;
+        }
+
+    }
+
+    .accordion--details {
+        max-height: 0px;
+        color: transparent;
+        overflow: hidden;
+        transition: max-height 250ms ease-in-out, background-color 250ms ease-in-out;
+        text-align: left;
+    }
+
+    .accordion--details-inner {
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-bottom: 24px;
+    }
+}

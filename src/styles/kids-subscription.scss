@@ -1,0 +1,64 @@
+.kids-subscription__root {
+    padding-bottom: 28px;
+
+    @include breakpoint-min($bp-small) {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .kids-subscription__container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 50px;
+        padding-right: 50px;
+
+        @include breakpoint-max($bp-small) {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+    }
+
+    .kids-subscription-items {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+
+        @include breakpoint-min($bp-small) {
+            gap: 24px;
+        }
+    }
+
+    .kids-subscription__main {
+
+    }
+    .kids-subscription__link {
+        @media (hover:hover) {
+            &:hover {
+                .kids-subscription__media {
+                    transform: scale(1.2);
+                }
+            }
+        }
+    }
+    .kids-subscription__media-holder {
+        width: 318px;
+        height: 238px;
+        overflow: hidden;
+
+        @include breakpoint-max($bp-small) {
+            width: 170px;
+            height: 163px;
+        }
+    }
+    .kids-subscription__media {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        transition: all 0.4s ease-out;
+    }
+
+    .kids-subscription__content-text {
+        color: $darkBlue;
+    }
+}
