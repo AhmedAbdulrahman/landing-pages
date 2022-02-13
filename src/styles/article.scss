@@ -170,6 +170,9 @@
                 height: 400px;
             }
         }
+        &.background-image {
+            transform: scale(1);
+        }
 
         @supports (aspect-ratio: 1) {
             aspect-ratio: 3/2;

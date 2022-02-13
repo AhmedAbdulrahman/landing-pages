@@ -53,6 +53,12 @@
             justify-content: center;
             align-items: center;
             width: 100%;
+
+            @include breakpoint-max($bp-small) {
+                display: none;
+                visibility: hidden;
+            }
+
             & > div {
               height: 40px;
               width: 40px;
