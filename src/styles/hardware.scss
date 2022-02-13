@@ -68,7 +68,7 @@
             }
 
             .list-selectors__label {
-                height: 80px !important;
+                // height: 80px !important;
 
                 &.label-border--without {
                     border-color: none;
@@ -93,7 +93,10 @@
 
             .hardware__list-selector {
                 .list-selectors__label {
-                    height: 90px !important;
+                    // height: 90px !important;
+                }
+                button {
+                    padding: 8px 12px;
                 }
             }
 

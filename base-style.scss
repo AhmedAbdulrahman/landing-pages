@@ -4282,11 +4282,16 @@ table + .datatable__scroll-helper {
 .status-dot,
 .status-dot--large,
 .status-dot--medium,
-.status-dot--small {
+.status-dot--small,
+.status-dot--xsmall {
   display: inline-block;
   padding-left: 16px;
   position: relative;
   vertical-align: middle;
+}
+.status-dot--xsmall {
+  font-size: 10px;
+  line-height: 16px;
 }
 .status-dot--small {
   font-size: 14px;
@@ -4301,7 +4306,8 @@ table + .datatable__scroll-helper {
 }
 .status-dot--large:before,
 .status-dot--medium:before,
-.status-dot--small:before {
+.status-dot--small:before,
+.status-dot--xsmall:before {
   border-radius: 50%;
   content: "";
   height: 8px;
@@ -4311,6 +4317,9 @@ table + .datatable__scroll-helper {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   width: 8px;
+}
+.status-dot--xsmall:before {
+  top: 8px !important;
 }
 .status-dot--large:before {
   height: 16px;
