@@ -16,6 +16,27 @@
     cursor: grabbing;
 }
 
+.embla__slider-container {
+    display: flex;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    margin-left: 0px;
+
+    > div {
+        flex-shrink: 0;
+        width: calc(100% / 1);
+        margin-right: 20px;
+
+        @include breakpoint-min($bp-small) {
+            &:not(:last-of-type) {
+                margin-right: 40px;
+            }
+        }
+    }
+}
+
 .embla__button {
     outline: 0;
     cursor: pointer;

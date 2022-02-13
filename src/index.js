@@ -49,6 +49,14 @@ import ScrollProgress from './scripts/scrollProgress'
   // Sliders
   const emblaCarousels = [
     {
+      container: '.editorial__embla-slider',
+      viewport: '.embla__viewport',
+      dots: '.editorial.embla__dots',
+      options: {
+        slidesToScroll: 1,
+      },
+    },
+    {
       container: '.imagelist__slider.embla',
       viewport: '.imagelist__main__viewport',
       options: {
