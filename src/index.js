@@ -91,19 +91,30 @@ import ScrollProgress from './scripts/scrollProgress'
     {
       container: '.advantages__slider',
       viewport: '.advantages__viewport',
+      dots: '.embla__dots',
       options: {
-        dragFree: true,
         slidesToScroll: 1,
         containScroll: 'trimSnaps',
+        skipSnaps: false,
+        dragFree: false,
       },
     },
     {
       container: '.hardware__media-carousel',
       viewport: '.hardware__media-viewport',
-      dots: '.hardware__media-carousel__dots',
+      dots: '.embla__dots',
       options: {
         slidesToScroll: 1,
         skipSnaps: false,
+      },
+    },
+    {
+      container: '.discount-products__viewport',
+      viewport: '.discount-products__items',
+      prevBtn: '.embla__button--prev',
+      nextBtn: '.embla__button--next',
+      options: {
+        containScroll: 'trimSnaps',
       },
     },
   ]
@@ -112,6 +123,7 @@ import ScrollProgress from './scripts/scrollProgress'
     const wrap = document.querySelector(emblaCarousel.container)
     if (wrap !== null) {
       const viewPort = wrap.querySelector(emblaCarousel.viewport)
+
       const embla = EmblaCarousel(viewPort, emblaCarousel.options)
 
       if (emblaCarousel.prevBtn !== undefined && emblaCarousel.nextBtn !== undefined) {
@@ -159,7 +171,7 @@ import ScrollProgress from './scripts/scrollProgress'
       const percentage = calculateVerticalPercentage(rect)
 
       if (imageBackground !== null) {
-        imageBackground.style.backgroundSize = `${100 + percentage * 35}%, cover`
+        imageBackground.style.backgroundSize = `${100 + percentage * 42}%, cover`
       }
       if (imageForegroundImage !== null) {
         // Check if the media query is true
@@ -168,7 +180,7 @@ import ScrollProgress from './scripts/scrollProgress'
         }
 
         imageForegroundImage.style.opacity = `${percentage * 2.8}`
-      } else {
+      } else if (imageMedia !== null) {
         imageMedia.style.transform = `scale(${1 + percentage * 0.8})`
       }
     })
@@ -313,20 +325,47 @@ import ScrollProgress from './scripts/scrollProgress'
     i.addEventListener('click', handleOnShowMoreClick, false)
   })
 
-  document.querySelectorAll('.package__tab').forEach((tab) => {
-    tab.addEventListener('click', (event) => {
-      // Remove 'active' class style from previously selected tab
-      document.querySelector('.package__tab.active')?.classList.remove('active') // optional chaining
+  document.querySelectorAll('.tab-list').forEach((root) => {
+    const tabs = root.querySelectorAll('.tab-item')
 
-      // Add 'active' class style to selected tab
-      event.currentTarget.classList.add('active')
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', (event) => {
+        // Remove 'active' class style from previously selected tab
+        root.querySelector('.tab-item.active')?.classList.remove('active') // optional chaining
+        // Add 'active' class style to selected tab
+        event.currentTarget.classList.add('active')
 
-      // Hide previously selected tab's content
-      document.querySelector('.package__tab-content.show').classList.remove('show')
+        // Hide previously selected tab's content
+        root.nextElementSibling.querySelector('.tab-content.show')?.classList.remove('show')
+        // tab.parentElement.parentElement.nextElementSibling
+        //   .querySelector('.tab-content.show')
+        //   .classList.remove('show')
+        // Show selected tab's respective content
+        const selectedContent = event.currentTarget.dataset.content // see .dataset console.log() above
 
-      // Show selected tab's respective content
-      const selectedContent = event.currentTarget.dataset.content // see .dataset console.log() above
-      document.querySelector(selectedContent).classList.add('show')
+        console.log('selectedContent', selectedContent)
+        root.nextElementSibling.querySelector(selectedContent)?.classList.add('show')
+      })
+    })
+  })
+
+  document.querySelectorAll('.accordion--items').forEach((accordions) => {
+    const accordionItems = accordions.querySelectorAll('.accordion--item')
+
+    accordionItems.forEach((accordionItem) => {
+      const accordionSummary = accordionItem.querySelector('.accordion--summary')
+      accordionSummary.addEventListener('click', (event) => {
+        const parent = accordionSummary.parentElement
+        const summary = accordionSummary.nextElementSibling
+
+        if (!parent.classList.contains('expand')) {
+          parent.classList.add('expand')
+          summary.style.maxHeight = `${100}px`
+        } else {
+          parent.classList.remove('expand')
+          summary.style.maxHeight = '0px'
+        }
+      })
     })
   })
 })()
