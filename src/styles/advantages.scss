@@ -1,0 +1,82 @@
+.advantages__root {
+    background-color: $midBlue;
+    padding-top: 48px;
+    padding-bottom: 48px;
+
+    @include breakpoint-min($bp-medium) {
+      margin-top: 35px;
+      margin-bottom: 35px;
+    }
+
+    .advantages__viewport {
+      width: 100%;
+
+      @include breakpoint-max($bp-small) {
+        overflow: hidden;
+      }
+  }
+
+    .advantages__container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 80px;
+        padding-right: 80px;
+
+        @include breakpoint-max($bp-small) {
+          padding-left: 32px;
+          padding-right: 32px;
+        }
+
+        .advantages__heading {
+            color: $telenorLightBlue;
+            text-align: center;
+        }
+
+        .advantages__main {
+          display: flex;
+          user-select: none;
+          -webkit-touch-callout: none;
+          -khtml-user-select: none;
+          -webkit-tap-highlight-color: transparent;
+          margin-left: 0px;
+
+        }
+        .advantages__item {
+          flex-shrink: 0;
+          width: calc(100% / 1.1);
+          margin-left: 10px;
+          text-align: center;
+          padding: 10px 0;
+
+          @include breakpoint-min($bp-medium) {
+            width: calc(100% / 4);
+          }
+
+          @media (max-width: $mobile-breakpoint) {
+            padding: 24px;
+          }
+
+          h4, p {
+            color: $telenorLightBlue;
+          }
+
+          .button {
+            display: inline-flex;
+            background: #2028CD;
+            border-radius: 48px;
+            margin-top: 16px;
+            border-color: #2028CD;
+            min-width: 40px;
+            height: 40px;
+            padding: 8px 8px 8px 10px;
+
+            @media (min-width: 750px) {
+                svg path {
+                  fill: #fff;
+                }
+            }
+          }
+        }
+    }
+  }

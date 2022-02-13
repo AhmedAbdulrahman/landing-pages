@@ -89,6 +89,15 @@ import ScrollProgress from './scripts/scrollProgress'
       },
     },
     {
+      container: '.advantages__slider',
+      viewport: '.advantages__viewport',
+      options: {
+        dragFree: true,
+        slidesToScroll: 1,
+        containScroll: 'trimSnaps',
+      },
+    },
+    {
       container: '.hardware__media-carousel',
       viewport: '.hardware__media-viewport',
       dots: '.hardware__media-carousel__dots',
@@ -150,7 +159,7 @@ import ScrollProgress from './scripts/scrollProgress'
       const percentage = calculateVerticalPercentage(rect)
 
       if (imageBackground !== null) {
-        imageBackground.style.backgroundSize = `${100 + percentage * 30}%, cover`
+        imageBackground.style.backgroundSize = `${100 + percentage * 35}%, cover`
       }
       if (imageForegroundImage !== null) {
         // Check if the media query is true

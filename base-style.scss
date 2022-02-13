@@ -1995,7 +1995,7 @@ a:hover {
 .grid-row--middle,
 .grid-row-xs--middle {
   -webkit-box-align: center;
-  align-items: center;
+  align-items: center !important;
 }
 .grid-row--baseline,
 .grid-row-xs--baseline {
