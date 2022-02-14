@@ -9,11 +9,17 @@
         }
 
         &.expand {
+
+            .accordion--summary {
+              border-bottom-left-radius: 0;
+              border-bottom-right-radius: 0;
+            }
             .accordion--details {
                 background-color: #F5F5F5;
                 color: $darkBlue;
                 text-align: left;
             }
+
             svg.expand-icon {
                 transform: rotate(45deg);
                 font-size: 1.8em;
@@ -25,13 +31,23 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 24px;
+        padding: 17px;
         background-color: #F5F5F5;
         color: $darkBlue;
         cursor: pointer;
+        border-radius: 3px;
 
         svg.expand-icon {
             transition: transform 250ms ease-in-out;
+        }
+
+        h4 {
+          text-align: left;
+        }
+
+
+        @include breakpoint-min($bp-medium) {
+          padding: 24px;
         }
 
     }
@@ -45,8 +61,14 @@
     }
 
     .accordion--details-inner {
-        padding-left: 24px;
-        padding-right: 24px;
-        padding-bottom: 24px;
+        padding-left: 17px;
+        padding-right: 17px;
+        padding-bottom: 17px;
+
+        @include breakpoint-min($bp-medium) {
+          padding-left: 24px;
+          padding-right: 24px;
+          padding-bottom: 24px;
+        }
     }
 }
