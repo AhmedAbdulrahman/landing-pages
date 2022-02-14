@@ -149,6 +149,7 @@
             transition: background-color 0.2s ease-in-out,
             color 0.2s linear;
             z-index: 2;
+            overflow: hidden;
 
             @include breakpoint-min($bp-medium) {
                 padding: 16px 22px;
