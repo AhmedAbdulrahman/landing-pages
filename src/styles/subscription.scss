@@ -37,6 +37,10 @@
         img {
             object-fit: cover;
             width: 100%;
+
+            @include breakpoint-max($bp-medium) {
+                height: 100%;
+            }
         }
 
         @include breakpoint-min($bp-medium) {
@@ -44,6 +48,10 @@
             top: 0;
             right: 0;
             z-index: 0;
+        }
+
+        @include breakpoint-max($bp-medium) {
+            max-height: 250px;
         }
     }
     .subscription__content {
@@ -101,7 +109,7 @@
 
             &:hover {
                 @media (hover: hover) {
-                    transform: translateY(-10px);
+                    transform: translateY(-10px) !important;
                     box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.15);
                 }
             }
