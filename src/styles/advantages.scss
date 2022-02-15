@@ -27,6 +27,12 @@
           padding-right: 80px;
         }
 
+        @include breakpoint-min($bp-medium) {
+          .embla__dots {
+            display: none;
+          }
+        }
+
         .advantages__heading {
             color: $telenorLightBlue;
             text-align: center;
