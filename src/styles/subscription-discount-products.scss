@@ -13,10 +13,10 @@
         // padding-right: 16px;
         position: relative;
 
-        // @include breakpoint-min($bp-medium) {
-        //     padding-left: 50px;
-        //     padding-right: 50px;
-        // }
+        @include breakpoint-min($bp-medium) {
+            // padding-left: 50px;
+            // padding-right: 50px;
+        }
     }
 
     .discount-products__content {
@@ -31,10 +31,23 @@
     }
 
     .discount-products__viewport {
-
+        .embla__button--prev {
+            left: 30px
+        }
+        .embla__button--next {
+            right: 40px;
+            transform-origin: unset;
+            transform: rotate(-180deg);
+            top: 28%;
+        }
     }
 
-    .discount-products__items {}
+    .discount-products__items {
+        @include breakpoint-min($bp-medium) {
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+    }
     .discount-products__items-main.show {
         display: flex;
         flex-direction: row;

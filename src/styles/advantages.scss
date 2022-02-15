@@ -55,7 +55,7 @@
           flex-shrink: 0;
           width: calc(100% / 1);
           text-align: center;
-          padding: 10px 0;
+          padding: 16px;
 
           @include breakpoint-min($bp-medium) {
             width: calc(100% / 4);
