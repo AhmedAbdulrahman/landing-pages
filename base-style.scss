@@ -357,6 +357,9 @@ a:hover {
 .color-black {
   color: #1a1a1a;
 }
+.color-dark-blue {
+  color: #000F3C;
+}
 .color-telenor-blue {
   color: #19aaf8;
 }
@@ -2259,8 +2262,12 @@ a:hover {
   color: #00C8FF;
   text-align: center;
 }
-.button--link-dark-blue {
+.button--link-mid-blue {
   color: #2B2FC5;
+  text-align: center;
+}
+.button--link-dark-blue {
+  color: #000F3C;
   text-align: center;
 }
 .button--link:hover {
