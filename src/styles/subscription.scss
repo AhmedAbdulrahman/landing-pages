@@ -88,13 +88,11 @@
         }
         .subscription__packages {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 16px 0;
+            grid-template-columns: repeat(auto-fill, minmax(356px, 1fr));
+            gap: 24px;
             margin-top: 24px;
 
             @include breakpoint-min($bp-medium) {
-                grid-template-columns: repeat(3, 356px);
-                gap: 0 24px;
                 margin-top: 80px;
             }
         }
@@ -129,6 +127,7 @@
                 padding: 8px 24px;
                 color: white;
                 margin-top: 16px;
+                align-self: center;
 
                 &:hover {
                   cursor: pointer;
@@ -157,6 +156,7 @@
             }
             .subscription__package-features {
                 margin-top: 12px;
+                height: 100%;
 
                 .subscription__package-feature  {
                     padding-left: 15px;
@@ -214,6 +214,10 @@
 
             @include breakpoint-max($bp-medium) {
                 width: 100%;
+            }
+
+            @include breakpoint-max($bp-large) {
+                align-self: center;
             }
 
             .subscription__discount-checkbox-toggle {
