@@ -112,7 +112,7 @@
             flex-shrink: 0;
             width: calc(100% / 1);
 
-            @include breakpoint-min($bp-medium) {
+            @include breakpoint-min($bp-large) {
                 width: calc(100% / 2);
             }
 
@@ -225,6 +225,9 @@
         &:not(.has-foregroundImage) {
             @include breakpoint-max($bp-medium) {
                 min-height: 290px;
+            }
+            @include breakpoint-max($bp-large) {
+                min-height: 400px;
             }
         }
 

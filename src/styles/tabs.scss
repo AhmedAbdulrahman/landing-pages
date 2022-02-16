@@ -35,7 +35,7 @@
         cursor: pointer;
 
         @include breakpoint-min($bp-medium) {
-            padding: 12px 30px;
+            padding: 8px 30px;
         }
 
         // Selected tab's styles

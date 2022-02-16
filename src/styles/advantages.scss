@@ -3,9 +3,13 @@
     padding-top: 48px;
     padding-bottom: 48px;
 
-    @include breakpoint-min($bp-medium) {
-      margin-top: 35px;
-      margin-bottom: 35px;
+    // @include breakpoint-min($bp-medium) {
+    //   margin-top: 35px;
+    //   margin-bottom: 35px;
+    // }
+
+    @include breakpoint-max($bp-medium) {
+      overflow: hidden;
     }
 
     .advantages__viewport {
@@ -22,7 +26,7 @@
         margin-right: auto;
 
 
-        @include breakpoint-min($bp-small) {
+        @include breakpoint-min($bp-large) {
           padding-left: 80px;
           padding-right: 80px;
         }
@@ -58,6 +62,10 @@
           padding: 16px;
 
           @include breakpoint-min($bp-medium) {
+            width: calc(100% / 2.5);
+          }
+
+          @include breakpoint-min($bp-large) {
             width: calc(100% / 4);
           }
 

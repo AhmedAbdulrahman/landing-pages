@@ -236,14 +236,14 @@
                     <!-- Tabs nav -->
                     <ul class="tab-list">
                         <li>
-                            <button class="tab-item active text-medium" data-content="#one">30 GB</button>
+                            <button class="tab-item active text-size--14" data-content="#one">30 GB</button>
                             <!-- data-content="" >>> relates to event.currentTarget.dataset in JS -->
                         </li>
                         <li>
-                            <button class="tab-item text-medium" data-content="#two">60 GB</button>
+                            <button class="tab-item text-size--14" data-content="#two">60 GB</button>
                         </li>
                         <li>
-                            <button class="tab-item text-medium" data-content="#three">Fri data</button>
+                            <button class="tab-item text-size--14" data-content="#three">Fri data</button>
                         </li>
                     </ul>
 
@@ -655,23 +655,25 @@
     <section class="side-by-side__root dark">
         <div class="side-by-side__container">
         <div class="side-by-side__main dir-md--row-reverse">
-            <div class="side-by-side__content grid-row--middle text--center">
-                <div class="side-by-side__header margin-trailer--small scroll-fx" data-translate-y="50" data-offset=".05" data-opacity="0.8">
-                    <h4 class="text-size--14 text-bold text-italic">
-                        NetSikker
-                    </h4>
+            <div class="side-by-side__content grid-row--middle ">
+                <div class="grid-row-md--center grid-row--middle display--flex dir--column scroll-fx " data-translate-y="60" data-offset=".05" data-opacity="0.4">
+                    <div class="side-by-side__header margin-trailer--small" >
+                        <h4 class="text-size--14 text-bold text-italic scroll-fx" data-offset=".12" data-opacity="0.4">
+                            NetSikker
+                        </h4>
+                    </div>
+                    <h1 class="side-by-side__heading text-size--32 scroll-fx" data-offset=".12" data-opacity="0.4">
+                        Digitale krænkelser kan ramme alle. Stå ikke alene hvis det sker
+                    </h1>
+                    <button class="btn btn--default scroll-fx" data-offset=".12" data-opacity="0.4">
+                        <span class="btn__label">Læs mere om Netsikker</span>
+                        <span class="btn__icon">
+                            <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.925 6.61943C15.8773 6.49676 15.806 6.3847 15.7149 6.28966L9.71275 0.293906C9.459 0.0404273 9.08915 -0.0585676 8.74252 0.0342122C8.3959 0.126992 8.12515 0.397451 8.03227 0.74371C7.93939 1.08997 8.03849 1.45942 8.29224 1.7129L12.5938 5.99987C12.5938 5.99987 1.55284 5.99987 1.00036 5.99987C0.447875 5.99987 -2.6349e-07 6.44697 0 6.99916C2.6349e-07 7.55135 0.447875 7.99845 1.00036 7.99845C1.55284 7.99845 12.5938 7.99845 12.5938 7.99845L8.29224 12.2854C8.10286 12.473 7.99634 12.7285 7.99634 12.9949C7.99634 13.2614 8.10286 13.5168 8.29224 13.7044C8.48007 13.8936 8.73576 14 9.00249 14C9.26923 14 9.52491 13.8936 9.71275 13.7044L15.7149 7.70866C15.806 7.61362 15.8773 7.50155 15.925 7.37889C16.025 7.1356 16.025 6.86272 15.925 6.61943Z" fill="#00C8FF"/>
+                            </svg>
+                        </span>
+                    </button>
                 </div>
-                <h1 class="side-by-side__heading text-size--32 scroll-fx" data-translate-y="50" data-offset=".05" data-opacity="0.9">
-                    Digitale krænkelser kan ramme alle. Stå ikke alene hvis det sker
-                </h1>
-                <button class="btn btn--default scroll-fx" data-translate-y="50" data-offset=".05" data-opacity="1">
-                    <span class="btn__label">Læs mere om Netsikker</span>
-                    <span class="btn__icon">
-                        <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15.925 6.61943C15.8773 6.49676 15.806 6.3847 15.7149 6.28966L9.71275 0.293906C9.459 0.0404273 9.08915 -0.0585676 8.74252 0.0342122C8.3959 0.126992 8.12515 0.397451 8.03227 0.74371C7.93939 1.08997 8.03849 1.45942 8.29224 1.7129L12.5938 5.99987C12.5938 5.99987 1.55284 5.99987 1.00036 5.99987C0.447875 5.99987 -2.6349e-07 6.44697 0 6.99916C2.6349e-07 7.55135 0.447875 7.99845 1.00036 7.99845C1.55284 7.99845 12.5938 7.99845 12.5938 7.99845L8.29224 12.2854C8.10286 12.473 7.99634 12.7285 7.99634 12.9949C7.99634 13.2614 8.10286 13.5168 8.29224 13.7044C8.48007 13.8936 8.73576 14 9.00249 14C9.26923 14 9.52491 13.8936 9.71275 13.7044L15.7149 7.70866C15.806 7.61362 15.8773 7.50155 15.925 7.37889C16.025 7.1356 16.025 6.86272 15.925 6.61943Z" fill="#00C8FF"/>
-                        </svg>
-                    </span>
-                </button>
             </div>
             <div class="side-by-side__media background-image ovh" style="background-image: url(/images/banner-woman.png);"></div>
         </div>
@@ -691,14 +693,14 @@
                      <!-- Tabs nav -->
                      <ul class="tab-list margin-trailer--xlarge">
                         <li>
-                            <button class="tab-item active text-medium" data-content="#discount-products-one">30 GB</button>
+                            <button class="tab-item active text-size--14" data-content="#discount-products-one">30 GB</button>
                             <!-- data-content="" >>> relates to event.currentTarget.dataset in JS -->
                         </li>
                         <li>
-                            <button class="tab-item text-medium" data-content="#discount-products-two">60 GB</button>
+                            <button class="tab-item text-size--14" data-content="#discount-products-two">60 GB</button>
                         </li>
                         <li>
-                            <button class="tab-item text-medium" data-content="#discount-products-three">Fri data</button>
+                            <button class="tab-item text-size--14" data-content="#discount-products-three">Fri data</button>
                         </li>
                     </ul>
 
@@ -906,14 +908,14 @@
                                 <!-- Slider Buttons -->
                                 <button class="embla__button embla__button--prev" type="button">
                                     <svg class="embla__button__svg" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M40 20C40 31.0457 31.0457 40 20 40V40C8.95431 40 0 31.0457 0 20V20C0 8.95431 8.95431 0 20 0V0C31.0457 0 40 8.95431 40 20V20Z" fill="#B4FFFF"></path>
-                                    <path d="M22.0753 27.6644C22.5152 28.1119 23.2283 28.1119 23.6682 27.6644C24.1081 27.2169 24.1081 26.4913 23.6682 26.0438L17.7229 20.0066L23.6682 13.9694C23.8806 13.7552 24 13.4635 24 13.1592C24 12.8549 23.8806 12.5632 23.6682 12.3489C23.4576 12.1328 23.1708 12.0113 22.8718 12.0113C22.5727 12.0113 22.2859 12.1328 22.0753 12.3489L15.3448 19.1963C15.1325 19.4106 15.013 19.7023 15.013 20.0066C15.013 20.3109 15.1325 20.6026 15.3448 20.8169L22.0753 27.6644Z" fill="#2028CD"></path>
+                                        <path d="M40 20C40 31.0457 31.0457 40 20 40V40C8.95431 40 0 31.0457 0 20V20C0 8.95431 8.95431 0 20 0V0C31.0457 0 40 8.95431 40 20V20Z" fill="#2028CD"></path>
+                                        <path d="M22.0753 27.6644C22.5152 28.1119 23.2283 28.1119 23.6682 27.6644C24.1081 27.2169 24.1081 26.4913 23.6682 26.0438L17.7229 20.0066L23.6682 13.9694C23.8806 13.7552 24 13.4635 24 13.1592C24 12.8549 23.8806 12.5632 23.6682 12.3489C23.4576 12.1328 23.1708 12.0113 22.8718 12.0113C22.5727 12.0113 22.2859 12.1328 22.0753 12.3489L15.3448 19.1963C15.1325 19.4106 15.013 19.7023 15.013 20.0066C15.013 20.3109 15.1325 20.6026 15.3448 20.8169L22.0753 27.6644Z" fill="#ffffff"></path>
                                     </svg>
                                 </button>
                                 <button class="embla__button embla__button--next" type="button">
                                     <svg class="embla__button__svg" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M40 20C40 31.0457 31.0457 40 20 40V40C8.95431 40 0 31.0457 0 20V20C0 8.95431 8.95431 0 20 0V0C31.0457 0 40 8.95431 40 20V20Z" fill="#B4FFFF"></path>
-                                    <path d="M22.0753 27.6644C22.5152 28.1119 23.2283 28.1119 23.6682 27.6644C24.1081 27.2169 24.1081 26.4913 23.6682 26.0438L17.7229 20.0066L23.6682 13.9694C23.8806 13.7552 24 13.4635 24 13.1592C24 12.8549 23.8806 12.5632 23.6682 12.3489C23.4576 12.1328 23.1708 12.0113 22.8718 12.0113C22.5727 12.0113 22.2859 12.1328 22.0753 12.3489L15.3448 19.1963C15.1325 19.4106 15.013 19.7023 15.013 20.0066C15.013 20.3109 15.1325 20.6026 15.3448 20.8169L22.0753 27.6644Z" fill="#2028CD"></path>
+                                    <path d="M40 20C40 31.0457 31.0457 40 20 40V40C8.95431 40 0 31.0457 0 20V20C0 8.95431 8.95431 0 20 0V0C31.0457 0 40 8.95431 40 20V20Z" fill="#2028CD"></path>
+                                    <path d="M22.0753 27.6644C22.5152 28.1119 23.2283 28.1119 23.6682 27.6644C24.1081 27.2169 24.1081 26.4913 23.6682 26.0438L17.7229 20.0066L23.6682 13.9694C23.8806 13.7552 24 13.4635 24 13.1592C24 12.8549 23.8806 12.5632 23.6682 12.3489C23.4576 12.1328 23.1708 12.0113 22.8718 12.0113C22.5727 12.0113 22.2859 12.1328 22.0753 12.3489L15.3448 19.1963C15.1325 19.4106 15.013 19.7023 15.013 20.0066C15.013 20.3109 15.1325 20.6026 15.3448 20.8169L22.0753 27.6644Z" fill="#ffffff"></path>
                                     </svg>
                                 </button>
                             </div>
