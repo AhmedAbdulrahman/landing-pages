@@ -356,12 +356,15 @@
     .product-list__show-more-container {
         position: relative;
         text-align: center;
-        max-height: 200px;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         .product-list__show-more {
             position: absolute;
             left: 0;
-            background: linear-gradient(to bottom, rgba(196, 196, 196, 0) 0%, white 75%);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 75%);
             height: 100%;
             width: 100%;
             z-index: 0;
