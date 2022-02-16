@@ -69,15 +69,6 @@
             max-width: 100%;
             display: block;
             object-fit: cover;
-
-            @include breakpoint-max($bp-large) {
-                width: 100%;
-            }
-
-            @include breakpoint-max($bp-medium) {
-                max-height: 100%;
-                width: 100%;
-            }
         }
     }
 }
