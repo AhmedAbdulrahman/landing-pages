@@ -42,6 +42,11 @@
 
       }
       .benefit-list__item {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
         flex-shrink: 0;
         width: calc(100% / 1.1);
         text-align: center;
@@ -93,20 +98,35 @@
           color: #000F3C;
         }
 
-        .button {
+        .benefit-list__item-text {
+          margin-bottom: auto
+        }
+
+        .btn {
           display: inline-flex;
-          background: #2028CD;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          background: $midBlue;
+          border: none;
           border-radius: 48px;
           margin-top: 16px;
-          border-color: #2028CD;
-          min-width: 40px;
-          height: 40px;
-          padding: 8px 8px 8px 10px;
+          color: white;
 
-          @media (min-width: 750px) {
-              svg path {
+          &:hover {
+              cursor: pointer;
+          }
+
+          .btn__icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @include breakpoint-min($bp-medium) {
+              path {
                 fill: #fff;
               }
+            }
           }
         }
       }
