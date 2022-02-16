@@ -180,7 +180,12 @@ import ScrollProgress from './scripts/scrollProgress'
       const percentage = calculateVerticalPercentage(rect)
 
       if (imageBackground !== null) {
-        imageBackground.style.backgroundSize = `${100 + percentage * 42}%, cover`
+        if (mediaQuery.matches === false) {
+          console.log('here')
+          imageBackground.style.backgroundSize = `${100 + percentage * 130}%, cover`
+        } else {
+          imageBackground.style.backgroundSize = `${100 + percentage * 42}%, cover`
+        }
       }
       if (imageForegroundImage !== null) {
         // Check if the media query is true
