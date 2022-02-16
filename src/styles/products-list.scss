@@ -30,14 +30,14 @@
         width: 100%;
 
         .embla__button {
-            top: 25%;
+            top: 27%;
         }
 
         .embla__button--prev {
             left: -20px;
         }
         .embla__button--next {
-            right: -2px;
+            right: -20px;
         }
     }
 
@@ -69,7 +69,7 @@
 
     .product-list__item {
         flex-shrink: 0;
-        width: calc(100% / 2.2);
+        width: calc(100% / 1.5);
 
         &:not(:last-of-type) {
             margin-right: 15px;
