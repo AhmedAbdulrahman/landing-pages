@@ -56,32 +56,14 @@
 
                 .package__feature-circle {
                     margin-bottom: 4px;
-                }
-                .package__feature-circle-path {
-                    /* calculate using: (2 * PI * R) */
-                    stroke-dasharray: 250;
-                    // stroke-dashoffset: 250;
-                    // animation-iteration-count: infinite;
-                    // animation-name: rotate;
-                    // animation-duration: 2s;
-                    // animation-direction: alternate;
-                    // animation-timing-function: linear;
-                    // pointer-events: none;
-                    animation: rotate 3s linear forwards infinite;
+
+                    @for $i from 1 through 20 {
+                        .circle-icon.observed:nth-child(#{$i}n) {
+                            @include animation('circle-fill-transition', $duration: 1.5s, $delay: 0s);
+                        }
+                    }
                 }
             }
         }
     }
 }
-
-@keyframes firstAnimation {
-    to {
-        stroke-dashoffset: 900;
-    }
-}
-
-@keyframes rotate {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }

@@ -116,3 +116,9 @@ $bp-xlarge: 1440px;
     transform:  scale(1);
   }
 }
+
+@include keyframes(circle-fill-transition) {
+  from {
+    stroke-dashoffset: 0;
+  }
+}

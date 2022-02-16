@@ -30,13 +30,14 @@ import ScrollProgress from './scripts/scrollProgress'
   const supportContent = '.support__root .container .support__content > *'
   const sideBySideContent =
     '.side-by-side__main .side-by-side__content > * , .side-by-side__main .side-by-side__media > *'
-  const editorialImage = '.editorial__main .editorial__media > *'
+  const editorialImage = '.editorial__main .editorial__media > *.editorial__image:not(.scroll-fx)'
+  const subscriptionPackageIcons = '.package__feature .package__feature-circle .circle-icon'
 
   const hardwareImage = '.hardware__main .hardware__media__item:nth-child(-n+1)'
   const hardwareSelectors = '.hardware__main .hardware__list-selector'
   const hardwareproductText = '.hardware__payment-details > * > *'
 
-  const querySelector = `${productList}, ${imagesList}, ${benefitList}, ${supportContent}, ${productCategory}, ${sideBySideContent}, ${editorialImage}, ${hardwareImage}, ${hardwareSelectors}, ${hardwareproductText}`
+  const querySelector = `${productList}, ${imagesList}, ${benefitList}, ${supportContent}, ${productCategory}, ${sideBySideContent}, ${editorialImage}, ${hardwareImage}, ${hardwareSelectors}, ${hardwareproductText}, ${subscriptionPackageIcons}`
   const CLASS_NAME = 'observed'
 
   const editorialElements = document.querySelectorAll('.editorial__root')
@@ -45,7 +46,7 @@ import ScrollProgress from './scripts/scrollProgress'
   const articleElements = document.querySelectorAll('.article__root')
 
   const editorialElementsInView = new Set()
-  const mediaQuery = window.matchMedia('(min-width: 768px)')
+  const mediaQuery = window.matchMedia('(max-width: 700px)')
 
   // Sliders
   const emblaCarousels = [
@@ -130,6 +131,7 @@ import ScrollProgress from './scripts/scrollProgress'
 
   emblaCarousels.forEach((emblaCarousel) => {
     const wrap = [...document.querySelectorAll(emblaCarousel.container)]
+
     if (wrap.length > 0) {
       wrap.forEach((container) => {
         const viewPort = container.querySelector(emblaCarousel.viewport)
@@ -159,7 +161,7 @@ import ScrollProgress from './scripts/scrollProgress'
   })
 
   // Helpers
-  function calculateVerticalPercentage(bounds, threshold = 0, root = window) {
+  function calculateVerticalPercentage(bounds, threshold = 0.7, root = window) {
     if (!root) return 0
     const vh = (root instanceof Element ? root.clientHeight : root.innerHeight) || 0
     const offset = threshold * bounds.height
@@ -170,27 +172,26 @@ import ScrollProgress from './scripts/scrollProgress'
 
   function handleDocumentScroll() {
     editorialElementsInView.forEach((root) => {
-      const imageBackground = root.querySelector('.background-image')
-      const imageForegroundImage = root.querySelector('.has-foregroundImage > img')
-      const imageMedia = root.querySelector('img')
+      const imageBackground = root.querySelector('.background-image:not(.scroll-fx)')
+      const imageForegroundImage = root.querySelector('.has-foregroundImage > img:not(.scroll-fx)')
+      const imageMedia = root.querySelector('img:not(.scroll-fx)')
       const rect = root.getBoundingClientRect()
       const percentage = calculateVerticalPercentage(rect)
 
       if (imageBackground !== null) {
-        if (mediaQuery.matches === false) {
-          imageBackground.style.backgroundSize = `${100 + percentage * 130}%, cover`
+        if (mediaQuery.matches) {
+          imageBackground.style.backgroundSize = `${100 + percentage * 10}%, cover`
         } else {
           imageBackground.style.backgroundSize = `${100 + percentage * 42}%, cover`
         }
       }
       if (imageForegroundImage !== null) {
         // Check if the media query is true
-        if (mediaQuery.matches) {
-          imageForegroundImage.style.transform = `translateX(${50 + percentage * 250}px)`
+        if (!mediaQuery.matches) {
+          imageForegroundImage.style.transform = `translateX(${-50 + percentage * 310}px)`
+          imageForegroundImage.style.opacity = `${percentage * 2.8}`
         }
-
-        imageForegroundImage.style.opacity = `${percentage * 2.8}`
-      } else if (imageMedia !== null) {
+      } else if (imageMedia !== null && !imageMedia.classList.contains('scroll-fx')) {
         imageMedia.style.transform = `scale(${1 + percentage * 0.8})`
       }
     })
