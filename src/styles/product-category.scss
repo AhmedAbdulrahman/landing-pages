@@ -40,10 +40,14 @@
         margin-right: 10%;
 
 
+        @include breakpoint-min($bp-small) {
+            margin-right: 32%
+        }
+
         @include breakpoint-min($bp-medium) {
             justify-content: center;
             transform: translateX(20vw);
-            margin-right: 32%;
+            margin-right: 12%;
         }
 
         @include breakpoint-min($bp-large) {

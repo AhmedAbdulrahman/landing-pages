@@ -56,6 +56,15 @@
         }
 
         @include breakpoint-min($bp-medium) {
+            width: calc(100% / 2.1);
+            padding-bottom: 0;
+
+            &:not(:last-of-type) {
+                margin-right: 26px;
+            }
+        }
+
+        @include breakpoint-min($bp-large) {
             width: calc(100% / 3.1);
             padding-bottom: 0;
 

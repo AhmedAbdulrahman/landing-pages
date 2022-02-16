@@ -48,6 +48,11 @@
         padding: 10px 0;
 
         @include breakpoint-min($bp-medium) {
+          width: calc(100% / 2.2);
+          margin-left: 10px;
+        }
+
+        @include breakpoint-min($bp-large) {
           width: calc(100% / 4);
           margin-left: 10px;
         }

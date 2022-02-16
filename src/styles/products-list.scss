@@ -28,6 +28,17 @@
     .produts-list__viewport {
         overflow: hidden;
         width: 100%;
+
+        .embla__button {
+            top: 25%;
+        }
+
+        .embla__button--prev {
+            left: -20px;
+        }
+        .embla__button--next {
+            right: -2px;
+        }
     }
 
     .products-list__main {
@@ -199,7 +210,7 @@
                 margin-top: 16px;
                 min-width: 40px;
                 border-radius: 48px;
-                padding: 8px 24px;
+                padding: 24px 16px;
                 opacity: 0;
                 transition: all 0.3s ease-in;
 
@@ -238,13 +249,19 @@
                     background-color: $midBlue;
                 }
 
-                .button__icon svg {
-                    transform: translateX(-100px);
-                    opacity: 0;
-                    transition: all 0.3s ease-out;
+                .button__icon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
 
-                    path {
-                        fill: #2028CD;
+                    svg {
+                        transform: translateX(-100px);
+                        opacity: 0;
+                        transition: all 0.3s ease-out;
+
+                        path {
+                            fill: #2028CD;
+                        }
                     }
                 }
 
@@ -317,6 +334,10 @@
         }
 
         @include breakpoint-min($bp-medium) {
+            width: calc(100% / 3);
+        }
+
+        @include breakpoint-min($bp-large) {
             width: calc(100% / 4);
 
             &:hover {
