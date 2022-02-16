@@ -129,35 +129,32 @@ import ScrollProgress from './scripts/scrollProgress'
   ]
 
   emblaCarousels.forEach((emblaCarousel) => {
-    const wrap = document.querySelector(emblaCarousel.container)
-    if (wrap !== null) {
-      const viewPort = wrap.querySelector(emblaCarousel.viewport)
+    const wrap = [...document.querySelectorAll(emblaCarousel.container)]
+    if (wrap.length > 0) {
+      wrap.forEach((container) => {
+        const viewPort = container.querySelector(emblaCarousel.viewport)
+        const embla = EmblaCarousel(viewPort, emblaCarousel.options)
 
-      const embla = EmblaCarousel(viewPort, emblaCarousel.options)
-
-      if (emblaCarousel.prevBtn !== undefined && emblaCarousel.nextBtn !== undefined) {
-        const prevBtn = wrap.querySelector(emblaCarousel.prevBtn)
-        const nextBtn = wrap.querySelector(emblaCarousel.nextBtn)
-
-        if (prevBtn !== null || nextBtn !== null) {
-          setupPrevNextBtns(prevBtn, nextBtn, embla)
+        if (emblaCarousel.prevBtn !== undefined && emblaCarousel.nextBtn !== undefined) {
+          const prevBtn = container.querySelector(emblaCarousel.prevBtn)
+          const nextBtn = container.querySelector(emblaCarousel.nextBtn)
+          if (prevBtn !== null || nextBtn !== null) {
+            setupPrevNextBtns(prevBtn, nextBtn, embla)
+          }
         }
-      }
 
-      if (emblaCarousel.dots !== undefined) {
-        const dots = document.querySelector(emblaCarousel.dots)
+        if (emblaCarousel.dots !== undefined) {
+          const dots = document.querySelector(emblaCarousel.dots)
+          if (dots !== null) {
+            const dotsArray = generateDotBtns(dots, embla)
+            const setSelectedDotBtn = selectDotBtn(dotsArray, embla)
 
-        if (dots !== null) {
-          const dotsArray = generateDotBtns(dots, embla)
-          console.log('dotsArray', dotsArray)
-          const setSelectedDotBtn = selectDotBtn(dotsArray, embla)
-
-          setupDotBtns(dotsArray, embla)
-
-          embla.on('select', setSelectedDotBtn)
-          embla.on('init', setSelectedDotBtn)
+            setupDotBtns(dotsArray, embla)
+            embla.on('select', setSelectedDotBtn)
+            embla.on('init', setSelectedDotBtn)
+          }
         }
-      }
+      })
     }
   })
 
@@ -181,7 +178,6 @@ import ScrollProgress from './scripts/scrollProgress'
 
       if (imageBackground !== null) {
         if (mediaQuery.matches === false) {
-          console.log('here')
           imageBackground.style.backgroundSize = `${100 + percentage * 130}%, cover`
         } else {
           imageBackground.style.backgroundSize = `${100 + percentage * 42}%, cover`
