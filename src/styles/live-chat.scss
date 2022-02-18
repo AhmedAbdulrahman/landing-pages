@@ -17,8 +17,6 @@
         margin-left: 0;
         margin-right: 0;
         margin-bottom: -32px;
-        background-position: 50% 50% !important;
-        background-size: cover !important;
         width: 100vw;
 
         @include breakpoint-min($bp-large) {

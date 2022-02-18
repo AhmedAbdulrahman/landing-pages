@@ -8,7 +8,7 @@
     //   margin-bottom: 35px;
     // }
 
-    @include breakpoint-max($bp-medium) {
+    @include breakpoint-max($bp-large) {
       overflow: hidden;
     }
 
@@ -31,7 +31,7 @@
           padding-right: 80px;
         }
 
-        @include breakpoint-min($bp-medium) {
+        @include breakpoint-min($bp-large) {
           .embla__dots {
             display: none;
           }

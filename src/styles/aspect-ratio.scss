@@ -1,0 +1,24 @@
+.aspect--ratio {
+    display: block;
+    position: relative;
+    width: 100%;
+    &:before {
+        content: "";
+        display: block;
+        padding-bottom: calc(100% / (2/1));
+    }
+    & > :not(style) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom:0;
+        width: 100%;
+        height: 100%;
+
+    }
+    & > video,
+    & > picture,
+    & > img {
+        object-fit: cover;
+    }
+}

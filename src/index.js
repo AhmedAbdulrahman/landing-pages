@@ -3,6 +3,7 @@ import EmblaCarousel from 'embla-carousel'
 import { setupPrevNextBtns } from './scripts/prevAndNextButtons'
 import { setupDotBtns, generateDotBtns, selectDotBtn } from './scripts/dotButtons'
 import ScrollProgress from './scripts/scrollProgress'
+
 // const Splitting = require("splitting");
 ;(function () {
   // Fall back for IE
@@ -42,12 +43,21 @@ import ScrollProgress from './scripts/scrollProgress'
 
   const editorialElements = document.querySelectorAll('.editorial__root')
   const sideBySideElements = document.querySelectorAll('.side-by-side__root')
+  const brandHeroElements = document.querySelectorAll('.brand-hero__root')
+  const liveChatElements = document.querySelectorAll('.live-chat__root')
   const subscriptionElements = document.querySelectorAll('.subscription__root')
-  const articleElements = document.querySelectorAll('.article__root')
 
   const editorialElementsInView = new Set()
-  const mediaQuery = window.matchMedia('(max-width: 700px)')
+  const sideBySideElementsInView = new Set()
+  const brandHeroElementsInView = new Set()
+  const liveChatElementsInView = new Set()
+  const subscriptionElementsInView = new Set()
 
+  const mediaQuery = window.matchMedia('(max-width: 1024px)')
+  const config = {
+    rootMargin: '50px 20px 75px 30px',
+    threshold: [0, 0.25, 0.75, 1],
+  }
   // Sliders
   const emblaCarousels = [
     {
@@ -170,29 +180,73 @@ import ScrollProgress from './scripts/scrollProgress'
     return 1 - Math.max(0, Math.min(1, percentage))
   }
 
-  function handleDocumentScroll() {
+  function handleEditorialScroll() {
     editorialElementsInView.forEach((root) => {
-      const imageBackground = root.querySelector('.background-image:not(.scroll-fx)')
-      const imageForegroundImage = root.querySelector('.has-foregroundImage > img:not(.scroll-fx)')
-      const imageMedia = root.querySelector('img:not(.scroll-fx)')
       const rect = root.getBoundingClientRect()
+      const media = root.querySelector(`.editorial__image:not(.scroll-fx)`)
       const percentage = calculateVerticalPercentage(rect)
 
-      if (imageBackground !== null) {
-        if (mediaQuery.matches) {
-          imageBackground.style.backgroundSize = `${100 + percentage * 10}%, cover`
+      if (media !== null) {
+        media.style.transform = `scale(${1 + percentage * 0.2})`
+      }
+    })
+  }
+
+  function handleSideBySideScroll() {
+    sideBySideElementsInView.forEach((root) => {
+      const rect = root.getBoundingClientRect()
+      const media = root.querySelector(`.side-by-side__image:not(.scroll-fx)`)
+      const percentage = calculateVerticalPercentage(rect)
+
+      if (media !== null) {
+        if (media.classList.contains('foreground-image')) {
+          if (!mediaQuery.matches && rect?.y > 250) {
+            media.style.transform = `translate(${-50 + percentage * 90}%, -50%)`
+          }
+
+          if (mediaQuery.matches && rect?.y > 10) {
+            media.style.transform = `translate(-50%, ${-5 - percentage * 70}%)`
+          }
+          media.style.opacity = `${percentage * 3}`
         } else {
-          imageBackground.style.backgroundSize = `${100 + percentage * 42}%, cover`
+          media.style.transform = `scale(${1 + percentage * 0.2})`
         }
       }
-      if (imageForegroundImage !== null) {
-        // Check if the media query is true
-        if (!mediaQuery.matches) {
-          imageForegroundImage.style.transform = `translateX(${-50 + percentage * 310}px)`
-          imageForegroundImage.style.opacity = `${percentage * 2.8}`
-        }
-      } else if (imageMedia !== null && !imageMedia.classList.contains('scroll-fx')) {
-        imageMedia.style.transform = `scale(${1 + percentage * 0.8})`
+    })
+  }
+
+  function handleBrandHeroScroll() {
+    brandHeroElementsInView.forEach((root) => {
+      const rect = root.getBoundingClientRect()
+      const media = root.querySelector(`.brand-hero__image:not(.scroll-fx)`)
+      const percentage = calculateVerticalPercentage(rect)
+
+      if (media !== null) {
+        media.style.transform = `scale(${1 + percentage * 0.2})`
+      }
+    })
+  }
+
+  function liveChatHeroScroll() {
+    liveChatElementsInView.forEach((root) => {
+      const rect = root.getBoundingClientRect()
+      const media = root.querySelector(`.live-chat__image:not(.scroll-fx)`)
+      const percentage = calculateVerticalPercentage(rect)
+
+      if (media !== null) {
+        media.style.transform = `scale(${1 + percentage * 0.2})`
+      }
+    })
+  }
+
+  function handleSubscriptionScroll() {
+    subscriptionElementsInView.forEach((root) => {
+      const rect = root.getBoundingClientRect()
+      const media = root.querySelector(`.subscription__image:not(.scroll-fx)`)
+      const percentage = calculateVerticalPercentage(rect, 0.5, root)
+
+      if (media !== null) {
+        media.style.transform = `scale(${1 + percentage * 0.5})`
       }
     })
   }
@@ -243,95 +297,111 @@ import ScrollProgress from './scripts/scrollProgress'
     })
 
     if (editorialElementsInView.size > 0) {
-      document.addEventListener('scroll', handleDocumentScroll, { passive: true })
-      handleDocumentScroll()
+      document.addEventListener('scroll', handleEditorialScroll, { passive: true })
+      handleEditorialScroll()
     } else {
-      document.removeEventListener('scroll', handleDocumentScroll, { passive: true })
+      document.removeEventListener('scroll', handleEditorialScroll, { passive: true })
     }
   }
 
-  function brandHeroScrollHandler() {
-    const brandHeroSection = document.querySelector('.brand-hero__root')
-    const brandHeroImage = document.querySelector('.brand-hero__image')
+  function handleSideBySideIntersects(entries) {
+    entries.forEach((entry) => {
+      if (entry.intersectionRatio > 0) {
+        sideBySideElementsInView.add(entry.target)
+      } else {
+        sideBySideElementsInView.delete(entry.target)
+      }
+    })
 
-    if (brandHeroSection !== null) {
-      requestAnimationFrame(() => {
-        const percentage = calculateVerticalPercentage(
-          brandHeroSection.getBoundingClientRect(),
-          0,
-          brandHeroSection,
-        )
-
-        brandHeroImage.style.transform = `scale(${1 + percentage * 0.3})`
-      })
+    if (sideBySideElementsInView.size > 0) {
+      document.addEventListener('scroll', handleSideBySideScroll, { passive: true })
+      handleSideBySideScroll()
+    } else {
+      document.removeEventListener('scroll', handleSideBySideScroll, { passive: true })
     }
   }
 
-  function liveChatScrollHandler() {
-    const liveChatSection = document.querySelector('.live-chat__root')
-    const liveChatImage = document.querySelector('.live-chat__image')
+  function handleBrandHeroIntersects(entries) {
+    entries.forEach((entry) => {
+      if (entry.intersectionRatio > 0) {
+        brandHeroElementsInView.add(entry.target)
+      } else {
+        brandHeroElementsInView.delete(entry.target)
+      }
+    })
 
-    if (liveChatSection !== null) {
-      requestAnimationFrame(() => {
-        const percentage = calculateVerticalPercentage(
-          liveChatSection.getBoundingClientRect(),
-          0,
-          window,
-        )
-
-        liveChatImage.style.transform = `scale(${1 + percentage * 0.3})`
-      })
+    if (brandHeroElementsInView.size > 0) {
+      console.log('brandHeroElementsInView')
+      document.addEventListener('scroll', handleBrandHeroScroll, { passive: true })
+      handleBrandHeroScroll()
+    } else {
+      document.removeEventListener('scroll', handleBrandHeroScroll, { passive: true })
     }
   }
 
-  const liveChatObserver = new IntersectionObserver((entries) => {
-    const anyInteriesIntersection = entries.some((entry) => entry.isIntersecting)
+  function handleLiveChatIntersects(entries) {
+    entries.forEach((entry) => {
+      if (entry.intersectionRatio > 0) {
+        liveChatElementsInView.add(entry.target)
+      } else {
+        liveChatElementsInView.delete(entry.target)
+      }
+    })
 
-    if (anyInteriesIntersection) {
-      document.addEventListener('scroll', liveChatScrollHandler, true)
+    if (liveChatElementsInView.size > 0) {
+      document.addEventListener('scroll', liveChatHeroScroll, { passive: true })
+      liveChatHeroScroll()
     } else {
-      document.removeEventListener('scroll', liveChatScrollHandler, true)
+      document.removeEventListener('scroll', liveChatHeroScroll, { passive: true })
     }
-  })
+  }
 
-  const imagesObserver = new IntersectionObserver((entries) => {
-    const anyInteriesIntersection = entries.some((entry) => entry.isIntersecting)
+  function handleSubscriptionIntersects(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && entry.intersectionRatio > 0) {
+        subscriptionElementsInView.add(entry.target)
+      } else {
+        subscriptionElementsInView.delete(entry.target)
+      }
+    })
 
-    if (anyInteriesIntersection) {
-      document.addEventListener('scroll', brandHeroScrollHandler, true)
+    if (subscriptionElementsInView.size > 0) {
+      document.addEventListener('scroll', handleSubscriptionScroll, { passive: true })
+      handleSubscriptionScroll()
     } else {
-      document.removeEventListener('scroll', brandHeroScrollHandler, true)
+      document.removeEventListener('scroll', handleSubscriptionScroll, { passive: true })
     }
-  })
+  }
 
   // Add Default intersection observer
   document.querySelectorAll(querySelector).forEach((i) => {
     defaultObserver.observe(i)
   })
 
-  document.querySelectorAll('.brand-hero__image').forEach((i) => {
-    imagesObserver.observe(i)
-  })
-
-  document.querySelectorAll('.live-chat__root').forEach((i) => {
-    liveChatObserver.observe(i)
-  })
-
-  const editorialObserver = new IntersectionObserver(handleEditorialIntersects)
+  const editorialObserver = new IntersectionObserver(handleEditorialIntersects, config)
+  const sideBySideObserver = new IntersectionObserver(handleSideBySideIntersects, config)
+  const brandHeroObserver = new IntersectionObserver(handleBrandHeroIntersects, config)
+  const liveChatObserver = new IntersectionObserver(handleLiveChatIntersects, config)
+  const subscriptionObserver = new IntersectionObserver(handleSubscriptionIntersects, config)
 
   editorialElements.forEach((el) => {
     editorialObserver.observe(el)
   })
 
   sideBySideElements.forEach((el) => {
-    editorialObserver.observe(el)
+    sideBySideObserver.observe(el)
+  })
+
+  brandHeroElements.forEach((el) => {
+    brandHeroObserver.observe(el)
+  })
+
+  liveChatElements.forEach((el) => {
+    liveChatObserver.observe(el)
   })
 
   subscriptionElements.forEach((el) => {
-    editorialObserver.observe(el)
-  })
-  articleElements.forEach((el) => {
-    editorialObserver.observe(el)
+    subscriptionObserver.observe(el)
   })
 
   // Show More

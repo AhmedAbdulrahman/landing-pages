@@ -17,7 +17,7 @@
    </head>
    <body>
     <!-- USED of testing purpose only -->
-    <div class="desktop-display--none" style="padding: 100px 30px; background-color: #2028CD; color: white; text-align: center;">
+    <div  style="padding: 100px 30px; background-color: #2028CD; color: white; text-align: center;">
         Header Content
     </div>
 
@@ -553,7 +553,7 @@
     <section class="side-by-side__root dark">
         <div class="side-by-side__container">
         <div class="side-by-side__main dir-md--row-reverse">
-            <div class="side-by-side__content grid-row--middle ">
+            <div class="side-by-side__content col-xs-12 col-md-6 grid-row--middle ">
                 <div class="grid-row-md--center grid-row--middle display--flex dir--column scroll-fx " data-translate-y="60" data-offset=".05" data-opacity="0.4">
                     <div class="side-by-side__header margin-trailer--small" >
                         <h4 class="text-size--14 text-bold text-italic scroll-fx" data-offset=".12" data-opacity="0.4">
@@ -573,7 +573,10 @@
                     </button>
                 </div>
             </div>
-            <div class="side-by-side__media background-image ovh" style="background-image: url(/images/banner-woman.png);"></div>
+
+            <div class="side-by-side__media aspect--ratio ovh col-xs-12 col-md-6">
+                <img src="images/banner-woman.png" alt="" class="side-by-side__image">
+             </div>
         </div>
         </div>
     </section>

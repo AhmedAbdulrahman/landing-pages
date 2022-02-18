@@ -36,9 +36,6 @@
         }
         .embla__button--next {
             right: 40px;
-            transform-origin: unset;
-            transform: rotate(-180deg);
-            top: 28%;
         }
     }
 
@@ -55,8 +52,11 @@
         -webkit-touch-callout: none;
         -khtml-user-select: none;
         -webkit-tap-highlight-color: transparent;
-        margin-left: -14px;
         will-change: transform;
+
+        @include breakpoint-min($bp-medium) {
+            margin-left: -14px;
+        }
     }
 
     .discount-product__item {
@@ -71,6 +71,10 @@
 
         @include breakpoint-max($bp-medium) {
             width: calc(100% / 2)
+        }
+
+        @include breakpoint-max($bp-large) {
+            width: calc(100% / 2.3)
         }
 
         &:hover {

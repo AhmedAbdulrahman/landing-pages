@@ -1,7 +1,7 @@
 .imagelist-root {
     padding-top: 85px;
 
-    @include breakpoint-max($bp-small) {
+    @include breakpoint-max($bp-large) {
         overflow: hidden;
     }
 
@@ -9,8 +9,8 @@
         width: 100%;
         margin-left: auto;
         margin-right: auto;
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-left: 20px;
+        padding-right: 20px;
         position: relative;
 
         @include breakpoint-min($bp-medium) {

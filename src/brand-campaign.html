@@ -29,7 +29,7 @@
             </div>
 
             <div class="brand-hero__image-container margin-trailer--xlarge">
-               <div class="brand-hero__image-loader">
+               <div class="brand-hero__image-loader aspect--ratio">
                   <img src="images/brand-campaign-hero.png" class="brand-hero__image"  alt="Vores WiFi 6-router er Bedst i test"/>
                </div>
                <div class="down-arrow">
@@ -62,7 +62,7 @@
        <section class="side-by-side__root">
          <div class="side-by-side__container">
             <div class="side-by-side__main dir--row-reverse">
-               <div class="side-by-side__content">
+               <div class="side-by-side__content col-xs-12 col-md-6">
                  <div class="side-by-side__inner-content scroll-fx" data-translate-y="200" data-distance="0.8" data-offset=".12" data-opacity="0.4">
                      <div class="side-by-side__header margin-trailer--small">
                         <svg class="side-by-side__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -72,7 +72,7 @@
                            SkærmSkift
                         </h4>
                      </div>
-                     <h1 class="side-by-side__heading text-size--32 desktop-margin-trailer--small">
+                     <h1 class="side-by-side__heading text-size--32 margin-trailer--small">
                         Ny skærm for en brøkdel af prisen og lånetelefon imens
                      </h1>
                      <p class="text-size--16 margin-trailer--large">
@@ -80,7 +80,7 @@
                      </p>
                  </div>
 
-                  <button class="btn btn--primary scroll-fx" data-translate-y="200" data-distance="0.5" data-offset=".05" data-opacity="0.4">
+                  <button class="btn btn--primary scroll-fx" data-translate-y="200" data-offset=".08" data-opacity="0.4">
                      <span class="btn__label">Mere om Skærmskift</span>
                      <span class="btn__icon">
                            <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -89,12 +89,8 @@
                         </span>
                   </button>
                </div>
-               <!--
-                  Upload two images in admin:
-                  - BackgroundImage
-                  - ForegroundImage (optional) -->
-               <div class="side-by-side__media has-foregroundImage" style="background-image: url(/images/media-placeholder.png);">
-                  <img src="images/broken-phone.png" alt="" class="side-by-side__image">
+               <div class="side-by-side__media aspect--ratio col-xs-12 col-md-6" style="background-image: url(/images/media-placeholder.png);">
+                  <img src="images/broken-phone.png" alt="" class="side-by-side__image foreground-image">
                </div>
             </div>
          </div>
@@ -105,10 +101,10 @@
       <section class="editorial__root light">
          <div class="editorial__container">
             <div class="editorial__main dir--row-reverse">
-               <div class="editorial__media col-xs-12 col-md-9 margin-trailer--xsmall">
-                  <img src="images/samsung-editorial.png" alt="" class="editorial__image scroll-fx" data-distance=".5" data-translate-y="500" data-offset=".32" data-opacity="0.4">
+               <div class="editorial__media aspect--ratio col-xs-12 col-md-8 margin-trailer--xsmall">
+                  <img src="images/samsung-editorial.png" alt="" class="editorial__image scroll-fx" data-distance=".5" data-translate-y="300" data-offset=".08" data-opacity="0.4">
                </div>
-               <div class="editorial__content col-xs-12 col-md-3">
+               <div class="editorial__content col-xs-12 col-md-4">
                   <h1 class="editorial__heading text-size--24 margin-trailer--xxsmall">
                      Samsung Galaxy S21 5G: A smartphone that surpasses imagination
                   </h1>
@@ -173,7 +169,7 @@
                      Er du klar til at se verden fra et nyt perspektiv? Samsung Galaxy S21 5G forbedrer ikke kun dine forudsætninger for at skabe det, du har lyst til, men ændrer spillereglerne for den gode mobiloplevelse. Med det superskarpe tredobbelte kamera er Galaxy S21 som skabt til at gøre hver dag til noget helt særligt og alle de små øjeblikke til store oplevelser.
                   </p>
                </div>
-               <div class="editorial__media ovh col-xs-12 col-md-6 margin-trailer--xsmall">
+               <div class="editorial__media aspect--ratio ovh col-xs-12 col-md-6">
                   <img src="images/editorial/editorial-5.png" alt="" class="editorial__image">
                </div>
             </div>
@@ -185,7 +181,7 @@
        <section class="side-by-side__root light">
          <div class="side-by-side__container">
             <div class="side-by-side__main">
-               <div class="side-by-side__content">
+               <div class="side-by-side__content col-xs-12 col-md-6">
                   <div class="side-by-side__header margin-trailer--small" >
                      <svg class="side-by-side__icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M24.8843 3.53311C24.7113 3.20543 24.3711 3 24 3C23.6289 3 23.2887 3.20543 23.1157 3.53311C23.1143 3.53561 23.1105 3.54234 23.1042 3.55304C23.0906 3.57608 23.0653 3.61751 23.0266 3.67477C22.9493 3.78928 22.8187 3.96724 22.6224 4.18827C22.2306 4.62948 21.5733 5.24656 20.548 5.8745C18.5033 7.12676 14.9407 8.45455 9 8.45455C8.44772 8.45455 8 8.90226 8 9.45455V26.7512C8 30.6501 10.5205 34.4897 13.5874 37.6205C16.6874 40.7852 20.5313 43.4163 23.5605 44.8983C23.8378 45.0339 24.1622 45.0339 24.4395 44.8983C27.4687 43.4163 31.3126 40.7852 34.4126 37.6205C37.4794 34.4897 40 30.6501 40 26.7512V9.45455C40 8.90226 39.5523 8.45455 39 8.45455C33.0593 8.45455 29.4967 7.12675 27.452 5.8745C26.4267 5.24656 25.7694 4.62948 25.3776 4.18827C25.1813 3.96724 25.0507 3.78928 24.9734 3.67478C24.9347 3.61751 24.9094 3.57608 24.8958 3.55304C24.8895 3.54234 24.8857 3.53561 24.8843 3.53311ZM24 5.64626C23.4814 6.20679 22.7061 6.89808 21.5926 7.58005C19.3153 8.97475 15.6711 10.3019 10 10.4423V26.7512C10 29.8405 12.0485 33.1915 15.0162 36.221C17.8012 39.0641 21.2359 41.4598 24 42.8812C26.7641 41.4598 30.1988 39.0641 32.9838 36.221C35.9515 33.1915 38 29.8405 38 26.7512V10.4423C32.3289 10.3019 28.6847 8.97475 26.4074 7.58005C25.2939 6.89808 24.5186 6.20679 24 5.64626Z" fill="#000F3C"/>
@@ -212,7 +208,9 @@
                         </span>
                   </button>
                </div>
-               <div class="side-by-side__media background-image ovh" style="background-image: url(/images/kids-sidebyside.png);"></div>
+               <div class="side-by-side__media aspect--ratio ovh col-xs-12 col-md-6">
+                  <img src="images/kids-sidebyside.png" alt="" class="side-by-side__image">
+               </div>
             </div>
          </div>
        </section>
@@ -222,13 +220,13 @@
       <section class="editorial__root light">
          <div class="editorial__container">
             <div class="editorial__main dir--row-reverse">
-               <div class="editorial__media col-xs-12 col-md-9">
-                  <img src="images/editorial/editorial-1.png" alt="" class="editorial__image scroll-fx" data-distance=".2" data-translate-y="300" data-offset=".20" data-opacity="0.3">
+               <div class="editorial__media col-xs-12 col-md-8 margin-trailer--small">
+                  <img src="images/editorial/editorial-4.png" alt="" class="editorial__image scroll-fx" data-distance=".2" data-translate-y="300" data-offset=".20" data-opacity="0.3">
                   <img src="images/editorial/editorial-2.png" alt="" class="editorial__image scroll-fx" data-distance=".4" data-translate-y="300" data-offset=".22" data-opacity="0.2">
                   <img src="images/editorial/editorial-3.png" alt="" class="editorial__image scroll-fx" data-distance=".5" data-translate-y="300" data-offset=".25" data-opacity="0.1">
-                  <img src="images/editorial/editorial-4.png" alt="" class="editorial__image scroll-fx" data-distance=".5" data-translate-y="300" data-offset=".27" data-opacity="0.0">
+                  <img src="images/editorial/editorial-1.png" alt="" class="editorial__image scroll-fx" data-distance=".5" data-translate-y="300" data-offset=".27" data-opacity="0.0">
                </div>
-               <div class="editorial__content col-xs-12 col-md-3">
+               <div class="editorial__content col-xs-12 col-md-4">
                   <h1 class="editorial__heading text-size--24 desktop-margin-trailer--xxsmall">
                      Two new sizes. For more screen than ever.
                   </h1>
@@ -255,7 +253,7 @@
                         <div class="rel text--center desktop-margin-trailer--small img-background">
                            <div class="product-list__item-badge-holder top-right">
                               <div class="full-width">
-                                 <div class="product-list__item-badge text-bold color-white">
+                                 <div class="product-list__item-badge text-bold color-white margin-whole--xsmall text-size--16">
                                     5G
                                  </div>
                               </div>
@@ -334,9 +332,9 @@
                            <p class="color-dark-gray text-size--12 margin-trailer--small">
                               Minimum price: 9.794,-
                            </p>
-                           <button class="button button--nohover button--primary">
-                              <span class="button__label">Design your own</span>
-                              <span class="button__icon">
+                           <button class="btn btn--nohover btn--primary desktop-padding-whole--xxsmall desktop-padding-toleft--small desktop-padding-toright--small padding-toleft padding-toright padding-leader--xxsmall padding-trailer--xxsmall">
+                              <span class="btn__label">Design your own</span>
+                              <span class="btn__icon">
                                     <svg viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                        <path d="M15.925 6.61943C15.8773 6.49676 15.806 6.3847 15.7149 6.28966L9.71275 0.293906C9.459 0.0404273 9.08915 -0.0585676 8.74252 0.0342122C8.3959 0.126992 8.12515 0.397451 8.03227 0.74371C7.93939 1.08997 8.03849 1.45942 8.29224 1.7129L12.5938 5.99987C12.5938 5.99987 1.55284 5.99987 1.00036 5.99987C0.447875 5.99987 -2.6349e-07 6.44697 0 6.99916C2.6349e-07 7.55135 0.447875 7.99845 1.00036 7.99845C1.55284 7.99845 12.5938 7.99845 12.5938 7.99845L8.29224 12.2854C8.10286 12.473 7.99634 12.7285 7.99634 12.9949C7.99634 13.2614 8.10286 13.5168 8.29224 13.7044C8.48007 13.8936 8.73576 14 9.00249 14C9.26923 14 9.52491 13.8936 9.71275 13.7044L15.7149 7.70866C15.806 7.61362 15.8773 7.50155 15.925 7.37889C16.025 7.1356 16.025 6.86272 15.925 6.61943Z" fill="#00C8FF"/>
                                     </svg>
@@ -396,7 +394,7 @@
                         <div class="rel text--center desktop-margin-trailer--small img-background">
                            <div class="product-list__item-badge-holder top-right">
                               <div class="full-width">
-                                 <div class="product-list__item-badge text-bold color-white">
+                                 <div class="product-list__item-badge text-bold color-white margin-whole--xsmall text-size--16">
                                     5G
                                  </div>
                               </div>
@@ -475,9 +473,9 @@
                            <p class="color-dark-gray text-size--12 margin-trailer--small">
                               Minimum price: 9.794,-
                            </p>
-                           <button class="button button--nohover button--primary">
-                              <span class="button__label">Design your own</span>
-                              <span class="button__icon">
+                           <button class="btn btn--nohover btn--primary desktop-padding-whole--xxsmall desktop-padding-toleft--small desktop-padding-toright--small padding-toleft padding-toright padding-leader--xxsmall padding-trailer--xxsmall">
+                              <span class="btn__label">Design your own</span>
+                              <span class="btn__icon">
                                  <svg  viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M15.925 6.61943C15.8773 6.49676 15.806 6.3847 15.7149 6.28966L9.71275 0.293906C9.459 0.0404273 9.08915 -0.0585676 8.74252 0.0342122C8.3959 0.126992 8.12515 0.397451 8.03227 0.74371C7.93939 1.08997 8.03849 1.45942 8.29224 1.7129L12.5938 5.99987C12.5938 5.99987 1.55284 5.99987 1.00036 5.99987C0.447875 5.99987 -2.6349e-07 6.44697 0 6.99916C2.6349e-07 7.55135 0.447875 7.99845 1.00036 7.99845C1.55284 7.99845 12.5938 7.99845 12.5938 7.99845L8.29224 12.2854C8.10286 12.473 7.99634 12.7285 7.99634 12.9949C7.99634 13.2614 8.10286 13.5168 8.29224 13.7044C8.48007 13.8936 8.73576 14 9.00249 14C9.26923 14 9.52491 13.8936 9.71275 13.7044L15.7149 7.70866C15.806 7.61362 15.8773 7.50155 15.925 7.37889C16.025 7.1356 16.025 6.86272 15.925 6.61943Z" fill="#00C8FF"/>
                                  </svg>
@@ -537,7 +535,7 @@
                         <div class="rel text--center desktop-margin-trailer--small img-background">
                            <div class="product-list__item-badge-holder top-right">
                               <div class="full-width">
-                                 <div class="product-list__item-badge text-bold color-white">
+                                 <div class="product-list__item-badge text-bold color-white margin-whole--xsmall text-size--16">
                                     5G
                                  </div>
                               </div>
@@ -616,9 +614,9 @@
                            <p class="color-dark-gray text-size--12 margin-trailer--small">
                               Minimum price: 9.794,-
                            </p>
-                           <button class="button button--nohover button--primary">
-                              <span class="button__label">Design your own</span>
-                              <span class="button__icon">
+                           <button class="btn btn--nohover btn--primary desktop-padding-whole--xxsmall desktop-padding-toleft--small desktop-padding-toright--small padding-toleft padding-toright padding-leader--xxsmall padding-trailer--xxsmall">
+                              <span class="btn__label">Design your own</span>
+                              <span class="btn__icon">
                                  <svg viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M15.925 6.61943C15.8773 6.49676 15.806 6.3847 15.7149 6.28966L9.71275 0.293906C9.459 0.0404273 9.08915 -0.0585676 8.74252 0.0342122C8.3959 0.126992 8.12515 0.397451 8.03227 0.74371C7.93939 1.08997 8.03849 1.45942 8.29224 1.7129L12.5938 5.99987C12.5938 5.99987 1.55284 5.99987 1.00036 5.99987C0.447875 5.99987 -2.6349e-07 6.44697 0 6.99916C2.6349e-07 7.55135 0.447875 7.99845 1.00036 7.99845C1.55284 7.99845 12.5938 7.99845 12.5938 7.99845L8.29224 12.2854C8.10286 12.473 7.99634 12.7285 7.99634 12.9949C7.99634 13.2614 8.10286 13.5168 8.29224 13.7044C8.48007 13.8936 8.73576 14 9.00249 14C9.26923 14 9.52491 13.8936 9.71275 13.7044L15.7149 7.70866C15.806 7.61362 15.8773 7.50155 15.925 7.37889C16.025 7.1356 16.025 6.86272 15.925 6.61943Z" fill="#00C8FF"/>
                                  </svg>
@@ -732,7 +730,7 @@
        <section class="side-by-side__root dark">
          <div class="side-by-side__container">
             <div class="side-by-side__main">
-               <div class="side-by-side__content">
+               <div class="side-by-side__content col-xs-12 col-md-6">
                   <div class="side-by-side__inner-content scroll-fx" data-translate-y="200" data-distance=".8" data-offset=".26" data-opacity="0">
                      <div class="side-by-side__header margin-trailer--small">
                         <svg class="side-by-side__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -758,7 +756,9 @@
                      </button>
                   </div>
                </div>
-               <div class="side-by-side__media background-image" style="background-image: url(/images/livechat-2.png);"></div>
+                <div class="side-by-side__media aspect--ratio ovh col-xs-12 col-md-6">
+                  <img src="images/livechat-2.png" alt="" class="side-by-side__image">
+               </div>
             </div>
          </div>
        </section>

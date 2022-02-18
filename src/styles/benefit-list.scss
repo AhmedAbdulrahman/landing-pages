@@ -2,6 +2,10 @@
   padding-top: 48px;
   padding-bottom: 48px;
 
+  @include breakpoint-max($bp-large) {
+    overflow: hidden;
+  }
+
   @include breakpoint-min($bp-medium) {
     margin-top: 35px;
     margin-bottom: 35px;
@@ -10,9 +14,6 @@
   .benefit-list__viewport {
     width: 100%;
 
-    @include breakpoint-max($bp-small) {
-      overflow: hidden;
-    }
 }
 
   .benefit-list__container {
@@ -22,9 +23,9 @@
       padding-left: 80px;
       padding-right: 80px;
 
-      @include breakpoint-max($bp-small) {
-        padding-left: 16px;
-        padding-right: 16px;
+      @include breakpoint-max($bp-large) {
+        padding-left: 20px;
+        padding-right: 20px;
       }
 
       .benefit-list__heading {

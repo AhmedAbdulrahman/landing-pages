@@ -7,12 +7,17 @@
         width: 100%;
         margin-left: auto;
         margin-right: auto;
-        padding-left: 50px;
-        padding-right: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
 
-        @include breakpoint-max($bp-small) {
-            padding-left: 16px;
-            padding-right: 16px;
+        @include breakpoint-min($bp-medium) {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        @include breakpoint-min($bp-large) {
+            padding-left: 50px;
+            padding-right: 50px;
         }
 
         .heading {
@@ -59,10 +64,10 @@
             }
         }
         &.three-columns > .product-list__item {
-            width: calc(100% / 1.8) !important;
+            width: calc(100% / 1.6) !important;
 
             @include breakpoint-min($bp-medium) {
-                width: calc(100% / 3) !important;
+                width: calc(100% / 3.1) !important;
             }
          }
     }
@@ -72,7 +77,7 @@
         width: calc(100% / 1.5);
 
         &:not(:last-of-type) {
-            margin-right: 15px;
+            margin-right: 24px;
         }
 
         .img-background {
@@ -80,7 +85,7 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            height: 190px;
+            height: 240px;
             background-color: #e6eef4;
             transition: background-color 0.4s ease-out;
 
@@ -162,16 +167,11 @@
         .product-list__item-badge {
             background-color: $telenorBlue;
             display: inline-block;
-            font-size: 12px;
-            line-height: 16px;
             padding: 4px;
             white-space: nowrap;
-            font-style: italic;
 
             @include breakpoint-min($bp-medium) {
-                font-size: 14px;
-                line-height: 32px;
-                padding: 0 16px;
+                padding: 2px 10px;
               }
         }
 
@@ -203,18 +203,21 @@
                 width: 4px;
             }
 
-            .button {
+            .btn {
                 display: inline-flex;
-                background: #B4FFFF;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                background: $telenorLightBlue;
                 border: none;
-                margin-top: 16px;
-                min-width: 40px;
                 border-radius: 48px;
-                padding: 24px 16px;
+                margin-top: 16px;
+                color: white;
                 opacity: 0;
                 transition: all 0.3s ease-in;
+                overflow: hidden;
 
-                &.button--nohover {
+                &.btn--nohover {
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -223,33 +226,29 @@
                     color: white;
                     visibility: visible;
 
-                    @include breakpoint-max($bp-medium) {
-                        padding:  14px 20px;
-                    }
-
-                    .button__label {
+                    .btn__label {
                         font-size: 14px;
                         line-height: 24px;
                     }
 
 
-                    .button__icon svg {
+                    .btn__icon svg {
                         transform: translateX(0px);
                         opacity: 1;
                         width: 16px;
                         margin-left: 10px;
 
                         path {
-                            fill: $telenorLightBlue;
+                            fill: $telenorBlue;
                         }
                     }
                 }
 
-                &.button--primary {
+                &.btn--primary {
                     background-color: $midBlue;
                 }
 
-                .button__icon {
+                .btn__icon {
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -341,10 +340,10 @@
             width: calc(100% / 4);
 
             &:hover {
-                .product-list__item-content .button:not(.button--nohover) {
+                .product-list__item-content .btn:not(.button--nohover) {
                     opacity: 1;
 
-                    .button__icon svg {
+                    .btn__icon svg {
                         opacity: 1;
                         transform: translateX(0);
                     }
@@ -405,7 +404,7 @@
             padding: 15px 19px;
             transition: all 0.3s ease-in;
 
-            .button__icon {
+            .btn__icon {
                 position: relative;
 
                 svg {
