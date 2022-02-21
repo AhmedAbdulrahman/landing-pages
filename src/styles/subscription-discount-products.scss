@@ -30,79 +30,106 @@
         }
     }
 
-    .discount-products__viewport {
-        .embla__button--prev {
-            left: 30px
-        }
-        .embla__button--next {
-            right: 40px;
+
+    .discount-products__items {
+
+        @include breakpoint-max($bp-large) {
+            position: unset;
         }
     }
 
-    .discount-products__items {
+    .discount-products__items-viewport {
+        @include breakpoint-min($bp-medium) {
+            position: relative
+        }
+    }
+
+    .discount-products__slider {
         @include breakpoint-min($bp-medium) {
             padding-left: 50px;
             padding-right: 50px;
         }
     }
-    .discount-products__items-main.show {
+    .discount-products__items-main {
         display: flex;
-        flex-direction: row;
         user-select: none;
         -webkit-touch-callout: none;
         -khtml-user-select: none;
         -webkit-tap-highlight-color: transparent;
+        // margin-left: -180px;
         will-change: transform;
 
-        @include breakpoint-min($bp-medium) {
-            margin-left: -14px;
+        @include breakpoint-min($bp-large) {
+            margin-left: -10px;
         }
     }
 
     .discount-product__item {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        flex-shrink: 0;
-        width: calc(100% / 4);
         color: $darkBlue;
-        // padding-right: 40px;
+        position: relative;
+        cursor: pointer;
 
-        @include breakpoint-max($bp-medium) {
-            width: calc(100% / 2)
+        @include breakpoint-min($bp-large) {
+            flex-shrink: 0;
+            width: calc(100% / 4);
+            padding-left: 10px;
         }
 
-        @include breakpoint-max($bp-large) {
-            width: calc(100% / 2.3)
+        @include breakpoint-min-max($bp-small, $bp-large) {
+            flex-shrink: 0;
+            width: calc(100% / 3);
+            padding-left: 10px;
         }
 
         &:hover {
             @media (hover: hover) {
                 .discount-block__image {
-                    transform: scale(1);
+                    // transform: translate(-50%, -50%) scale(1.1);
+                    transform: scale(1.1);
                 }
             }
         }
-
     }
     .discount-product-media {
+        position: relative;
+        // height: 190px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // overflow: hidden;
+        transform-origin: center;
+        margin-bottom: 20px;
 
         @include breakpoint-max($bp-medium) {
-            width: 160px;
+            width: 230px;
         }
 
         .discount-block__image {
-            // height: 200px;
-            width: 100%;
-            object-fit: cover;
-            transform: scale(0.9);
-            transition: transform 250ms cubic-bezier(0.1, 0.2, 0.3, 0.4);
+
+            transition: transform .1s cubic-bezier(0, 0, 1, 1);
+
+            @include breakpoint-max($bp-medium) {
+                width: 100%;
+            }
         }
     }
 
     .discount-product__item-content {
-        padding: 0 24px;
+
+        button {
+            padding: 12px 15px;
+        }
+
+        @include breakpoint-min($bp-medium) {
+            padding: 0 24px;
+        }
+
+        @include breakpoint-min($bp-medium) {
+            button {
+                display: none;
+                visibility: hidden;
+            }
+         }
     }
 
     .discount-product__item-rabbat {
@@ -121,10 +148,8 @@
         padding: 12px 28px;
         font-size: 14px;
         line-height: 24px;
+        cursor: pointer;
 
-        &:hover {
-            cursor: pointer;
-        }
 
         &.btn--default {
             background-color: transparent;
@@ -134,6 +159,22 @@
                 fill: $telenorBlue;
             }
         }
+
+        &.btn--blue {
+            background: $midBlue;
+            color: white;
+            svg path {
+              fill: $telenorLightBlue
+            }
+          }
+
+          &.btn--light-blue {
+            background: $telenorLightBlue;
+            color: $midBlue;
+            svg path {
+              fill: $midBlue
+            }
+          }
 
         .btn__icon {
             padding-left: 5px;
