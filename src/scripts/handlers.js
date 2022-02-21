@@ -3,6 +3,7 @@ import { handleEmblaScale } from './createEmblaCarousel'
 
 const elementsInView = new Set()
 const mediaQuery = window.matchMedia('(max-width: 1024px)')
+const mediaQueryMobie = window.matchMedia('(max-width: 768px)')
 
 export function onTabClick(
   tabItemNode,
@@ -29,7 +30,15 @@ export function onTabClick(
 
       if (embla) {
         const desiredEmbla = productTabEmblaMap[id]
-        desiredEmbla.reInit({ loop: true, skipSnaps: false, startIndex: 3 })
+        if (mediaQueryMobie.matches) {
+          const applyScaleStyles = handleEmblaScale(desiredEmbla)
+
+          desiredEmbla.on('init', applyScaleStyles)
+          desiredEmbla.on('reInit', applyScaleStyles)
+          desiredEmbla.reInit({ loop: true, skipSnaps: false, startIndex: 3 })
+        } else {
+          desiredEmbla.reInit({ loop: true, skipSnaps: false, startIndex: 3 })
+        }
       }
     },
     false,

@@ -33,8 +33,16 @@
 
     .discount-products__items {
 
+        .embla__button {
+            top: 25%;
+        }
+
         @include breakpoint-max($bp-large) {
             position: unset;
+
+            .embla__button {
+                top: 42%;
+            }
         }
     }
 
@@ -85,7 +93,7 @@
             @media (hover: hover) {
                 .discount-block__image {
                     // transform: translate(-50%, -50%) scale(1.1);
-                    transform: scale(1.1);
+                    transform: scale(1.15);
                 }
             }
         }
@@ -106,7 +114,7 @@
 
         .discount-block__image {
 
-            transition: transform .1s cubic-bezier(0, 0, 1, 1);
+            transition: transform .2s cubic-bezier(0, 0, 1, 1);
 
             @include breakpoint-max($bp-medium) {
                 width: 100%;

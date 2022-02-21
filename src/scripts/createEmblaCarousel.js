@@ -20,12 +20,15 @@ const tabCaroselConfig = {
   },
 }
 
-export const handleEmblaScale = (embla) => {
+export const handleEmblaScale = (
+  embla,
+  itemSelector = '.discount-product__item',
+  mediaSelector = '.discount-product-media .discount-block__image',
+  contentSelector = '.discount-product__item-content',
+) => {
   const slides = embla.slideNodes()
-  const layers = slides.map((s) =>
-    s.querySelector('.discount-product-media .discount-block__image'),
-  )
-  const layersContent = slides.map((s) => s.querySelector('.discount-product__item-content'))
+  const layers = slides.map((s) => s.querySelector(`${itemSelector} ${mediaSelector}`))
+  const layersContent = slides.map((s) => s.querySelector(`${itemSelector} ${contentSelector}`))
 
   const applyScaleStyles = () => {
     const scaleTransforms = calculateScaleTransforms(embla)
