@@ -22,7 +22,7 @@
 
     &:hover {
         @media (hover: hover) {
-            .article__content .btn {
+            .article__content .article__content-inner .btn {
                 background: transparent;
 
                 .btn__icon svg.dark-arrow {
@@ -73,78 +73,81 @@
         }
     }
 
-    .article__text {}
+    .article__heading {}
+    .article__text {
+        flex: 1
+    }
 
     .article__content {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        flex:1;
         background-color: $midBlue;
         color: $telenorLightBlue;
         padding: 24px;
         position: relative;
         z-index: 1;
         min-height: 285px;
+        display: flex;
 
-        .btn {
-            border: none;
-            border-radius: 48px;
-            display: inline-flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            background: $telenorLightBlue;
-            padding: 15px 6px;
-            color: $midBlue;
-            margin-top: auto;
+        .article__content-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            // flex: 1 0 300px;
 
-            @include breakpoint-max($bp-small) {}
-
-            &:hover {
+            .btn {
+                border: none;
+                border-radius: 48px;
+                display: inline-flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                background: $telenorLightBlue;
+                padding: 15px 6px;
+                color: $midBlue;
+                margin-top: auto;
                 cursor: pointer;
-            }
 
-            .btn__icon {
-                display: flex;
-            }
-            // @include breakpoint-min($bp-medium) {
-            //     svg path {
-            //         fill: $midBlue
-            //     }
-            // }
+                @include breakpoint-max($bp-small) {}
 
-            .btn__label {
-                font-size: 14px;
-                line-height: 24px;
-
-                @include breakpoint-min($bp-medium) {
-                    display: none;
-                    visibility: hidden;
+                .btn__icon {
+                    display: flex;
                 }
-              }
+                // @include breakpoint-min($bp-medium) {
+                //     svg path {
+                //         fill: $midBlue
+                //     }
+                // }
 
-            svg.dark-arrow {
-                opacity: 1;
-                transform: translateX(8px);
-                transition: all 0.2s ease-out;
+                .btn__label {
+                    font-size: 14px;
+                    line-height: 24px;
 
-                path {
-                    fill: $midBlue;
+                    @include breakpoint-min($bp-medium) {
+                        display: none;
+                        visibility: hidden;
+                    }
                 }
-            }
 
-            svg.light-arrow {
-                opacity: 0;
-                transform: translateX(-50px);
-                transition: all 0.2s ease-out;
+                svg.dark-arrow {
+                    opacity: 1;
+                    transform: translateX(8px);
+                    transition: all 0.2s ease-out;
 
-                path {
-                    fill: $telenorLightBlue;
+                    path {
+                        fill: $midBlue;
+                    }
+                }
+
+                svg.light-arrow {
+                    opacity: 0;
+                    transform: translateX(-50px);
+                    transition: all 0.2s ease-out;
+
+                    path {
+                        fill: $telenorLightBlue;
+                    }
                 }
             }
         }
-
     }
 
     .article__media-holder {
@@ -186,7 +189,7 @@
             transition: all 0.4s ease-out;
             position: relative;
             z-index: 2;
-
+            padding-top: 80px;
         }
     }
 }
