@@ -6,7 +6,7 @@
     // }
 
     @include breakpoint-min($bp-large) {
-        height: 40vw;
+        height: 50vw;
     }
 
     .live-chat__block {
@@ -82,15 +82,27 @@
     & > .container {
         width: 92vw;
         transform: translateY(-60px);
-        @include breakpoint-min($bp-large) {
+
+        @include breakpoint-max($bp-xlarge) {
+            position: absolute;
+            top: 0;
+            right: 30px;
+            display: block;
+            float: left;
+            height: 100%;
+            width: 45vw;
+            transform: translate(-10%, 18%);
+        }
+
+        @include breakpoint-max($bp-large) {
           position: absolute;
           top: 0;
-          right: 60px;
+          right: 30px;
           display: block;
           float: left;
           height: 100%;
-          width: 40vw;
-          transform: translate(-10%, 12%);
+          width: 55vw;
+          transform: translate(-10%, 5%);
         }
       }
 
