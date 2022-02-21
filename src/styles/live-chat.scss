@@ -1,11 +1,11 @@
 .live-chat__root {
     position: relative;
 
-    @include breakpoint-min($bp-large) {
-        height: 10vw;
-    }
+    // @include breakpoint-max($bp-small) {
+    //     height: 10vw;
+    // }
 
-    @include breakpoint-min($bp-xlarge) {
+    @include breakpoint-min($bp-large) {
         height: 40vw;
     }
 
@@ -54,7 +54,7 @@
 
         padding: 34px 24px;
 
-        @include breakpoint-min($bp-small) {
+        @include breakpoint-min($bp-medium) {
           padding: 64px;
           display: flex;
           flex-direction: column;
