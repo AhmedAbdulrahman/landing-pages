@@ -23,10 +23,10 @@
         .heading {
             color: #000F3C;
 
-            @include breakpoint-max($bp-medium) {
-                font-size: 18px;
-                line-height: 18px;
-           }
+        //     @include breakpoint-max($bp-medium) {
+        //         font-size: 18px;
+        //         line-height: 18px;
+        //    }
         }
     }
 

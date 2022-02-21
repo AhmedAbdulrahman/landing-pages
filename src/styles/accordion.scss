@@ -15,7 +15,7 @@
               border-bottom-right-radius: 0;
             }
             .accordion--details {
-                background-color: #F5F5F5;
+                background-color: #fff;
                 color: $darkBlue;
                 text-align: left;
                 max-height: 500px;
@@ -36,10 +36,16 @@
         justify-content: space-between;
         align-items: center;
         padding: 17px;
-        background-color: #F5F5F5;
+        background-color: #fff;
         color: $darkBlue;
         cursor: pointer;
         border-radius: 3px;
+
+        .accordion--content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
         svg.expand-icon {
             transition: transform 250ms ease-in-out;

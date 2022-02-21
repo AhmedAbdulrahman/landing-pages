@@ -1,0 +1,23 @@
+.hardware-product-details__root {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+
+
+    .hardware-product-details__container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        // padding-left: 16px;
+        // padding-right: 16px;
+        position: relative;
+
+        padding-left: 16px;
+        padding-right: 16px;
+
+        @include breakpoint-min($bp-large) {
+            padding-left: 165px;
+            padding-right: 165px;
+        }
+    }
+}

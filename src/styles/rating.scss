@@ -1,0 +1,32 @@
+.star-rating {
+    direction: rtl;
+    display: inline-block;
+    cursor: default;
+    margin-left: 10px;
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    label {
+      color: #bbb;
+      font-size: 18px;
+      padding: 0;
+      cursor: pointer;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      margin-bottom: 0;
+
+      svg path {
+          fill: #C4C4C4
+      }
+    }
+
+    label svg path:hover,
+    label svg path:hover ~ label,
+    input[type="radio"]:checked ~ label  {
+        svg path {
+            fill: #19AAF8
+        }
+    }
+  }
