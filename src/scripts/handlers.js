@@ -2,7 +2,7 @@ import { calculateVerticalProgress } from './utils'
 import { handleEmblaScale } from './createEmblaCarousel'
 
 const elementsInView = new Set()
-const mediaQuery = window.matchMedia('(max-width: 1024px)')
+const mediaQuery = window.matchMedia('(max-width: 1130px)')
 const mediaQueryMobie = window.matchMedia('(max-width: 768px)')
 
 export function onTabClick(
