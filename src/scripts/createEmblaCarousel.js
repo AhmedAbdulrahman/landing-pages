@@ -89,7 +89,7 @@ export const createTabEmblaMap = (tabContentNodes) => {
 const emblaCarousels = [
   {
     container: '.editorial__embla-slider',
-    viewport: '.embla__viewport',
+    viewport: '.editorial__embla-viewport',
     dots: '.editorial.embla__dots',
     options: {
       slidesToScroll: 1,

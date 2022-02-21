@@ -63,6 +63,11 @@
           margin-left: 10px;
         }
 
+        @include breakpoint-max($bp-medium) {
+          width: calc(100% / 1.1);
+          margin-left: 10px;
+        }
+
         @include breakpoint-max($bp-small) {
           &:not(:last-of-type) {
             margin-right: 10px;

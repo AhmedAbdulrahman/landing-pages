@@ -92,12 +92,18 @@ export function handleElementScroll() {
     if (media !== null) {
       if (media.classList.contains('foreground-image')) {
         if (!mediaQuery.matches && rect?.y > 250) {
-          media.style.transform = `translate(${-50 + progress * 110}%, -50%)`
+          media.style.transform = `translate(${-50 + progress * 100}%, -50%)`
         }
         if (mediaQuery.matches && rect?.y > 10) {
           media.style.transform = `translate(-50%, ${-5 - progress * 70}%)`
         }
         media.style.opacity = `${progress * 3}`
+      } else if (media.classList.contains('mobile--scale')) {
+        if (mediaQueryMobie.matches) {
+          media.style.transform = `scale(${1 + progress * 0.3})`
+        } else {
+          media.style.transform = `scale(1)`
+        }
       } else {
         media.style.transform = `scale(${1 + progress * 0.3})`
       }

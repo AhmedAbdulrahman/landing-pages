@@ -1,11 +1,16 @@
 .live-chat__root {
     position: relative;
+    height: 80vh;
 
-    // @include breakpoint-max($bp-small) {
-    //     height: 10vw;
-    // }
+    @include breakpoint-min-max($bp-small, $bp-medium) {
+        height: 60vh;
+    }
 
-    @include breakpoint-min($bp-large) {
+    @include breakpoint-min($bp-medium) {
+        height: 85vh;
+    }
+
+    @include breakpoint-min($bp-xlarge) {
         height: 50vw;
     }
 
@@ -81,29 +86,36 @@
 
     & > .container {
         width: 92vw;
-        transform: translateY(-60px);
+        position: absolute;
+        top: 0;
+        right: 30px;
+        display: block;
+        height: 100%;
+        transform: translate(0%, 55%);
 
-        @include breakpoint-max($bp-xlarge) {
+        @include breakpoint-max($bp-small) {
             position: absolute;
             top: 0;
             right: 30px;
             display: block;
-            float: left;
+            height: 100%;
+            transform: translate(4%, 35%);
+        }
+
+        @include breakpoint-min($bp-xlarge) {
+            position: absolute;
+            top: 0;
+            right: 30px;
+            display: block;
             height: 100%;
             width: 45vw;
             transform: translate(-10%, 18%);
         }
 
-        @include breakpoint-max($bp-large) {
-          position: absolute;
-          top: 0;
-          right: 30px;
-          display: block;
-          float: left;
-          height: 100%;
-          width: 55vw;
-          transform: translate(-10%, 5%);
-        }
+        // @include breakpoint-max($bp-large) {
+        //   width: 55vw;
+        //   transform: translate(-10%, 5%);
+        // }
       }
 
     .live-chat__main {

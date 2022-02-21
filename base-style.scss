@@ -2059,19 +2059,19 @@ a:hover {
 .dir-xs--row-reverse {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
-  flex-direction: row-reverse;
+  flex-direction: row-reverse !important;
 }
 .dir--column,
 .dir-xs--column {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  flex-direction: column;
+  flex-direction: column !important;
 }
 .dir--column-reverse,
 .dir-xs--column-reverse {
   -webkit-box-orient: vertical;
   -webkit-box-direction: reverse;
-  flex-direction: column-reverse;
+  flex-direction: column-reverse !important;
 }
 .col--top,
 .col-xs--top {
@@ -8441,6 +8441,30 @@ input:checked ~ label .map-grid__store-info {
   .desktop-display--flex {
     display: -webkit-box !important;
     display: flex !important;
+  }
+  .desktop-dir--row,
+  .desktop-dir-xs--row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row !important;
+  }
+  .desktop-dir--row-reverse,
+  .desktop-dir-xs--row-reverse {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    flex-direction: row-reverse !important;
+  }
+  .desktop-dir--column,
+  .desktop-dir-xs--column {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column !important;
+  }
+  .desktop-dir--column-reverse,
+  .desktop-dir-xs--column-reverse {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    flex-direction: column-reverse !important;
   }
   .desktop-margin-whole--none {
     margin: 0 !important;
