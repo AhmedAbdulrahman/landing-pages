@@ -7,8 +7,6 @@
         width: 100%;
         margin-left: auto;
         margin-right: auto;
-        padding-left: 20px;
-        padding-right: 20px;
 
         @include breakpoint-min($bp-medium) {
             padding-left: 30px;
@@ -23,10 +21,9 @@
         .heading {
             color: #000F3C;
 
-        //     @include breakpoint-max($bp-medium) {
-        //         font-size: 18px;
-        //         line-height: 18px;
-        //    }
+            @include breakpoint-max($bp-medium) {
+                padding-left: 20px;
+           }
         }
     }
 
@@ -54,6 +51,10 @@
         -webkit-tap-highlight-color: transparent;
         margin-left: 0px;
 
+        @include breakpoint-max($bp-medium) {
+            margin-left: 20px;
+        }
+
         &.three-columns {
             height: 100%;
             max-height: 800px;
@@ -79,6 +80,9 @@
         &:not(:last-of-type) {
             margin-right: 24px;
         }
+
+
+
 
         .img-background {
             display: flex;
