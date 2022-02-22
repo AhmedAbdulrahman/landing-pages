@@ -1,3 +1,5 @@
+const mediaQueryMobile = window.matchMedia('(max-width: 768px)')
+
 export default class ScrollProgress {
   constructor(options = {}) {
     this.defaults = {
@@ -15,6 +17,8 @@ export default class ScrollProgress {
       opacity: 1,
       blur: 0,
       easing: 'ease-out',
+      animateOnMobile: false,
+      animateOnDesktop: false,
     }
 
     this.options = Object.assign({}, this.defaults, options)
@@ -63,6 +67,10 @@ export default class ScrollProgress {
       this.elementsInfo[i] = {}
       this.elementsInfo[i].top = this.getOffsetTop(this.elements[i])
       //DOM ELement datasets
+      this.elementsInfo[i].animateOnMobile =
+        this.elements[i].getAttribute('data-mobile-only') != null || this.options.animateOnMobile
+      this.elementsInfo[i].animateOnDesktop =
+        this.elements[i].getAttribute('data-desktop-only') != null || this.options.animateOnDesktop
       this.elementsInfo[i].distance =
         Number(this.elements[i].getAttribute('data-distance')) || this.options.distance
       this.elementsInfo[i].offset =
@@ -176,6 +184,36 @@ export default class ScrollProgress {
           element.style.filter = 'blur(' + blur.toFixed(0) + 'px)'
         }
         element.style.opacity = opacity
+
+        if (info.animateOnMobile) {
+          if (!mediaQueryMobile.match) {
+            element.style.transform = `translate3d(${this.options.translateX}${unit}, ${
+              this.options.translateY
+            }${unit}, ${this.options.translateZ}px) skew(${this.options.skewX}deg, ${
+              this.options.skewY
+            }deg) scale(${this.options.scale}) rotate(${+this.options.rotate}deg)`
+
+            if (info.blur) {
+              element.style.filter = 'blur(' + this.options.blur.toFixed(0) + 'px)'
+            }
+            element.style.opacity = this.options.opacity
+          }
+        }
+
+        if (info.animateOnDesktop) {
+          if (mediaQueryMobile.matches) {
+            element.style.transform = `translate3d(${this.options.translateX}${unit}, ${
+              this.options.translateY
+            }${unit}, ${this.options.translateZ}px) skew(${this.options.skewX}deg, ${
+              this.options.skewY
+            }deg) scale(${this.options.scale}) rotate(${+rotate}deg)`
+
+            if (info.blur) {
+              element.style.filter = 'blur(' + this.options.blur.toFixed(0) + 'px)'
+            }
+            element.style.opacity = this.options.opacity
+          }
+        }
       }
     }
   }
