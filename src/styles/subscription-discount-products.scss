@@ -110,7 +110,7 @@
         transform-origin: center;
         margin-bottom: 20px;
 
-        @include breakpoint-max($bp-medium) {
+        @include breakpoint-max($bp-small) {
             width: 230px;
         }
 

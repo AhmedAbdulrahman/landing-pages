@@ -56,6 +56,12 @@
       right: 0;
       bottom: 0;
 
+      @include breakpoint-max($bp-medium) {
+        &.hide-on-mobile {
+          display: none;
+        }
+      }
+
       @media (max-width: 750px) {
         align-self: stretch;
         img {

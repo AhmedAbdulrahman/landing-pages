@@ -1,8 +1,8 @@
 .live-chat__root {
     position: relative;
-    height: 80vh;
+    height: 75vh;
 
-    @include breakpoint-min-max($bp-small, $bp-medium) {
+    @include breakpoint-min($bp-small) {
         height: 60vh;
     }
 
@@ -10,8 +10,12 @@
         height: 85vh;
     }
 
+    @include breakpoint-min($bp-large) {
+        height: 45vh;
+    }
+
     @include breakpoint-min($bp-xlarge) {
-        height: 50vw;
+        height: 60vh;
     }
 
     .live-chat__block {
@@ -25,7 +29,7 @@
         width: 100vw;
 
         @include breakpoint-min($bp-large) {
-            width: 60vw;
+            width: 70vw;
         }
 
         @include breakpoint-max($bp-large) {
@@ -88,34 +92,27 @@
         width: 92vw;
         position: absolute;
         top: 0;
-        right: 30px;
+        right: 15px;
         display: block;
         height: 100%;
-        transform: translate(0%, 55%);
+        transform: translate(0%, 25%);
 
-        @include breakpoint-max($bp-small) {
-            position: absolute;
-            top: 0;
+
+        @include breakpoint-min($bp-small) {
             right: 30px;
-            display: block;
-            height: 100%;
-            transform: translate(4%, 35%);
+            transform: translate(0%, 55%);
+        }
+
+        @include breakpoint-min($bp-large) {
+            right: 30px;
+            width: 55vw;
+            transform: translate(0%, 15%);
         }
 
         @include breakpoint-min($bp-xlarge) {
-            position: absolute;
-            top: 0;
-            right: 30px;
-            display: block;
-            height: 100%;
-            width: 45vw;
-            transform: translate(-10%, 18%);
+            transform: translate(-10%, 20%);
+            width: 50vw;
         }
-
-        // @include breakpoint-max($bp-large) {
-        //   width: 55vw;
-        //   transform: translate(-10%, 5%);
-        // }
       }
 
     .live-chat__main {

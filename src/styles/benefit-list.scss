@@ -52,28 +52,30 @@
         width: calc(100% / 1.1);
         text-align: center;
         padding: 10px 0;
+        margin-right: 20px;
 
-        @include breakpoint-max($bp-large) {
+        @include breakpoint-min($bp-small) {
+          width: calc(100% / 1.1);
+          &:first-of-type {
+            margin-left: 10px;
+          }
+        }
+
+        @include breakpoint-min($bp-medium) {
           width: calc(100% / 2.2);
-          margin-left: 10px;
+        }
+
+        @include breakpoint-min($bp-large) {
+          width: calc(100% / 3);
         }
 
         @include breakpoint-min($bp-xlarge) {
           width: calc(100% / 4);
-          margin-left: 10px;
         }
 
         @include breakpoint-max($bp-medium) {
-          width: calc(100% / 1.1);
-          margin-left: 10px;
+          background-color: #EEF9FF;
         }
-
-        @include breakpoint-max($bp-small) {
-          &:not(:last-of-type) {
-            margin-right: 10px;
-          }
-        }
-
 
         svg {
           rect {
@@ -86,7 +88,6 @@
         }
 
         @media (max-width: $mobile-breakpoint) {
-          background-color: #EEF9FF;
           padding: 24px;
 
           svg {
@@ -121,6 +122,12 @@
 
           &:hover {
               cursor: pointer;
+          }
+
+          @include breakpoint-min($bp-large) {
+            .btn__label {
+              display: none;
+            }
           }
 
           .btn__icon {
