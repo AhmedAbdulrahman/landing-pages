@@ -43,6 +43,7 @@ import ScrollProgress from './scripts/scrollProgress'
     '.live-chat__root',
     '.brand-hero__root',
     '.subscription__root',
+    '.article__root',
   ]
 
   const querySelector = querySelectorAllToArray(observerSelectors.join(', '))
