@@ -101,7 +101,7 @@
             }
 
             @include breakpoint-min($bp-large) {
-                max-width: 210px;
+                max-width: 190px;
                 height: auto;
                 object-fit: cover;
             }
