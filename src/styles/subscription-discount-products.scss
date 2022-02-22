@@ -80,12 +80,14 @@
         @include breakpoint-min($bp-large) {
             flex-shrink: 0;
             width: calc(100% / 4);
-            padding-left: 10px;
         }
 
         @include breakpoint-min-max($bp-small, $bp-large) {
             flex-shrink: 0;
             width: calc(100% / 3);
+        }
+
+        @include breakpoint-min($bp-xlarge) {
             padding-left: 10px;
         }
 
@@ -130,6 +132,10 @@
 
         @include breakpoint-min($bp-medium) {
             padding: 0 24px;
+        }
+
+        @include breakpoint-min($bp-large) {
+            padding: 0 18px;
         }
 
         @include breakpoint-min($bp-medium) {

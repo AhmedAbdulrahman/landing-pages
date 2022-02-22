@@ -37,7 +37,7 @@ export function onTabClick(
           desiredEmbla.on('reInit', applyScaleStyles)
           desiredEmbla.reInit({ loop: true, skipSnaps: false, startIndex: 3 })
         } else {
-          desiredEmbla.reInit({ loop: true, skipSnaps: false, startIndex: 3 })
+          desiredEmbla.reInit({ slidesToScroll: 1, containScroll: 'trimSnaps', skipSnaps: false })
         }
       }
     },

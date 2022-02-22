@@ -5,7 +5,7 @@ import { querySelectorAllToArray, calculateScaleTransforms } from './utils'
 
 const mediaQuery = window.matchMedia('(max-width: 768px)')
 
-const tabCaroselConfig = {
+let tabCaroselConfig = {
   container: '.discount-products__items',
   viewport: '.discount-products__items-viewport',
   prevBtn: '.embla__button--prev',
@@ -79,6 +79,16 @@ export const createEmblaCarousel = (emblaNode, emblaCarousel, scale = false) => 
 export const createTabEmblaMap = (tabContentNodes) => {
   return tabContentNodes.reduce((map, tabContentNode) => {
     const carouselNode = tabContentNode.querySelector('.embla')
+    if (!mediaQuery.matches) {
+      tabCaroselConfig = {
+        ...tabCaroselConfig,
+        options: {
+          slidesToScroll: 1,
+          containScroll: 'trimSnaps',
+          skipSnaps: false,
+        },
+      }
+    }
     const embla = createEmblaCarousel(carouselNode, tabCaroselConfig, true)
 
     return { ...map, [tabContentNode.id]: embla }
