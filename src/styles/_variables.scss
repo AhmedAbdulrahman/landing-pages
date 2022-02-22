@@ -17,6 +17,7 @@ $bp-small: 429px;
 $bp-medium: 768px;
 $bp-large: 1024px;
 $bp-xlarge: 1440px;
+$bp-xxlarge: 1920px;
 
 @mixin breakpoint-min($bp) {
     @media (min-width: $bp) {
@@ -28,6 +29,12 @@ $bp-xlarge: 1440px;
     @media (max-width: $bp) {
         @content;
     }
+}
+
+@mixin breakpoint-up($bp) {
+  @media (min-width: $bp + 1) {
+      @content;
+  }
 }
 
 @mixin breakpoint-min-max($bp1, $bp2) {

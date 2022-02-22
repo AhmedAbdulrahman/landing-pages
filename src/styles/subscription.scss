@@ -74,6 +74,10 @@
        @include breakpoint-max($bp-medium) {
             flex-direction: column-reverse;
         }
+
+        @include breakpoint-min($bp-xlarge) {
+            overflow: hidden;
+        }
     }
     .subscription__media {
 
@@ -91,10 +95,17 @@
             top: 0;
             right: 0;
             z-index: 0;
+            height: 360px;
         }
 
-        @include breakpoint-max($bp-medium) {
-            max-height: 250px;
+        @include breakpoint-min($bp-large) {
+            height: 500px;
+        }
+
+        @include breakpoint-max($bp-small) {
+          &:before {
+            padding-bottom: calc(100% / (2/1.6));
+          }
         }
     }
     .subscription__content {
@@ -105,6 +116,10 @@
 
         @include breakpoint-min($bp-medium) {
             padding: 80px 48px 32px;
+        }
+
+        @include breakpoint-up($bp-xlarge) {
+            padding-top: 200px;
         }
 
         .subscription__headline {
@@ -131,14 +146,18 @@
         }
         .subscription__packages {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
             gap: 24px;
             margin-top: 24px;
 
             @include breakpoint-min($bp-large) {
-                margin-top: 60px;
-                margin-right: 220px;
+                grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
             }
+
+            @include breakpoint-min($bp-xlarge) {
+                margin-right: 200px;
+            }
+
         }
         .subscription__package {
             padding: 24px;
@@ -243,7 +262,16 @@
         background-color: #FAED3C;
         padding: 16px;
 
-        @include breakpoint-min($bp-medium) {
+        @include breakpoint-max($bp-medium) {
+            flex-direction: column;
+            align-items: flex-start;
+
+            & > .subscription__discount-text {
+                margin-bottom: 16px;
+            }
+        }
+
+        @include breakpoint-up($bp-large) {
             padding: 16px 48px;
         }
 
