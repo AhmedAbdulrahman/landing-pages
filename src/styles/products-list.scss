@@ -98,7 +98,10 @@
             }
 
             &.round-image {
-                border-radius: 3px;
+                border-radius: 4px;
+                &:before {
+                    border-radius: 4px;
+                }
             }
 
             .product-holder {
