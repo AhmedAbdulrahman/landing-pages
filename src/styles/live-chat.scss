@@ -1,21 +1,8 @@
 .live-chat__root {
     position: relative;
-    height: 75vh;
 
-    @include breakpoint-min($bp-small) {
-        height: 60vh;
-    }
-
-    @include breakpoint-min($bp-medium) {
-        height: 85vh;
-    }
-
-    @include breakpoint-min($bp-large) {
-        height: 45vh;
-    }
-
-    @include breakpoint-min($bp-xlarge) {
-        height: 60vh;
+    @include breakpoint-max($bp-small) {
+        margin-bottom: 50px;
     }
 
     .live-chat__block {
@@ -28,13 +15,18 @@
         margin-bottom: -32px;
         width: 100vw;
 
-        @include breakpoint-min($bp-large) {
-            width: 70vw;
+        @include breakpoint-min($bp-medium) {
+            width: 100vw;
         }
 
-        @include breakpoint-max($bp-large) {
-           overflow: hidden;
+        @include breakpoint-min($bp-large) {
+            width: 75vw;
         }
+
+        @include breakpoint-min($bp-xlarge) {
+            width: 66vw;
+        }
+
     }
 
 
@@ -64,10 +56,14 @@
         padding: 34px 24px;
 
         @include breakpoint-min($bp-medium) {
-          padding: 64px;
-          display: flex;
-          flex-direction: column;
-          align-items: baseline;
+            padding: 64px;
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+        }
+
+        @include breakpoint-min($bp-xxlarge) {
+            padding: 200px 64px
         }
 
         svg.help-icon {
@@ -89,29 +85,33 @@
     }
 
     & > .container {
-        width: 92vw;
+        width: 45vw;
         position: absolute;
-        top: 0;
-        right: 15px;
-        display: block;
+        top: 18%;
+        right: 10%;
+        // display: block;
         height: 100%;
-        transform: translate(0%, 25%);
+        // transform: translate(0%, 25%);
 
+        @include breakpoint-max($bp-medium) {
+            position: relative;
+            width: 92vw;
+            right: 0;
+        }
 
-        @include breakpoint-min($bp-small) {
-            right: 30px;
-            transform: translate(0%, 55%);
+        @include breakpoint-min($bp-medium) {
+            top: 12%;
         }
 
         @include breakpoint-min($bp-large) {
-            right: 30px;
-            width: 55vw;
-            transform: translate(0%, 15%);
+            top: 15%;
+            right: 5%;
+            width: 50vw;
         }
 
         @include breakpoint-min($bp-xlarge) {
-            transform: translate(-10%, 20%);
-            width: 50vw;
+            width: 45vw;
+            top: 20%;
         }
       }
 
