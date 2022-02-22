@@ -5,6 +5,10 @@
         margin-bottom: 50px;
     }
 
+    @include breakpoint-min($bp-large) {
+        margin: 80px 50px 40px;
+    }
+
     .live-chat__block {
         display: block;
         height: 100%;
