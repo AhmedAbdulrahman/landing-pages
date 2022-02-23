@@ -129,6 +129,7 @@
 
         > img:only-child {
             max-width: 100%;
+            padding-right: 0;
         }
 
         @include breakpoint-max($bp-medium) {
