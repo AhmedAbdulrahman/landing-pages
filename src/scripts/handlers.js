@@ -82,6 +82,25 @@ export function onShowMoreClick() {
   }
 }
 
+export function onReadMoreClick() {
+  const linkText = this.children[0].innerHTML.toUpperCase()
+  const content = this.parentNode.querySelector('.editorial__text')
+
+  if (linkText === 'READ MORE') {
+    this.children[0].innerHTML = 'Read less'
+    this.children[0].classList.remove('show-read-more')
+    this.children[0].classList.add('show-read-less')
+    content.classList.remove('show-less-content')
+    content.classList.add('show-more-content')
+  } else {
+    this.children[0].innerHTML = 'Read more'
+    this.children[0].classList.remove('show-read-less')
+    this.children[0].classList.add('show-read-more')
+    content.classList.remove('show-more-content')
+    content.classList.add('show-less-content')
+  }
+}
+
 export function handleElementScroll() {
   elementsInView.forEach((root) => {
     const rect = root.getBoundingClientRect()

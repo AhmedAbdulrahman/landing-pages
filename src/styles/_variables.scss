@@ -55,6 +55,7 @@ $bp-xxlarge: 1920px;
   animation: $name $duration $timing-function $delay $iteration-count $direction $fill-mode;
 }
 
+// mixins
 @mixin keyframes($name) {
   @-webkit-keyframes #{$name} {
       @content;
@@ -67,6 +68,7 @@ $bp-xxlarge: 1920px;
   }
 }
 
+// Animations
 @include keyframes(fade-in-transition) {
     0% {
         opacity: 0;

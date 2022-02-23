@@ -80,10 +80,20 @@
         margin-left: auto;
         margin-right: auto;
         position: relative;
+        padding-left: 16px;
+        padding-right: 16px;
 
-        @include breakpoint-min($bp-medium) {
+
+        @include breakpoint-min($bp-large) {
             padding-left: 50px;
             padding-right: 50px;
+        }
+
+        @include breakpoint-max($bp-medium){
+            &.padding--none {
+                padding-left: 0;
+                padding-right: 0;
+            }
         }
     }
 

@@ -5,6 +5,7 @@ import {
   onAccordionClick,
   onTabClick,
   onShowMoreClick,
+  onReadMoreClick,
   handleDocumentonScroll,
 } from './scripts/handlers'
 
@@ -53,6 +54,7 @@ import ScrollProgress from './scripts/scrollProgress'
   const blockElements = querySelectorAllToArray(blockSelectors.join(', '))
 
   const showMoreBtns = querySelectorAllToArray('.show-more-btn')
+  const readMoreBtns = querySelectorAllToArray('.btn__read-more')
 
   // Tabs
   const tabItemNodes = querySelectorAllToArray('.package__features .tab-item')
@@ -93,6 +95,10 @@ import ScrollProgress from './scripts/scrollProgress'
 
   showMoreBtns.forEach((i) => {
     i.addEventListener('click', onShowMoreClick, false)
+  })
+
+  readMoreBtns.forEach((i) => {
+    i.addEventListener('click', onReadMoreClick, false)
   })
 
   tabItemNodes.forEach((tabItemNode, _, tabItemNodes) => {
