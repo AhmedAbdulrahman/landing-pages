@@ -36,6 +36,7 @@ import ScrollProgress from './scripts/scrollProgress'
     '.hardware__main .hardware__media__item:nth-child(-n+1)',
     '.hardware__main .hardware__list-selector',
     '.hardware__payment-details > * > *',
+    '.subscription-nav__main .button',
   ]
 
   const blockSelectors = [

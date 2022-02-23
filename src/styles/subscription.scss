@@ -18,9 +18,16 @@
             padding-right: 48px;
         }
     }
+
     .subscription-nav__main {
         padding-top: 20px;
         padding-bottom: 20px;
+
+        @for $i from 1 through 20 {
+            a.button.observed:nth-child(#{$i}n) {
+                @include animation('scale-in-transition', $duration: 1s, $delay: #{$i * 0.3}s);
+            }
+        }
 
         a.button--naked {
             border-bottom: 2px solid transparent;
@@ -28,6 +35,12 @@
             display: inline-block;
             outline: none;
             padding-bottom: 4px;
+
+            opacity: 0;
+
+            // &:not(.observed) {
+            //     opacity: 1;
+            // }
 
             &.active {
                 border-bottom-color: #19aaf8;

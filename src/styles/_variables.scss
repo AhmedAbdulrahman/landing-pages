@@ -131,3 +131,18 @@ $bp-xxlarge: 1920px;
     stroke-dashoffset: 0;
   }
 }
+
+@include keyframes(scale-in-transition) {
+  0% {
+      opacity: 0;
+      transform: scale(10);
+    }
+  30%{
+    opacity: 0.5;
+    transform:  scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform:  scale(1);
+  }
+}
