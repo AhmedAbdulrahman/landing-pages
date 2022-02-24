@@ -1,5 +1,11 @@
 .imagelist-root {
-    padding-top: 85px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    @include breakpoint-min($bp-large) {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
 
     @include breakpoint-max($bp-large) {
         overflow: hidden;
@@ -9,8 +15,8 @@
         width: 100%;
         margin-left: auto;
         margin-right: auto;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 16px;
+        padding-right: 16px;
         position: relative;
 
         @include breakpoint-min($bp-medium) {
@@ -34,12 +40,13 @@
     }
 
     .imagelist-heading {
-        font-size: 24px;
-        line-height: 32px;
-        font-weight: 400;
-        margin-bottom: 50px;
         text-align: center;
         color: $darkBlue;
+
+        padding: 48px 0;
+        @include breakpoint-max($bp-medium) {
+            padding: 40px 40px 48px;
+        }
     }
 
     .imagelist-item {
@@ -48,11 +55,11 @@
         text-align: left;
         flex-shrink: 0;
         width: calc(100% / 1.1);
-        padding-bottom: 30px;
+        // padding-bottom: 30px;
         cursor: pointer;
 
         &:not(:last-of-type) {
-            margin-right: 10px;
+            margin-right: 20px;
         }
 
         @include breakpoint-min($bp-medium) {

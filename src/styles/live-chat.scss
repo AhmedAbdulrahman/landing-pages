@@ -1,15 +1,18 @@
 .live-chat__root {
     position: relative;
 
-    margin-top: 50px;
+    @include breakpoint-min($bp-large) {
+        padding: 48px 50px;
+        margin-bottom: 80px;
+    }
 
     @include breakpoint-max($bp-small) {
-        margin-bottom: 50px;
+        margin-bottom: 35px;
     }
 
-    @include breakpoint-min($bp-large) {
-        margin: 80px 50px 40px;
-    }
+    // @include breakpoint-min($bp-medium) {
+    //     margin-bottom: 80px;
+    // }
 
     .live-chat__block {
         display: block;
@@ -18,7 +21,7 @@
         min-height: 335px;
         margin-left: 0;
         margin-right: 0;
-        margin-bottom: -32px;
+        margin-bottom: -100px;
         width: 100vw;
 
         @include breakpoint-min($bp-medium) {
@@ -30,7 +33,7 @@
         }
 
         @include breakpoint-min($bp-xlarge) {
-            width: 66vw;
+            width: 70vw;
         }
 
     }
@@ -41,20 +44,6 @@
         width: 100%;
     }
 
-    .heading {
-        font-size: 32px;
-        line-height: 40px;
-        font-style: italic;
-        text-align: left;
-        margin-bottom: 8px;
-        color: #000F3C;
-
-        @include breakpoint-min($bp-small) {
-          font-size: 32px;
-          line-height: 40px;
-        }
-    }
-
     .live-chat--content {
         padding: 18px;
         color: #000F3C;
@@ -62,7 +51,7 @@
         padding: 34px 24px;
 
         @include breakpoint-min($bp-medium) {
-            padding: 64px;
+            padding: 80px 64px;
             display: flex;
             flex-direction: column;
             align-items: baseline;
@@ -96,7 +85,7 @@
         top: 18%;
         right: 10%;
         // display: block;
-        height: 100%;
+        // height: 100%;
         // transform: translate(0%, 25%);
 
         @include breakpoint-max($bp-medium) {
@@ -110,14 +99,14 @@
         }
 
         @include breakpoint-min($bp-large) {
-            top: 15%;
+            top: 18%;
             right: 5%;
             width: 50vw;
         }
 
         @include breakpoint-min($bp-xlarge) {
-            width: 45vw;
-            top: 20%;
+            width: 40vw;
+            top: 25%;
         }
       }
 
@@ -142,30 +131,41 @@
         }
     }
 
-    .button {
+    .btn {
+        border: none;
+        border-radius: 48px;
         display: inline-flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        font-family: Telenor Evolution;
-        background: #000F3C;
-        border-radius: 48px;
-        font-style: normal;
-        font-weight: normal;
+        background: $darkBlue;
+        color: white;
+        padding: 8px 24px;
         font-size: 14px;
         line-height: 24px;
-        padding: 10px 20px 8px;
-        color: #fff;
-        border-color: #000F3C;
+        font-weight: 400;
 
+        &.btn--blue {
+            svg path {
+              fill: $telenorBlue
+            }
+          }
 
-        @media (min-width: 750px) {
-            padding: 8px 20px 8px 24px;
+        &.btn--light-blue {
+            background: $telenorLightBlue;
+            color: $midBlue;
+            svg path {
+              fill: $midBlue
+            }
+          }
+
+          &.btn--default {
+            background: transparent;
+          }
+
+          .btn__icon {
+            display: flex;
+            margin-left: 8px;
+           }
         }
-    }
-
-    .button__icon {
-        padding-left: 5px;
-        padding-top: 5px;
-    }
 }

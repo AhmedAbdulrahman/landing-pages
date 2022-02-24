@@ -1,9 +1,10 @@
 .product-category__root {
-    margin-top: 48px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 
-    @include breakpoint-min($bp-medium) {
-        margin-top: 85px;
-        margin-bottom: 85px;
+    @include breakpoint-min($bp-large) {
+        padding-top: 30px;
+        padding-bottom: 30px;
     }
 
     @include breakpoint-max($bp-small) {
@@ -65,7 +66,7 @@
 
         @include breakpoint-max($bp-medium) {
             width: calc(100% / 3);
-            padding-bottom: 50px;
+            padding-bottom: 30px;
        }
 
 
@@ -92,6 +93,11 @@
 
         .product-category--rounded {
             width: 100%;
+        }
+
+        .product-category--item-type {
+            word-wrap: break-word;
+            hyphens: auto;
         }
 
         .product-category--loader {
@@ -133,10 +139,13 @@
     }
 
     .product-category--heading {
-        font-size: 24px;
-        line-height: 32px;
-        font-weight: 700;
-        margin-bottom: 22px;
+        margin-bottom: 24px;
         text-align: center;
+
+        @include breakpoint-max($bp-medium) {
+            text-align: left;
+            margin-top: 32px;
+            padding: 0 24px;
+       }
     }
 }

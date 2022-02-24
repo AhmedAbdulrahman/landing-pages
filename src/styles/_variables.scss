@@ -37,6 +37,12 @@ $bp-xxlarge: 1920px;
   }
 }
 
+@mixin breakpoint-down($bp) {
+  @media (max-width: $bp - 1) {
+      @content;
+  }
+}
+
 @mixin breakpoint-min-max($bp1, $bp2) {
     @media (min-width: $bp1) and (max-width: $bp2) {
         @content;

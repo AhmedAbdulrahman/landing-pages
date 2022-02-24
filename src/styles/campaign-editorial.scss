@@ -132,6 +132,13 @@
         justify-content: center;
         min-height: 450px;
 
+        &.aspect--ratio {
+            display: block;
+            &:before {
+                padding-bottom: calc(100% / (2/1.1));
+            }
+        }
+
         > img:only-child {
             max-width: 100%;
             padding-right: 0;
