@@ -150,6 +150,9 @@
 
         @include breakpoint-max($bp-small) {
             min-height: 250px;
+            > img {
+                margin-right: 5px;
+            }
         }
 
         // @include breakpoint-max($bp-large) {
