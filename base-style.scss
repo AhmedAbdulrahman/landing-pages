@@ -995,6 +995,10 @@ a:hover {
     width: auto;
   }
 }
+.text-size--56 {
+  font-size: 56px;
+  line-height: 64px;
+}
 .text-size--48 {
   font-size: 48px;
   line-height: 56px;
@@ -8396,9 +8400,7 @@ input:checked ~ label .map-grid__store-info {
   }
 }
 @media (min-width: 769px) {
-  body {
-    width: 100vw;
-  }
+
   body.business-page {
     min-width: 1248px;
     padding-left: 144px;

@@ -1,8 +1,13 @@
 .editorial__root {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     position: relative;
     overflow: hidden;
+
+    @include breakpoint-min($bp-large) {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
 
     .editorial__container {
         width: 100%;

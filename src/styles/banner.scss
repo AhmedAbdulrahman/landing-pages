@@ -1,8 +1,8 @@
 .banner--root {
     background-color: #F6F4EE;
     overflow: hidden;
-    // padding-top: 30px;
-    // padding-bottom: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     position: relative;
 
     @include breakpoint-min($bp-medium) {
@@ -56,8 +56,14 @@
       right: 0;
       bottom: 0;
 
-      @include breakpoint-max($bp-medium) {
-        &.hide-on-mobile {
+      &.hide-on-mobile {
+        @include breakpoint-max($bp-medium) {
+          display: none;
+        }
+      }
+
+      &.hide-on-desktop {
+        @include breakpoint-min($bp-medium) {
           display: none;
         }
       }

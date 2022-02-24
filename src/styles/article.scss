@@ -3,16 +3,16 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 160px;
+    padding: 15px 50px;
+
 
     @include breakpoint-max($bp-large) {
         padding: 24px 50px;
     }
 
     @include breakpoint-max($bp-medium) {
-        padding: 24px 16px;
+        padding: 15px 16px;
+        grid-gap: 30px;
     }
 
     @include breakpoint-max($bp-large) {
@@ -28,27 +28,33 @@
             .article__content .article__content-inner .btn {
                 background: transparent;
 
-                .btn__icon svg.dark-arrow {
+                .dark-arrow {
                     opacity: 0;
                     transform: translateX(100px);
                 }
 
-                .btn__icon svg.light-arrow {
+                .light-arrow {
                     opacity: 1;
                     transform: translateX(0px);
                 }
             }
 
-            .article__media-holder .article__media {
-                transform: scale(1.2);
+            .article__media-holder {
 
-                &.foreground-image {
-                    transform: translate(-50%, -42%) scale(.95) !important;
+                .article__media-tag svg {
+                    transform: scale(1.2);
                 }
 
-                @include breakpoint-up($bp-large) {
-                    &.mobile--scale {
-                        transform: scale(1.2) !important;
+                .article__media {
+                    transform: scale(1.2);
+                    &.foreground-image {
+                        transform: translate(-50%, -42%) scale(.95) !important;
+                    }
+
+                    @include breakpoint-up($bp-large) {
+                        &.mobile--scale {
+                            transform: scale(1.2) !important;
+                        }
                     }
                 }
             }
@@ -85,7 +91,7 @@
 
     .article__heading {}
     .article__text {
-        flex: 1
+        flex: 1;
     }
 
     .article__content {
@@ -94,7 +100,6 @@
         padding: 24px;
         position: relative;
         z-index: 1;
-        min-height: 308px;
         display: flex;
 
         .article__content-inner {
@@ -102,10 +107,19 @@
             flex-direction: column;
             align-items: flex-start;
             // flex: 1 0 300px;
+            min-height: 200px;
 
             @include breakpoint-min($bp-medium) {
                 transform: none !important;
                 opacity: 1 !important;
+            }
+
+            .article__btn-container {
+                margin-top: auto;
+
+                @include breakpoint-max($bp-medium) {
+                    margin-top: 24px;
+                }
             }
 
             .btn {
@@ -116,21 +130,17 @@
                 justify-content: center;
                 align-items: center;
                 background: $telenorLightBlue;
-                padding: 15px 6px;
                 color: $midBlue;
-                margin-top: auto;
                 cursor: pointer;
 
-                @include breakpoint-max($bp-small) {}
-
-                .btn__icon {
-                    display: flex;
+                @include breakpoint-min($bp-medium) {
+                    width: 40px;
+                    height: 40px;
                 }
-                // @include breakpoint-min($bp-medium) {
-                //     svg path {
-                //         fill: $midBlue
-                //     }
-                // }
+                @include breakpoint-max($bp-medium) {
+                    padding: 8px 24px;
+                }
+
 
                 .btn__label {
                     font-size: 14px;
@@ -154,7 +164,7 @@
 
                 svg.light-arrow {
                     opacity: 0;
-                    transform: translateX(-50px);
+                    transform: translateX(-30px);
                     transition: all 0.2s ease-out;
 
                     path {
@@ -175,7 +185,7 @@
 
         .article__media {
             max-width: 100%;
-            transition: all 0.2s ease-out;
+            transition: transform 0.2s 0.1s cubic-bezier(0, 0, 1, 1);
 
             &.foreground-image {
                 position: absolute;
@@ -190,7 +200,19 @@
                     height: 300px;
                 }
             }
+        }
 
+        .article__media-tag {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            svg {
+                transition: transform 0.2s cubic-bezier(0, 0, 1, 1);
+            }
+        }
+
+        @include  breakpoint-max($bp-medium) {
+            height: 250px;
         }
     }
 }

@@ -1,7 +1,12 @@
 .side-by-side__root {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     position: relative;
+
+    @include breakpoint-min($bp-large) {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
 
     &.light {
         .side-by-side__header {
@@ -68,6 +73,7 @@
             }
 
             .btn__icon {
+                display: inline-flex;
                 path {
                     fill: $midBlue;
                 }
@@ -180,7 +186,7 @@
 
         .btn__icon {
             padding-left: 5px;
-            padding-top: 5px;
+            // padding-top: 5px;
 
             path {
                 fill: $midBlue;
