@@ -105,12 +105,16 @@ export function onDropdownClick(dropdown) {
   dropdown.addEventListener(
     'click',
     (event) => {
-      event.currentTarget.classList.toggle('active')
-      const childElements = dropdown.querySelectorAll('.overview-dropdown__menu__item')
+      const desiredDropDownItem = event.currentTarget
+      const desiredDropdownParent = dropdown.parentElement
+      const childElements = desiredDropdownParent.querySelectorAll('.overview-dropdown__menu__item')
       const dropDownTextBox = dropdown.querySelector('.overview-dropdown__menu__textbox')
+
+      desiredDropDownItem.classList.toggle('active')
 
       childElements.forEach((childElement) => {
         childElement.addEventListener('click', (event) => {
+          desiredDropDownItem.classList.remove('active')
           dropDownTextBox.value = event.currentTarget.textContent
         })
       })

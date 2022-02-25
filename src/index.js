@@ -69,7 +69,9 @@ import ScrollProgress from './scripts/scrollProgress'
   const accordionSummaryNodes = querySelectorAllToArray('.accordion--summary')
 
   // Dropdown
-  const overviewDropdownMenus = querySelectorAllToArray('.overview-dropdown__menu')
+  const overviewDropdownMenus = querySelectorAllToArray(
+    '.overview-dropdown__menu__container .overview-dropdown__menu',
+  )
 
   const config = {
     rootMargin: '50px 20px 75px 30px',
