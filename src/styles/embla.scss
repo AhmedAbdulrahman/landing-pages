@@ -31,7 +31,7 @@
 
         @include breakpoint-min($bp-small) {
             &:not(:last-of-type) {
-                margin-right: 40px;
+                margin-right: 48px;
             }
         }
     }
