@@ -62,23 +62,24 @@ export function onAccordionClick(accordionSummaryNode) {
   )
 }
 
-export function onShowMoreClick() {
-  const linkText = this.children[0].innerHTML.toUpperCase()
+export function onShowMoreClick(event) {
+  const button = event.target
+  const btnLabel = button.querySelector('.btn-label')
+  const dataTargetLess = button.getAttribute('data-less')
+  const dataTargetMore = button.getAttribute('data-more')
+  const backgroundFade = document.querySelector('.product-list__show-more')
+  const productListContent = document.querySelector('.products-list__main')
 
-  if (linkText === 'SHOW MORE') {
-    this.children[0].innerHTML = 'Show less'
-    this.previousElementSibling.classList.add('remove-fade')
-    this.children[0].classList.remove('show-more-label')
-    this.children[0].classList.add('show-less-label')
-
-    this.parentNode.parentNode.children[0].classList.add('showContent')
+  if (!button.classList.contains('btn-show-more-expand')) {
+    button.classList.add('btn-show-more-expand')
+    btnLabel.innerHTML = dataTargetLess
+    productListContent.classList.add('showContent')
+    backgroundFade.classList.add('remove-fade')
   } else {
-    this.children[0].innerHTML = 'Show more'
-    this.previousElementSibling.classList.remove('remove-fade')
-    this.children[0].classList.remove('show-less-label')
-    this.children[0].classList.add('show-more-label')
-
-    this.parentNode.parentNode.children[0].classList.remove('showContent')
+    button.classList.remove('btn-show-more-expand')
+    btnLabel.innerHTML = dataTargetMore
+    backgroundFade.classList.remove('remove-fade')
+    productListContent.classList.remove('showContent')
   }
 }
 

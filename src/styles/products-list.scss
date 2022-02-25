@@ -67,6 +67,14 @@
 
             &.showContent {
                 max-height: 2000px;
+
+                & + .product-list__show-more-container {
+                    height: 100px;
+
+                    @include breakpoint-max($bp-large) {
+                        height: 80px;
+                    }
+                }
             }
 
             @include breakpoint-max($bp-medium) {
@@ -307,6 +315,7 @@
                 overflow: hidden;
                 min-width: 40px;
                 min-height: 40px;
+                cursor: pointer;
 
                 &.btn--nohover {
                     display: flex;
@@ -404,13 +413,14 @@
     .product-list__show-more-container {
         position: relative;
         text-align: center;
-        height: 150px;
+        height: 120px;
         display: flex;
         justify-content: center;
         align-items: flex-end;
+        transition: height 850ms cubic-bezier(0.1, 0.2, 0.3, 0.4);
 
-        @include breakpoint-max($bp-medium) {
-            height: 100px;
+        @include breakpoint-max($bp-large) {
+            height: 80px;
         }
 
         .product-list__show-more {
@@ -435,42 +445,38 @@
             z-index: 1;
             position: relative;
 
+            .btn-show-more-expand .btn__icon {
+                transform: rotate(270deg);
+            }
             .btn__label {
                 margin-left: 10px;
                 color: $midBlue;
-
-                &.show-more-label + .product-list__show-more-button .btn__icon svg {
-                    transform: rotate(90deg);
-                }
-
-                &.show-less-label + .product-list__show-more-button .btn__icon svg {
-                    transform: rotate(270deg);
-                }
             }
         }
 
         .product-list__show-more-button {
+            background: transparent;
+            border: none;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: $midBlue;
-            border-radius: 48px;
-            border: none;
-            height: 40px;
-            width: 40px;
-            transition: all 0.3s ease-in;
+            cursor: pointer;
+
+            > * {
+                pointer-events: none;
+              }
 
             .btn__icon {
                 display: flex;
+                justify-content: center;
+                align-items: center;
                 position: relative;
-
-                svg {
-                    transition: all 0.4s cubic-bezier(0.1, 0.2, 0.3, 0.4);
-
-                    path {
-                        fill: white;
-                    }
-                }
+                transform: rotate(90deg);
+                background: $midBlue;
+                height: 40px;
+                width: 40px;
+                border-radius: 20px;
+                transition: all 0.3s ease-in;
             }
         }
     }
