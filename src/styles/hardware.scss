@@ -157,6 +157,10 @@
                         color: white;
                     }
 
+                    @media (max-width: 375px) {
+                        padding: 12px 18px;
+                    }
+
                 }
             }
 
