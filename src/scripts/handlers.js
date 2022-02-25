@@ -101,6 +101,24 @@ export function onReadMoreClick() {
   }
 }
 
+export function onDropdownClick(dropdown) {
+  dropdown.addEventListener(
+    'click',
+    (event) => {
+      event.currentTarget.classList.toggle('active')
+      const childElements = dropdown.querySelectorAll('.overview-dropdown__menu__item')
+      const dropDownTextBox = dropdown.querySelector('.overview-dropdown__menu__textbox')
+
+      childElements.forEach((childElement) => {
+        childElement.addEventListener('click', (event) => {
+          dropDownTextBox.value = event.currentTarget.textContent
+        })
+      })
+    },
+    false,
+  )
+}
+
 export function handleElementScroll() {
   elementsInView.forEach((root) => {
     const rect = root.getBoundingClientRect()

@@ -7,6 +7,7 @@ import {
   onShowMoreClick,
   onReadMoreClick,
   handleDocumentonScroll,
+  onDropdownClick,
 } from './scripts/handlers'
 
 import ScrollProgress from './scripts/scrollProgress'
@@ -67,6 +68,9 @@ import ScrollProgress from './scripts/scrollProgress'
   // Accordion
   const accordionSummaryNodes = querySelectorAllToArray('.accordion--summary')
 
+  // Dropdown
+  const overviewDropdownMenus = querySelectorAllToArray('.overview-dropdown__menu')
+
   const config = {
     rootMargin: '50px 20px 75px 30px',
     threshold: [0, 0.25, 0.75, 1],
@@ -112,5 +116,9 @@ import ScrollProgress from './scripts/scrollProgress'
 
   accordionSummaryNodes.forEach((accordionSummaryNode) => {
     onAccordionClick(accordionSummaryNode)
+  })
+
+  overviewDropdownMenus.forEach((overviewDropdownMenu) => {
+    onDropdownClick(overviewDropdownMenu)
   })
 })()

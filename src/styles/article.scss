@@ -107,7 +107,7 @@
             flex-direction: column;
             align-items: flex-start;
             // flex: 1 0 300px;
-            min-height: 200px;
+            min-height: 220px;
 
             @include breakpoint-min($bp-medium) {
                 transform: none !important;
@@ -197,7 +197,12 @@
                 z-index: 11;
 
                 @include breakpoint-max($bp-medium) {
+                    width: 100%;
                     height: 300px;
+                    position: relative;
+                    object-fit: contain;
+                    top: 0;
+                    left: 0;
                 }
             }
         }
