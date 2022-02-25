@@ -84,7 +84,7 @@
     }
 
     @include breakpoint-min-max($bp-large, 1200px) {
-      top: 35px;
+      // top: 35px;
       left: -40px;
     }
 
@@ -103,8 +103,8 @@
     }
 
     @include breakpoint-min-max($bp-large, 1200px) {
-      max-width: 100%;
-      height: 150px
+      // max-width: 100%;
+      // height: 150px
     }
   }
 
@@ -137,6 +137,14 @@
           flex: 1;
         }
       }
+
+      @include breakpoint-min($bp-large) {
+        .gutterHorizontal {
+          padding: 0 240px;
+          text-align: center;
+        }
+      }
+
 
   }
 
@@ -174,7 +182,7 @@
       }
 
       &.btn--default {
-        @include breakpoint-down($bp-medium) {
+        @include breakpoint-max($bp-medium) {
           background: transparent;
           padding: 0;
           padding-left: 10px;
