@@ -168,12 +168,12 @@
             overflow: hidden;
 
             @include breakpoint-min($bp-medium) {
-                padding: 16px 22px;
+                padding: 16px;
             }
 
 
-            svg {
-                margin-right: 20px;
+            & > svg {
+                margin-right: 16px;
                 path {
                     fill: #B4FFFF;
                 }
