@@ -26,7 +26,7 @@
        display: flex;
        flex-wrap: wrap;
 
-       @include breakpoint-max($bp-large) {
+       @include breakpoint-down($bp-large) {
             flex-direction: column;
         }
 
@@ -35,7 +35,7 @@
             max-width: 50%;
             width: 50%;
 
-            @include breakpoint-max($bp-large) {
+            @include breakpoint-down($bp-large) {
                 max-width: 100%;
                 width: 100%;
             }
@@ -53,9 +53,21 @@
             padding-left: 16px;
             padding-right: 16px;
 
-            @for $i from 1 through 4 {
-                .hardware__list-selector.observed:nth-child(#{$i}n) {
-                    @include animation('fade-in-tobottom-transition', $duration: 1s, $delay: #{$i * 0.1}s);
+            @include breakpoint-up($bp-medium) {
+                @for $i from 1 through 4 {
+                    .hardware__list-selector.observed:nth-child(#{$i}n) {
+                        @include animation('fade-in-tobottom-transition', $duration: 1s, $delay: #{$i * 0.1}s);
+                    }
+                }
+            }
+
+            .hardware__list-selector {
+                @include breakpoint-up($bp-medium) {
+                    opacity: 0;
+
+                    &:not(.observed) {
+                        opacity: 1;
+                    }
                 }
             }
 
@@ -148,7 +160,11 @@
                 }
             }
 
-            @include breakpoint-min($bp-large) {
+            .selectors {
+                padding: 48px 26px 64px;
+           }
+
+            @include breakpoint-min($bp-xlarge) {
                .selectors {
                     padding: 48px 96px 64px;
                }
