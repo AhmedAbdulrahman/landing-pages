@@ -17,8 +17,8 @@
         position: relative;
 
         @include breakpoint-min($bp-medium) {
-            padding-left: 50px;
-            padding-right: 50px;
+            padding-left: 48px;
+            padding-right: 48px;
         }
     }
 
@@ -50,8 +50,6 @@
 
         .hardware__content {
             color: $darkBlue;
-            padding-left: 16px;
-            padding-right: 16px;
 
             @include breakpoint-up($bp-medium) {
                 @for $i from 1 through 4 {
@@ -69,6 +67,11 @@
                         opacity: 1;
                     }
                 }
+            }
+
+            @include breakpoint-min($bp-large) {
+                padding-left: 16px;
+                padding-right: 16px;
             }
 
             span {
@@ -165,8 +168,14 @@
             }
 
             .selectors {
-                padding: 48px 26px 64px;
-           }
+                padding: 48px 16px 64px;
+            }
+
+            @include breakpoint-min($bp-large) {
+                .selectors {
+                    padding: 48px 26px 64px;
+                }
+             }
 
             @include breakpoint-min($bp-xlarge) {
                .selectors {
