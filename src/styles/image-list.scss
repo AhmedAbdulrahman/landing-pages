@@ -76,7 +76,7 @@
             padding-bottom: 0;
 
             &:not(:last-of-type) {
-                margin-right: 26px;
+                margin-right: 22px;
             }
         }
 
@@ -173,7 +173,14 @@
 
 
             & > svg {
-                margin-right: 16px;
+                @include breakpoint-min($bp-medium) {
+                    margin-right: 8px;
+                }
+
+                @include breakpoint-min($bp-xlarge) {
+                    margin-right: 16px;
+                }
+
                 path {
                     fill: #B4FFFF;
                 }
@@ -183,6 +190,10 @@
             flex: 1;
 
             @include breakpoint-min($bp-medium) {
+                margin-right: 14px;
+            }
+
+            @include breakpoint-min($bp-xlarge) {
                 margin-right: 20px;
             }
         }

@@ -1,6 +1,6 @@
 .product-category__root {
     padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 30px;
 
     @include breakpoint-min($bp-large) {
         padding-top: 30px;
@@ -12,16 +12,20 @@
     }
 
     .product-category__container {
-        width: 100%;
-        margin-left: auto;
         margin-right: auto;
-        padding-left: 80px;
-        padding-right: 80px;
+        margin-left: auto;
+        max-width: 50rem;
+        width: 100%;
+        // width: 100%;
+        // margin-left: auto;
+        // margin-right: auto;
+        // padding-left: 80px;
+        // padding-right: 80px;
 
-        @include breakpoint-max($bp-small) {
-            padding-left: 16px;
-            padding-right: 16px;
-        }
+        // @include breakpoint-max($bp-small) {
+        //     padding-left: 16px;
+        //     padding-right: 16px;
+        // }
     }
 
     .product-category__viewport {
@@ -37,22 +41,10 @@
         -webkit-touch-callout: none;
         -khtml-user-select: none;
         -webkit-tap-highlight-color: transparent;
-        margin-left: auto;
-        margin-right: 10%;
-
-
-        @include breakpoint-min($bp-small) {
-            margin-right: 32%
-        }
+        margin-left: 30px;
 
         @include breakpoint-min($bp-medium) {
-            justify-content: center;
-            transform: translateX(20vw);
-            margin-right: 12%;
-        }
-
-        @include breakpoint-min($bp-large) {
-            margin-right: 28%
+            margin-left: -32px;
         }
 
     }
@@ -60,15 +52,26 @@
     .product-category--item {
         position: relative;
         text-align: center;
-        flex-shrink: 0;
+        flex: 0 0 auto;
+        height: 100%;
         padding-left: 1px;
-        width: calc(100% / 2.6);
+        // width: calc(100% / 2.6);
 
-        @include breakpoint-max($bp-medium) {
-            width: calc(100% / 3);
-            padding-bottom: 30px;
-       }
+        width: calc((100vw - 160px) / 2.5);
+        max-width: 586px;
+        // padding-left: 32px;
+        padding-left: 16px;
 
+        @include breakpoint-min($bp-medium) {
+            width: 160px;
+            margin-right: 0;
+        }
+
+
+        @media (max-width: 390px) {
+            width: calc((100vw - 120px) / 2.5);
+            padding-left: 25px;
+        }
 
         &:hover {
             cursor: pointer;
@@ -96,6 +99,7 @@
         }
 
         .product-category--item-type {
+            color: $darkBlue;
             word-wrap: break-word;
             hyphens: auto;
         }
@@ -139,13 +143,18 @@
     }
 
     .product-category--heading {
-        margin-bottom: 24px;
-        text-align: center;
+        padding: 0 24px;
+        text-align: left;
+        color: $darkBlue;
+        margin-bottom: 32px;
 
-        @include breakpoint-max($bp-medium) {
-            text-align: left;
-            margin-top: 32px;
-            padding: 0 24px;
-       }
+        @include breakpoint-min($bp-medium) {
+            text-align: center;
+            padding: 0;
+        }
+
+        @include breakpoint-min($bp-large) {
+            margin-top: 16px;
+        }
     }
 }
