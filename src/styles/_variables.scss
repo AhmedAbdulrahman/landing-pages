@@ -141,7 +141,7 @@ $bp-xxlarge: 1920px;
 @include keyframes(scale-in-transition) {
   0% {
       opacity: 0;
-      transform: scale(10);
+      transform: scale(3);
     }
   30%{
     opacity: 0.5;
