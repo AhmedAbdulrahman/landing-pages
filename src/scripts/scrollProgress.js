@@ -186,7 +186,7 @@ export default class ScrollProgress {
         element.style.opacity = opacity
 
         if (info.animateOnMobile) {
-          if (!mediaQueryMobile.match) {
+          if (!mediaQueryMobile.matches) {
             element.style.transform = `translate3d(${this.options.translateX}${unit}, ${
               this.options.translateY
             }${unit}, ${this.options.translateZ}px) skew(${this.options.skewX}deg, ${

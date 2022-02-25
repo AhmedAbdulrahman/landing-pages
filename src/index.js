@@ -60,7 +60,7 @@ import ScrollProgress from './scripts/scrollProgress'
   const readMoreBtns = querySelectorAllToArray('.btn__read-more')
 
   // Tabs
-  const tabItemNodes = querySelectorAllToArray('.package__features .tab-item')
+  const tabItemNodes = querySelectorAllToArray('.package__features-container .tab-item')
   const tabContentNodes = querySelectorAllToArray('.package__features-content .tab-content')
   const productTabItemNodes = querySelectorAllToArray('.discount-products__tabs .tab-item')
   const productTabContentNodes = querySelectorAllToArray('.discount-products__slider .tab-content')
