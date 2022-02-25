@@ -38,6 +38,7 @@ import ScrollProgress from './scripts/scrollProgress'
     '.hardware__main .hardware__list-selector',
     '.hardware__payment-details > * > *',
     '.subscription-nav__main .button',
+    '.overview-content .overview-buy-button.animate-buy-button:not(.fixed-bottom)',
   ]
 
   const blockSelectors = [
