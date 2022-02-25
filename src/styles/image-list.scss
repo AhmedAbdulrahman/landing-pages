@@ -86,7 +86,7 @@
             }
 
             .imagelist-loader__inner .imagelist-image {
-                transform: scale(1.2);
+                transform: translateY(-20px) scale(1.2);
             }
 
             .imagelist-item-content {
@@ -154,7 +154,8 @@
             display: block;
             // min-height: 100%;
             object-fit: cover;
-            transition: transform 0.3s cubic-bezier(0.1, 0.2, 0.3, 0.4),
+            transition: transform 0.3s cubic-bezier(0.1, 0.2, 0.3, 0.4);
+            transform-origin: center;
         }
         .imagelist-item-content {
             min-height: 104px;
