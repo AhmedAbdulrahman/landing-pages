@@ -3,6 +3,10 @@
     padding-top: 30px;
     padding-bottom: 30px;
 
+    @include breakpoint-max($bp-medium) {
+        overflow: hidden;
+    }
+
     .produts-list__container {
         width: 100%;
         margin-left: auto;

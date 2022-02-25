@@ -185,12 +185,11 @@
 
   .overview-dropdown__menu__options {
     position: absolute;
-    top: 74px;
+    top: 72px;
     width: 100%;
     left: 0;
     background: #fff;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    border-radius: 10px;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     display: none;
     flex-direction: column;
