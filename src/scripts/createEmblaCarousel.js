@@ -118,10 +118,8 @@ const emblaCarousels = [
     container: '.product-category__slider',
     viewport: '.product-category__viewport',
     options: {
-      slidesToScroll: 1,
       containScroll: 'trimSnaps',
       skipSnaps: false,
-      dragFree: true,
     },
   },
   {
