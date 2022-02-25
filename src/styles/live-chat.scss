@@ -1,9 +1,10 @@
 .live-chat__root {
     position: relative;
+    margin-bottom: 50px;
 
     @include breakpoint-min($bp-large) {
         padding: 48px 50px;
-        margin-bottom: 80px;
+        margin-bottom: 110px;
     }
 
     @include breakpoint-max($bp-small) {
