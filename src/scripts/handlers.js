@@ -146,7 +146,7 @@ export function handleElementScroll() {
           media.style.transform = `scale(1)`
         }
       } else {
-        media.style.transform = `scale(${1 + progress * 0.3})`
+        media.style.transform = `scale(${1 + progress * 0.4})`
       }
     }
   })
