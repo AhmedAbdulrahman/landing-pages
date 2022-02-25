@@ -94,7 +94,7 @@
             justify-content: center;
             align-items: center;
 
-            padding: 10px 0;
+            padding: 24px 0 32px;
             background-color: transparent;
             cursor: pointer;
             border: none;
@@ -142,6 +142,10 @@
         > img:only-child {
             max-width: 100%;
             padding-right: 0;
+
+            @include breakpoint-min-max($bp-small, $bp-medium) {
+                max-height: 410px;
+            }
         }
 
         @include breakpoint-max($bp-medium) {
@@ -163,7 +167,8 @@
         @include breakpoint-max($bp-small) {
             min-height: 250px;
             > img {
-                margin-right: 5px;
+                max-width: 200px;
+                margin-right: 10px;
             }
         }
 

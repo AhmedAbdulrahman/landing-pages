@@ -65,7 +65,7 @@
 }
 
 .embla__button--prev {
-    left: 0.7rem;
+    left:1rem;
 
     @include breakpoint-max($bp-medium) {
         left: 1.2rem;
@@ -73,7 +73,7 @@
 }
 
 .embla__button--next {
-    right: 0.7rem;
+    right: 1rem;
 
     svg {
         transform: rotate(180deg)

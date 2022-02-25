@@ -30,8 +30,10 @@
         .brand-hero__headline {
             color: $darkBlue;
 
-            h1 {
-                font-weight: 800;
+            .brand-hero--title {
+                font-size: 40px;
+                line-height: 40px;
+
                 @include breakpoint-max($bp-medium) {
                     font-size: 32px;
                     line-height: 40px;
