@@ -132,22 +132,28 @@ export function handleElementScroll() {
     const progress = calculateVerticalProgress(rect)
 
     if (media !== null) {
-      if (media.classList.contains('foreground-image')) {
-        if (!mediaQuery.matches && rect?.y > 250) {
-          media.style.transform = `translate(${-50 + progress * 100}%, -50%)`
-        }
-        if (mediaQuery.matches && rect?.y > 10) {
-          media.style.transform = `translate(-50%, ${-5 - progress * 70}%)`
-        }
-        media.style.opacity = `${progress * 3}`
-      } else if (media.classList.contains('mobile--scale')) {
-        if (mediaQueryMobie.matches) {
-          media.style.transform = `scale(${1 + progress * 0.3})`
-        } else {
-          media.style.transform = `scale(1)`
+      if (root.classList.contains('footer__newsletter--loader')) {
+        if (mediaQueryMobie.matches && rect?.y > 175) {
+          root.style.transform = `translate(-10%, ${-110 - progress * 60}%)`
         }
       } else {
-        media.style.transform = `scale(${1 + progress * 0.4})`
+        if (media.classList.contains('foreground-image')) {
+          if (!mediaQuery.matches && rect?.y > 250) {
+            media.style.transform = `translate(${-50 + progress * 100}%, -50%)`
+          }
+          if (mediaQuery.matches && rect?.y > 10) {
+            media.style.transform = `translate(-50%, ${-5 - progress * 70}%)`
+          }
+          media.style.opacity = `${progress * 3}`
+        } else if (media.classList.contains('mobile--scale')) {
+          if (mediaQueryMobie.matches) {
+            media.style.transform = `scale(${1 + progress * 0.3})`
+          } else {
+            media.style.transform = `scale(1)`
+          }
+        } else {
+          media.style.transform = `scale(${1 + progress * 0.4})`
+        }
       }
     }
   })

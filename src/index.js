@@ -48,6 +48,7 @@ import ScrollProgress from './scripts/scrollProgress'
     '.brand-hero__root',
     '.subscription__root',
     '.article__root',
+    '.footer__newsletter--loader',
   ]
 
   const querySelector = querySelectorAllToArray(observerSelectors.join(', '))
