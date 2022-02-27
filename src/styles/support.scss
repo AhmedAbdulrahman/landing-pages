@@ -14,9 +14,13 @@
         align-items: center;
         color: #B4FFFF;
         text-align: center;
-        padding: 48px 24px;
+        padding: 54px 24px;
         overflow: hidden;
         width: 100%;
+
+        @include breakpoint-min($bp-large) {
+            padding: 48px 24px 200px;
+        }
 
         &:hover {
             @media (hover: hover) {

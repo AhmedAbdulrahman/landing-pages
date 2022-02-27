@@ -360,6 +360,9 @@ a:hover {
 .color-dark-blue {
   color: #000F3C;
 }
+.color-telenor-light-blue {
+  color: #B4FFFF;
+}
 .color-telenor-blue {
   color: #19aaf8;
 }
@@ -2254,6 +2257,9 @@ a:hover {
 }
 .button--action[disabled] {
   background: #d6d6d6;
+}
+.button--light {
+  background: #B4FFFF;
 }
 .button--naked {
   background: none;
