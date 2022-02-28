@@ -24,7 +24,7 @@
 
         &:hover {
             @media (hover: hover) {
-                .btn {
+                .btn:not(.disble-hover) {
                     background: transparent;
                     svg.dark-arrow {
                         opacity: 0;
@@ -60,6 +60,16 @@
         overflow: hidden;
         transition: background 0.3s ease-out;
         cursor: pointer;
+
+        &.disble-hover {
+            padding: 12px 24px;
+            svg  {
+                margin-left: 10px;
+                path {
+                    fill: $midBlue;
+                }
+            }
+        }
 
         svg {
             transition: transform 0.3s ease-out;

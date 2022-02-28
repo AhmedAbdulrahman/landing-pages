@@ -38,6 +38,7 @@
             @include breakpoint-max($bp-medium) {
                 h3 {
                     font-size: 26px !important;
+                    line-height: 32px;
                 }
             }
 

@@ -1,5 +1,4 @@
 .hardware__root {
-    padding-top: 48px;
     padding-bottom: 48px;
     position: relative;
 
@@ -44,7 +43,7 @@
         .hardware__media_container  {
             padding: 24px;
             @include breakpoint-max($bp-medium) {
-                padding: 0 16px 48px;
+                padding: 34px 16px;
             }
         }
 
@@ -179,7 +178,7 @@
 
             @include breakpoint-min($bp-xlarge) {
                .selectors {
-                    padding: 48px 96px 64px;
+                    padding: 48px 106px 64px;
                }
             }
         }
@@ -226,21 +225,44 @@
                 }
             }
 
-            .product__badge-holder {
+            .product__badge-container {
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                min-height: 55px;
+            }
+
+            .product__discount-badge-holder {
                 background: #FEFD29;
-                position: absolute;
-                left: 0;
-                top: 12px;
+                position: relative;
+                left: -24px;
                 z-index: 100;
                 display: inline-block;
                 padding: 4px 8px;
                 span {
                     color: #031039;
                 }
+                @include breakpoint-max($bp-medium) {
+                    left: -16px;
+                }
             }
+
+            .product__5g-badge-holder {
+                display: block;
+                z-index: 1;
+            }
+
+            .product__5g-badge {
+                background-color: $telenorBlue;
+                display: inline-block;
+                padding: 2px 10px;
+                white-space: nowrap;
+            }
+
             .embla__dots {
-                padding-top: 24px;
-                margin-bottom: 84px;
+                padding-top: 16px;
+                margin-bottom: 32px;
             }
             .hardware__media-viewport {
                 overflow: hidden;
