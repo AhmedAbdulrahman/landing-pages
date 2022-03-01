@@ -1,4 +1,5 @@
 import css from './styles.scss'
+import Splitting from 'splitting'
 import { carousels, createTabEmblaMap } from './scripts/createEmblaCarousel'
 import { querySelectorAllToArray } from './scripts/utils'
 import {
@@ -39,6 +40,7 @@ import ScrollProgress from './scripts/scrollProgress'
     '.hardware__payment-details > * > *',
     '.subscription-nav__main .button',
     '.overview-content .overview-buy-button.animate-buy-button:not(.fixed-bottom)',
+    '.help-hero__root .help-hero__content > *',
   ]
 
   const blockSelectors = [
@@ -49,6 +51,7 @@ import ScrollProgress from './scripts/scrollProgress'
     '.subscription__root',
     '.article__root',
     '.footer__newsletter--loader',
+    '.help-hero__root',
   ]
 
   const querySelector = querySelectorAllToArray(observerSelectors.join(', '))
@@ -86,6 +89,7 @@ import ScrollProgress from './scripts/scrollProgress'
         if (entry.isIntersecting) {
           entry.target.classList.add(CLASS_NAME)
           defaultObserver.unobserve(entry.target)
+          Splitting()
         }
       })
     },

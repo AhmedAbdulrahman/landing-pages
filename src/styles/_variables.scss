@@ -51,7 +51,7 @@ $bp-xxlarge: 1920px;
 
 @mixin animation($name,
                  $duration: 1s,
-                 $timing-function:ease,
+                 $timing-function:linear,
                  $delay:0s,
                  $iteration-count: 1,
                  $direction: normal,

@@ -3,6 +3,20 @@
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
     }
 
+    .popular__category-container {
+       display: flex;
+       flex-flow: row wrap;
+
+    }
+
+    .popular__category-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: calc(100% / 3);
+    }
+
     .popular__category {
         text-align: center;
     }
@@ -12,8 +26,15 @@
         justify-content: center;
         align-items: center;
         background-color: white;
-        border-radius: 40px;
-        padding: 25px;
+        border-radius: 50px;
+        height: 90px;
+        width: 90px;
+    }
+
+    .package__feature-name {
+        margin-top: 12px;
+        text-align: center;
+        height: 20px;
     }
 
     .btn {
@@ -23,7 +44,6 @@
         background: $darkBlue;
         color: #fff;
         border-radius: 48px;
-        margin-top: 32px;
         min-width: 40px;
         padding: 12px 24px;
         border: none;
@@ -105,6 +125,40 @@
             overflow: hidden;
         }
 
+        .help-hero__heading {
+            .char {
+                animation: slide-in-txt .2s cubic-bezier(.3, 0, .7, 1) both;
+                animation-delay: calc(50ms * var(--char-index));
+              }
+        }
+
+        .form__field {
+            div {
+                // transform: translateY(30vw);
+                transform: translate3d(0, 220px,0);
+            }
+            &.observed {
+                div {
+                    animation: input-bounce 1s 1.5s  1 ease-out forwards
+                }
+            }
+        }
+
+        .input-magnifier-icon {
+            position: absolute;
+            top: 50%;
+            right: 18px;
+            transform: translateY(-50%);
+        }
+
+        .search-rounded-input {
+            border-radius: 50px;
+            padding-right: calc(1em + 10px + 18px); /* icon width + icon padding-left + desired separation*/
+            &::placeholder {
+                color: #a2a2a2;
+            }
+        }
+
     }
 
     .help-hero__media {
@@ -141,10 +195,35 @@
           display: flex;
           justify-content: center;
           align-items: center;
+          overflow: hidden;
         }
         /* Animation */
         svg {
           animation: arrow-bounce 1.5s cubic-bezier(0.770, 0.000, 0.175, 1.000) forwards infinite;
         }
+    }
+}
+
+@keyframes slide-in-txt {
+    from {
+      transform: translateX(-10px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+@keyframes input-bounce {
+    0% {}
+   30% {
+    transform: translate3d(0, 5px,0);
+    }
+   60% {
+       transform: translate3d(0, 20px,0);
+    }
+   100% {
+     transform: translate3d(0, 18px,0);
     }
 }
