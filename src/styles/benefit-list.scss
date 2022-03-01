@@ -1,6 +1,6 @@
 .benefit-list__root {
   padding-top: 15px;
-  padding-bottom: 15px;
+  padding-bottom: 40px;
 
   @include breakpoint-max($bp-large) {
     overflow: hidden;
@@ -8,7 +8,7 @@
 
   @include breakpoint-min($bp-medium) {
     padding-top: 30px;
-    padding-bottom: 96px;
+    padding-bottom: 80px;
   }
 
   .benefit-list__viewport {
@@ -51,7 +51,7 @@
         flex-shrink: 0;
         width: calc(100% / 1.1);
         text-align: center;
-        padding: 10px 0;
+        padding: 32px;
         margin-right: 20px;
 
         @include breakpoint-min($bp-small) {
@@ -88,7 +88,6 @@
         }
 
         @media (max-width: $mobile-breakpoint) {
-          padding: 42px;
 
           svg {
             rect {
