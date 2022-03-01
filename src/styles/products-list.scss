@@ -78,7 +78,7 @@
             }
 
             @include breakpoint-max($bp-medium) {
-                max-height: 600px;
+                max-height: 700px;
             }
         }
         &.three-columns > .product-list__item {
