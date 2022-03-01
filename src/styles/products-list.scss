@@ -195,7 +195,7 @@
 
                     &:before {
                         background-color: #000F3D;
-                        height: 80%;
+                        height: 75%;
                         transition: all 0.2s cubic-bezier(0.1, 0.2, 0.3, 0.4);
                     }
 
@@ -213,7 +213,7 @@
                     transform: scale(1.2);
                     &.transparent-bg-image {
                         object-fit: cover;
-                        transform: translate(-50%, -50%) scale(1.1);
+                        transform: translate(-50%, -50%) scale(1.15);
                     }
                 }
             }
