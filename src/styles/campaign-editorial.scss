@@ -2,11 +2,13 @@
     padding-top: 15px;
     padding-bottom: 15px;
     position: relative;
-    overflow: hidden;
 
     @include breakpoint-min($bp-large) {
         padding-top: 30px;
         padding-bottom: 30px;
+    }
+    @include breakpoint-down($bp-medium) {
+        overflow: hidden;
     }
 
     .editorial__container {
