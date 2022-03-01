@@ -5,7 +5,7 @@
     position: relative;
 
     @include breakpoint-max($bp-medium) {
-        margin-top: 450px;
+        margin-top: 500px;
     }
 
     .footer__newsletter {
@@ -77,8 +77,9 @@
             }
 
             @include breakpoint-min($bp-large) {
-                right: unset;
+                right: 0;
                 transform: translate(-10%, -32%);
+                left: 0;
             }
 
             img {
@@ -138,7 +139,7 @@
         display: flex;
         flex-wrap: wrap;
         border-color: $midBlue;
-        padding-top: 80px;
+        padding-top: 40px;
 
 
          h4 {
@@ -150,6 +151,10 @@
 
         a, p {
             color: white;
+        }
+
+        @include breakpoint-min($bp-medium) {
+            padding-top: 80px;
         }
 
         @include breakpoint-min($bp-large) {

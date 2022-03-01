@@ -133,8 +133,9 @@ export function handleElementScroll() {
 
     if (media !== null) {
       if (root.classList.contains('footer__newsletter--loader')) {
-        if (mediaQueryMobie.matches && rect?.y > 175) {
-          root.style.transform = `translate(-10%, ${-110 - progress * 60}%)`
+        if (mediaQueryMobie.matches && rect?.top > 120) {
+          console.log(' rect', rect)
+          root.style.transform = `translate(-10%, ${-115 - progress * 50}%)`
         }
       } else {
         if (media.classList.contains('foreground-image')) {
