@@ -86,7 +86,7 @@
             }
 
             .imagelist-loader__inner .imagelist-image {
-                transform: translateY(-20px) scale(1.2);
+                transform: translateY(-15px) scale(1.3  );
             }
 
             .imagelist-item-content {
@@ -136,7 +136,7 @@
 
             &.has-foregroundImage img {
                 z-index: 3;
-                transform: translateY(-20px) scale(1.1);
+                transform: translateY(-15px) scale(1.1);
             }
 
             &:before {
@@ -154,7 +154,7 @@
             display: block;
             // min-height: 100%;
             object-fit: cover;
-            transition: transform 0.3s cubic-bezier(0.1, 0.2, 0.3, 0.4);
+            transition: transform 0.25s cubic-bezier(0.1, 0.2, 0.3, 0.4);
             transform-origin: center;
         }
         .imagelist-item-content {
