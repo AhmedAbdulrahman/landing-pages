@@ -163,9 +163,9 @@ export function handleElementScroll() {
         media.classList.contains('foreground-image') &&
         media.classList.contains('article__media')
       ) {
-        if (mediaQueryMobie.matches && currentScrollPosition < elementOffsetTop + -200) {
+        if (mediaQueryMobie.matches && currentScrollPosition < elementOffsetTop + -150) {
           media.style.opacity = `${progress * 3}`
-          media.style.transform = `translateY(${50 - progress * 100}%)`
+          media.style.transform = `translateY(${50 - progress * 130}%)`
         }
       } else {
         media.style.transform = `scale(${1 + progress * 0.2})`
