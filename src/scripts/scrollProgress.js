@@ -175,7 +175,7 @@ export default class ScrollProgress {
         let skewY = (1 - easingFunction(factor)) * info.skewY
         let scale = easingFunction(factor) * (1 - info.scale) + info.scale
         let rotate = easingFunction(factor) * -1 * info.rotate + info.rotate
-        let opacity = easingFunction(factor) * (1 - info.opacity) + info.opacity
+        let opacity = easingFunction(factor) * (1 - info.opacity) + info.opacity - 0.07
         let blur = (1 - easingFunction(factor)) * info.blur
 
         element.style.transform = `translate3d(${translateX}${unit}, ${translateY}${unit}, ${translateZ}px) skew(${skewX}deg, ${skewY}deg) scale(${scale}) rotate(${+rotate}deg)`
