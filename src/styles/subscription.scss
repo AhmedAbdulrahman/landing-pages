@@ -25,7 +25,7 @@
 
         @for $i from 1 through 20 {
             a.button.observed:nth-child(#{$i}n) {
-                @include animation('scale-in-transition', $duration: 1s, $delay: #{0.4 * $i}s);
+                @include animation('scale-in-transition', $duration: 0.4s, $delay: #{0.4 * $i}s);
             }
         }
 
