@@ -1,9 +1,11 @@
-import { calculateVerticalProgress } from './utils'
+import { calculateVerticalPercentage } from './utils'
 import { handleEmblaScale } from './createEmblaCarousel'
 
 const elementsInView = new Set()
-const mediaQuery = window.matchMedia('(max-width: 1130px)')
 const mediaQueryMobie = window.matchMedia('(max-width: 768px)')
+const mediaQueryTabletDown = window.matchMedia('(max-width: 767px)')
+const mediaQueryMobieSE = window.matchMedia('(max-width: 390px)')
+const largeDesktop = window.matchMedia('(min-width: 1440px)')
 
 export function onTabClick(
   tabItemNode,
@@ -129,32 +131,44 @@ export function handleElementScroll() {
     const rect = root.getBoundingClientRect()
     const media = root.querySelector(`img:not(.scroll-fx)`)
 
-    const progress = calculateVerticalProgress(rect)
+    const progress = calculateVerticalPercentage(rect, 0, window)
+    const currentScrollPosition = window.pageYOffset
+    const elementOffsetTop = root.offsetTop
 
     if (media !== null) {
       if (root.classList.contains('footer__newsletter--loader')) {
-        if (mediaQueryMobie.matches && rect?.top > 120) {
-          console.log(' rect', rect)
-          root.style.transform = `translate(-10%, ${-115 - progress * 50}%)`
+        if (mediaQueryMobieSE.matches && rect.y >= root.parentElement.offsetTop) {
+          media.style.transform = `translate(-10%, ${15 - progress * 80}%)`
+        }
+        if (mediaQueryTabletDown.matches && root.parentElement.offsetTop <= rect.y) {
+          media.style.transform = `translate(-10%, ${20 - progress * 65}%)`
+        }
+      } else if (
+        media.classList.contains('foreground-image') &&
+        !media.classList.contains('article__media')
+      ) {
+        // largeDesktop
+        if (largeDesktop.matches && currentScrollPosition < elementOffsetTop) {
+          media.style.transform = `translate(${-50 + progress * 65}%, -50%)`
+        } else if (!mediaQueryMobie.matches && currentScrollPosition < elementOffsetTop) {
+          media.style.transform = `translate(${-50 + progress * 32}%, -50%)`
+        } else if (!mediaQueryMobie.matches && currentScrollPosition < elementOffsetTop + -400) {
+          // iPad & Desktop
+          media.style.transform = `translate(${-50 + progress * 100}%, -50%)`
+        } else if (mediaQueryMobie.matches && currentScrollPosition < elementOffsetTop + -100) {
+          media.style.transform = `translate(-50%, ${-5 - progress * 70}%)`
+        }
+        media.style.opacity = `${progress * 3}`
+      } else if (
+        media.classList.contains('foreground-image') &&
+        media.classList.contains('article__media')
+      ) {
+        if (mediaQueryMobie.matches && currentScrollPosition < elementOffsetTop + -200) {
+          media.style.opacity = `${progress * 3}`
+          media.style.transform = `translateY(${50 - progress * 100}%)`
         }
       } else {
-        if (media.classList.contains('foreground-image')) {
-          if (!mediaQuery.matches && rect?.y > 250) {
-            media.style.transform = `translate(${-50 + progress * 100}%, -50%)`
-          }
-          if (mediaQuery.matches && rect?.y > 10) {
-            media.style.transform = `translate(-50%, ${-5 - progress * 70}%)`
-          }
-          media.style.opacity = `${progress * 3}`
-        } else if (media.classList.contains('mobile--scale')) {
-          if (mediaQueryMobie.matches) {
-            media.style.transform = `scale(${1 + progress * 0.3})`
-          } else {
-            media.style.transform = `scale(1)`
-          }
-        } else {
-          media.style.transform = `scale(${1 + progress * 0.4})`
-        }
+        media.style.transform = `scale(${1 + progress * 0.2})`
       }
     }
   })

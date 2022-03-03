@@ -70,7 +70,7 @@
             }
 
             @include breakpoint-max($bp-medium) {
-                transform: translate(-10%, -128%);
+                transform: translate(0, -128%);
                 left: 0;
                 right: 0;
                 z-index: -1;

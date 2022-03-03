@@ -39,11 +39,13 @@ export function inRange(x, min, max) {
   return (x - min) * (x - max) <= 0
 }
 
-export function calculateVerticalProgress(bounds, topOffset = 0, bottomOffset = topOffset) {
-  const vh = window.innerHeight
-  const progress = (bounds.bottom - topOffset) / (vh + bounds.height - bottomOffset * 2)
+export function calculateVerticalPercentage(bounds, threshold = 0, root = window) {
+  if (!root) return 0
+  const vh = (root instanceof Element ? root.clientHeight : root.innerHeight) || 0
+  const offset = threshold * bounds.height
+  const percentage = (bounds.bottom - offset) / (vh + bounds.height - offset * 3)
 
-  return 1 - clamp(progress, 0, 1)
+  return 1 - Math.max(0, Math.min(1, percentage))
 }
 
 export function isInViewport(elem, callback, options = {}) {
