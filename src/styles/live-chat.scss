@@ -1,10 +1,11 @@
 .live-chat__root {
     position: relative;
-    margin-bottom: 50px;
+    // margin-bottom: 50px;
 
     @include breakpoint-min($bp-large) {
         padding: 48px 50px;
-        margin-bottom: 110px;
+        // margin-bottom: 110px;
+
     }
 
     @include breakpoint-max($bp-small) {
@@ -17,24 +18,31 @@
 
     .live-chat__block {
         display: block;
-        height: 100%;
         overflow: hidden;
         // min-height: 335px;
         margin-left: 0;
         margin-right: 0;
-        margin-bottom: -100px;
         width: 100vw;
 
+        @include breakpoint-max($bp-medium) {
+            margin-bottom: -100px;
+        }
         @include breakpoint-min($bp-medium) {
             width: 100vw;
         }
 
         @include breakpoint-min($bp-large) {
             width: 75vw;
+            height: 610px;
+        }
+
+        @media (min-width: 1130px) {
+            height: 673px;
         }
 
         @include breakpoint-min($bp-xlarge) {
             width: 70vw;
+            height: 805px;
         }
 
     }
