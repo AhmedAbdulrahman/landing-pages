@@ -168,7 +168,7 @@ export function handleElementScroll() {
           media.style.transform = `translateY(${50 - progress * 130}%)`
         }
       } else {
-        media.style.transform = `scale(${1 + progress * 0.2})`
+        media.style.transform = `scale(${1 + progress * 0.5})`
       }
     }
   })
