@@ -65,9 +65,11 @@
                 .package__feature-circle {
                     margin-bottom: 4px;
 
-                    @for $i from 1 through 20 {
-                        .circle-icon.observed:nth-child(#{$i}n) {
-                            @include animation('circle-fill-transition', $duration: 1.5s, $delay: 0s);
+                    svg.observed {
+                        @for $i from 1 through 20 {
+                            .circle-icon:nth-child(#{$i}n) {
+                                @include animation('circle-fill-transition', $duration: 1.5s, $delay: 0s);
+                            }
                         }
                     }
                 }

@@ -34,7 +34,7 @@ import ScrollProgress from './scripts/scrollProgress'
     '.support__root .container .support__content > *',
     '.side-by-side__main .side-by-side__content > * , .side-by-side__main .side-by-side__media > *',
     '.editorial__main .editorial__media > *.editorial__image:not(.scroll-fx)',
-    '.package__feature .package__feature-circle .circle-icon',
+    '.package__feature .package__feature-circle svg',
     '.hardware__main .hardware__media__item:nth-child(-n+1)',
     '.hardware__main .hardware__list-selector',
     '.hardware__payment-details > * > *',
