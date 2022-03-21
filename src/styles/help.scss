@@ -133,12 +133,7 @@
             overflow: hidden;
         }
 
-        .help-hero__heading {
-            .char {
-                animation: slide-in-txt .2s cubic-bezier(.3, 0, .7, 1) both;
-                animation-delay: calc(50ms * var(--char-index));
-              }
-        }
+        .help-hero__heading {}
 
         .form__field {
             div {
@@ -147,7 +142,7 @@
             }
             &.observed {
                 div {
-                    animation: input-bounce 1s 1.5s  1 ease-out forwards
+                    animation: input-bounce 1s 0.5s  1 ease-out forwards
                 }
             }
         }
