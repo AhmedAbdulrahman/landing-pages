@@ -22,7 +22,7 @@ export const calculateScaleTransforms = (embla) => {
     const scale = 1 - Math.abs(diffToTarget * SCALE_FACTOR)
     const opacity = 1 - Math.abs(diffToTarget * 5)
 
-    return { progress: clamp(scale, 0, 1), opacity }
+    return { progress: clamp(scale, 0, 0.92), opacity }
   })
 }
 
