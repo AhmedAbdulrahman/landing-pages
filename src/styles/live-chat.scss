@@ -12,45 +12,35 @@
         margin-bottom: 35px;
     }
 
-    // @include breakpoint-min($bp-medium) {
-    //     margin-bottom: 80px;
-    // }
+    .live-chat__container {
+        position: relative;
 
-    .live-chat__block {
-        display: block;
-        overflow: hidden;
-        // min-height: 335px;
-        margin-left: 0;
-        margin-right: 0;
-        width: 100vw;
 
-        @include breakpoint-max($bp-medium) {
-            margin-bottom: -100px;
+        @include breakpoint-min($bp-large) {
+            display: grid;
+            grid-auto-flow: row;
+            grid-template-rows: minmax(80px, max-content) 1fr minmax(80px, max-content);
+            grid-template-columns: 4.1% repeat(12, 1fr) 4.2%;
         }
-        @include breakpoint-min($bp-medium) {
-            width: 100vw;
+    }
+
+    .live-chat__content-main {
+        align-self: center;
+        > div {
+            background: #EDF6F3;
+        }
+
+        @include breakpoint-down($bp-large) {
+            margin-top: -80px;
+            margin-right: 20px;
+            margin-left: 20px;
         }
 
         @include breakpoint-min($bp-large) {
-            width: 75vw;
-            height: 610px;
+            grid-column: 8 / -1;
+            grid-row: 2 / 2;
         }
 
-        @media (min-width: 1130px) {
-            height: 673px;
-        }
-
-        @include breakpoint-min($bp-xlarge) {
-            width: 70vw;
-            height: 805px;
-        }
-
-    }
-
-
-    img.live-chat__image {
-        transition: transform 250ms cubic-bezier(0.1, 0.2, 0.3, 0.4);
-        width: 100%;
     }
 
     .live-chat--content {
@@ -86,57 +76,37 @@
                 justify-content: center;
             }
         }
+
+        .live-chat__save-amount h4 {
+            font-size: 20px;
+            line-height: 28px;
+        }
     }
 
-    & > .container {
-        width: 45vw;
-        position: absolute;
-        top: 18%;
-        right: 10%;
-        // display: block;
-        // height: 100%;
-        // transform: translate(0%, 25%);
+    .live-chat__block {
+        display: block;
+        overflow: hidden;
+        margin-left: 0;
+        margin-right: 0;
 
-        @include breakpoint-max($bp-medium) {
-            position: relative;
-            width: 92vw;
-            right: 0;
-        }
-
-        @include breakpoint-min($bp-medium) {
-            top: 12%;
+        &.aspect--ratio {
+            display: block;
+            &:before {
+                padding-bottom: calc(100% / (1.5));
+            }
         }
 
         @include breakpoint-min($bp-large) {
-            top: 18%;
-            right: 5%;
-            width: 50vw;
+            grid-column: 1/12;
+            grid-row: 1 / 4;
         }
 
-        @include breakpoint-min($bp-xlarge) {
-            width: 40vw;
-            top: 25%;
-        }
-      }
+    }
 
     .live-chat__main {
         background: #EDF6F3;
         &.background-pink {
             background-color: #FFEFF4;
-        }
-    }
-    & > .container > div {
-        background: #EDF6F3;
-    }
-    & > .terminal-block {
-        overflow: hidden;
-        height: auto;
-        min-height: 335px;
-
-        @media (min-width: 750px) {
-          display: block;
-          height: 100%;
-          width: 55vw;
         }
     }
 
