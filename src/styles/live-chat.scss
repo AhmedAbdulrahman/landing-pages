@@ -37,7 +37,12 @@
         }
 
         @include breakpoint-min($bp-large) {
-            grid-column: 8 / -1;
+            grid-column: 9/-1;
+            grid-row: 2 / 2;
+        }
+
+        @include breakpoint-min($bp-xlarge) {
+            grid-column: 10/-1;
             grid-row: 2 / 2;
         }
 
@@ -54,6 +59,14 @@
             display: flex;
             flex-direction: column;
             align-items: baseline;
+        }
+
+        @include breakpoint-min($bp-large) {
+            padding: 48px;
+        }
+
+        @include breakpoint-min($bp-xlarge) {
+            padding: 80px 64px;
         }
 
         @include breakpoint-min($bp-xxlarge) {
@@ -97,6 +110,11 @@
         }
 
         @include breakpoint-min($bp-large) {
+            grid-column: 1/11;
+            grid-row: 1 / 4;
+        }
+
+        @include breakpoint-min($bp-xlarge) {
             grid-column: 1/12;
             grid-row: 1 / 4;
         }
