@@ -22,7 +22,11 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        width: calc(100% / 3);
+        width: calc(100% / 6);
+
+        @include breakpoint-max($bp-medium){
+            width: calc(100% / 3);
+        }
     }
 
     .popular__category {
