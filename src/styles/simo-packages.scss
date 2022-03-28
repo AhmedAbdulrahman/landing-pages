@@ -65,10 +65,26 @@
                 .package__feature-circle {
                     margin-bottom: 4px;
 
-                    svg.observed {
-                        @for $i from 1 through 20 {
-                            .circle-icon:nth-child(#{$i}n) {
-                                @include animation('circle-fill-transition', $duration: 1.5s, $delay: 0s);
+                    svg {
+                        width: 90px;
+                        .circle {
+                            stroke: #000F3C;
+                            fill: none;
+                            stroke-linecap: round;
+                            stroke-width: 1
+                        }
+                        .circle-bg {
+                            stroke: #D6D6D6;
+                            fill: none;
+                            stroke-linecap: round;
+                            stroke-width: 0.2
+                        }
+
+                        &.observed {
+                            @for $i from 1 through 20 {
+                                .circle:nth-child(#{$i}n) {
+                                    @include animation('circle-fill-transition', $duration: 1.5s, $delay: 0s);
+                                }
                             }
                         }
                     }

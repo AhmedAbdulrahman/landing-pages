@@ -147,8 +147,8 @@ $bp-xxlarge: 1920px;
 }
 
 @include keyframes(circle-fill-transition) {
-  from {
-    stroke-dashoffset: 0;
+  0% {
+    stroke-dasharray: 0 100;
   }
 }
 
