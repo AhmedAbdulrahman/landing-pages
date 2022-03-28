@@ -4,6 +4,7 @@ import { handleEmblaScale } from './createEmblaCarousel'
 const elementsInView = new Set()
 const mediaQueryMobie = window.matchMedia('(max-width: 768px)')
 const mediaQueryTabletDown = window.matchMedia('(min-width: 390px) and (max-width: 767px)')
+const mediaQueryTabletUp = window.matchMedia('(min-width: 768px) and (max-width: 819px)')
 const mediaQueryMobieSE = window.matchMedia('(max-width: 375px)')
 const largeDesktop = window.matchMedia('(min-width: 1440px)')
 
@@ -139,10 +140,12 @@ export function handleElementScroll() {
       if (root.classList.contains('footer__newsletter--loader')) {
         if (mediaQueryMobieSE.matches && rect.y >= root.parentElement.offsetTop) {
           media.style.transform = `translate(-10%, ${15 - progress * 80}%)`
-        } else if (mediaQueryTabletDown.matches && root.parentElement.offsetTop <= rect.y) {
+        }
+        if (mediaQueryTabletDown.matches && root.parentElement.offsetTop <= rect.y) {
           media.style.transform = `translate(-10%, ${20 - progress * 75}%)`
-        } else {
-          media.style.transform = `translate(-10%, ${20 - progress * 15}%)`
+        }
+        if (mediaQueryTabletUp.matches && root.parentElement.offsetTop <= rect.y) {
+          media.style.transform = `translate(-10%, ${20 - progress * 25}%)`
         }
       } else if (
         media.classList.contains('foreground-image') &&
