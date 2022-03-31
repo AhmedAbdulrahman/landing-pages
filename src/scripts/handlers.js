@@ -130,8 +130,8 @@ export function onDropdownClick(dropdown) {
 export function handleElementScroll() {
   elementsInView.forEach((root) => {
     const rect = root.getBoundingClientRect()
-    const media = root.querySelector(`img:not(.scroll-fx)`)
-
+    const media = root.querySelector(`img:not(.scroll-fx):not(.aos-init)`)
+    console.log('media', media)
     const progress = calculateVerticalPercentage(rect, 0, window)
     const currentScrollPosition = window.pageYOffset
     const elementOffsetTop = root.offsetTop

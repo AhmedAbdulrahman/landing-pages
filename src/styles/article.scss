@@ -105,11 +105,6 @@
             // flex: 1 0 300px;
             min-height: 220px;
 
-            @include breakpoint-min($bp-medium) {
-                transform: none !important;
-                opacity: 1 !important;
-            }
-
             .article__btn-container {
                 margin-top: auto;
 

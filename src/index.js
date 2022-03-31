@@ -38,7 +38,7 @@ AOS.init({
     '.benefit-list__root  .benefit-list__slider .benefit-list__slider.embla__viewport .benefit-list__main > .benefit-list__item',
     '.support__root .container .support__content > *',
     '.side-by-side__main .side-by-side__content > * , .side-by-side__main .side-by-side__media > *',
-    '.editorial__main .editorial__media > *.editorial__image:not(.scroll-fx)',
+    '.editorial__main .editorial__media > *.editorial__image:not(.scroll-fx):not(.aos-init)',
     '.package__feature .package__feature-circle svg',
     '.hardware__main .hardware__media__item:nth-child(-n+1)',
     '.hardware__main .hardware__list-selector',
