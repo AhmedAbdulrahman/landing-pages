@@ -82,16 +82,25 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 500px;
+        min-height: 500px;
         overflow: hidden;
+
+        &.aspect--ratio {
+            display: block;
+
+            &:before {
+                padding-bottom: calc(100% / 0.7);
+
+                @include breakpoint-min($bp-medium) {
+                  padding-bottom: calc(100% / 3);
+                }
+              }
+        }
 
     }
 
     .brand-hero__image {
-        width: auto;
-        height: auto;
         transition: transform 250ms cubic-bezier(0.1, 0.2, 0.3, 0.4);
-        right: 0;
         margin: 0 auto;
     }
 

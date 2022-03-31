@@ -88,6 +88,8 @@ AOS.init({
     threshold: [0, 0.25, 0.75, 1],
   }
 
+  handleDocumentonScroll(blockElements, config)
+
   const defaultObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -108,8 +110,6 @@ AOS.init({
   querySelector.forEach((i) => {
     defaultObserver.observe(i)
   })
-
-  handleDocumentonScroll(blockElements, config)
 
   showMoreBtns.forEach((i) => {
     i.addEventListener('click', onShowMoreClick, false)

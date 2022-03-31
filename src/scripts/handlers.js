@@ -130,13 +130,14 @@ export function onDropdownClick(dropdown) {
 export function handleElementScroll() {
   elementsInView.forEach((root) => {
     const rect = root.getBoundingClientRect()
-    const media = root.querySelector(`img:not(.scroll-fx):not(.aos-init)`)
-    console.log('media', media)
-    const progress = calculateVerticalPercentage(rect, 0, window)
-    const currentScrollPosition = window.pageYOffset
     const elementOffsetTop = root.offsetTop
+    const media = root.querySelector(`img:not(.scroll-fx):not(.aos-init)`)
 
-    if (media !== null) {
+    const currentScrollPosition = window.pageYOffset
+    const distanceScrolled = document.documentElement.scrollTop
+    const progress = calculateVerticalPercentage(rect, 0, window)
+
+    if (media !== null && distanceScrolled) {
       if (root.classList.contains('footer__newsletter--loader')) {
         if (mediaQueryMobieSE.matches && rect.y >= root.parentElement.offsetTop) {
           media.style.transform = `translate(-10%, ${15 - progress * 80}%)`
@@ -172,7 +173,7 @@ export function handleElementScroll() {
           media.style.transform = `translateY(${50 - progress * 130}%)`
         }
       } else {
-        media.style.transform = `scale(${1 + progress * 0.5})`
+        media.style.transform = `scale(${1 + progress * 0.2})`
       }
     }
   })

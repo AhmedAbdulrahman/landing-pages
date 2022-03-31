@@ -278,14 +278,10 @@
 
                 @for $i from 1 through 4 {
                     .hardware__media__item.observed:nth-child(#{$i}n) {
-                        @include animation('slide-in-scale-transition', $duration: 2s, $delay: #{$i * $list-coefficient}s);
+                        @include animation(slide-in-scale-transition, $duration: 1.2s, $delay: #{$i * $list-coefficient}s);
 
                         @include breakpoint-max($bp-medium) {
                             animation-duration: 1.2s;
-                        }
-
-                        @include breakpoint-down($bp-large) {
-                            animation-duration: 1.5s;
                         }
                     }
                 }
