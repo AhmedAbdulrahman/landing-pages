@@ -1,5 +1,6 @@
 import css from './styles.scss'
 import Splitting from 'splitting'
+import AOS from 'aos'
 import { carousels, createTabEmblaMap } from './scripts/createEmblaCarousel'
 import { querySelectorAllToArray } from './scripts/utils'
 import {
@@ -10,8 +11,13 @@ import {
   handleDocumentonScroll,
   onDropdownClick,
 } from './scripts/handlers'
-
 import ScrollProgress from './scripts/scrollProgress'
+import 'aos/dist/aos.css'
+
+AOS.init({
+  once: true,
+  duration: 1200,
+})
 ;(function () {
   // Fall back for IE
   if (!'IntersectionObserver' in window) {
@@ -29,7 +35,6 @@ import ScrollProgress from './scripts/scrollProgress'
   const observerSelectors = [
     '.products-list__root  .products-list__main > .product-list__item:nth-child(-n+4)',
     '.product-category__root  .product-category__main > .product-category--item:nth-child(-n+4)',
-    '.imagelist-root  .imagelist__main .imagelist__items-container > .imagelist-item:nth-child(-n+3)',
     '.benefit-list__root  .benefit-list__slider .benefit-list__slider.embla__viewport .benefit-list__main > .benefit-list__item',
     '.support__root .container .support__content > *',
     '.side-by-side__main .side-by-side__content > * , .side-by-side__main .side-by-side__media > *',
