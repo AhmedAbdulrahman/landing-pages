@@ -53,6 +53,14 @@
                 justify-content: space-evenly;
                 flex-wrap: wrap;
 
+                @include breakpoint-max($bp-medium) {
+                    @for $i from 1 through 4 {
+                        .package__feature.aos-animate:nth-child(#{$i}n) {
+                            transition-delay: #{$i * 0.1}s;
+                        }
+                    }
+                }
+
                 .package__feature {
                     width: 150px;
                     display: flex;
