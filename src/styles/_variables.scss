@@ -49,6 +49,34 @@ $bp-xxlarge: 1920px;
     }
 }
 
+@mixin product-item-campaign-anime() {
+  @include breakpoint-down($bp-medium) {
+    &[data-aos="product-item-campaign-anime"] {
+      transform: translate3d(100px,0,0);
+      opacity: 0;
+      transition-property: transform, opacity;
+      &.aos-animate {
+        transform: none;
+        opacity: 1;
+      }
+    }
+  }
+
+  @include breakpoint-up($bp-medium) {
+    &[data-aos="product-item-campaign-anime"] {
+      transform: translate3d(0,100px,0);
+      opacity: 0;
+      transition-property: transform, opacity;
+      &.aos-animate {
+        transform: none;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+
 @mixin animation($name,
                  $duration: 1s,
                  $timing-function:linear,

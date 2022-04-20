@@ -248,6 +248,8 @@
       width: calc(100% / 4);
     }
 
+    @include product-item-campaign-anime();
+
     .product-list__item-image {
       display: inline-block;
       height: 132px;
