@@ -27,6 +27,12 @@
       @include breakpoint-max($bp-medium) {
         padding-left: 20px;
       }
+
+      @include breakpoint-min($bp-medium) {
+        &.aos-animate {
+          transition-property: none;
+        }
+      }
     }
   }
 
