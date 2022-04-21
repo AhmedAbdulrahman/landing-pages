@@ -22,9 +22,11 @@
     .kids-subscription-items {
         display: flex;
         justify-content: center;
-        gap: 12px;
+        gap: 0 8px;
 
-        @include breakpoint-min($bp-small) {
+        @include breakpoint-min($bp-medium) {
+            display: flex;
+            justify-content: center;
             gap: 24px;
         }
     }
@@ -42,13 +44,13 @@
         }
     }
     .kids-subscription__media-holder {
-        width: 318px;
-        height: 238px;
+        width: 166px;
+        height: 163px;
         overflow: hidden;
 
-        @include breakpoint-max($bp-small) {
-            width: 170px;
-            height: 163px;
+        @include breakpoint-min($bp-small) {
+            width: 318px;
+            height: 238px;
         }
     }
     .kids-subscription__media {
