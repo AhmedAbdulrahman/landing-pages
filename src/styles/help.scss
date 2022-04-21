@@ -21,12 +21,28 @@
                 }
             }
         }
+
+        @include breakpoint-min($bp-medium) {
+            &[data-aos="fade-up"] {
+                transform: translate3d(0,0,0);
+                opacity: 1 !important;
+                transition: none !important;
+            }
+        }
     }
 
     .help--category-item {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.20);
         cursor: pointer;
         transition: box-shadow 250ms cubic-bezier(0, 0.5, 0.5, 1);
+
+        @include breakpoint-down($bp-medium) {
+            &[data-aos="fade-up"] {
+                transform: translate3d(0,0,0);
+                opacity: 1 !important;
+                transition: none !important;
+              }
+        }
     }
 
     .help--category-item-inner {
