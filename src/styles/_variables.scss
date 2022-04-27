@@ -134,10 +134,14 @@ $bp-xxlarge: 1920px;
 @include keyframes(fade-in-tobottom-transition) {
   0% {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-20px);
   }
   30% {
     opacity: 0.5;
+  }
+  70% {
+    opacity: 0.5;
+    transform: translateY(-2px);
   }
   100% {
     opacity: 1;

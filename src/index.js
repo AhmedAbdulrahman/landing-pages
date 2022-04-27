@@ -41,7 +41,7 @@ AOS.init({
     '.editorial__main .editorial__media > *.editorial__image:not(.scroll-fx):not(.aos-init)',
     '.package__feature .package__feature-circle svg',
     '.hardware__main .hardware__media__item:nth-child(-n+1)',
-    '.hardware__main .hardware__list-selector',
+    '.hardware__main .selectors',
     '.hardware__payment-details > * > *',
     '.subscription-nav__main .button',
     '.overview-content .overview-buy-button.animate-buy-button:not(.fixed-bottom)',

@@ -51,8 +51,8 @@
       color: $darkBlue;
 
       @for $i from 1 through 4 {
-        .hardware__list-selector.observed:nth-child(#{$i}) {
-            @include animation(fade-in-tobottom-transition, $duration: 0.4s, $delay: #{$i * 0.3}s);
+        .selectors.observed .hardware__list-selector:nth-child(#{$i}) {
+            @include animation(fade-in-tobottom-transition, $duration: 0.4s, $delay: #{$i * 0.2}s);
             z-index: #{-$i};
         }
     }
