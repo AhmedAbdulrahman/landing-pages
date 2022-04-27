@@ -89,7 +89,7 @@
             display: block;
 
             &:before {
-                padding-bottom: calc(100% / 0.7);
+                // padding-bottom: calc(100% / 0.7);
 
                 @include breakpoint-min($bp-medium) {
                   padding-bottom: calc(100% / 3);
