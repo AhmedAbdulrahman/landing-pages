@@ -94,6 +94,9 @@
                 @include breakpoint-min($bp-medium) {
                   padding-bottom: calc(100% / 3);
                 }
+                @include breakpoint-min($bp-large) {
+                  padding-bottom: calc(100% / (5/1));
+                }
               }
         }
 
