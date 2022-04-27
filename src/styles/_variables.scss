@@ -133,16 +133,16 @@ $bp-xxlarge: 1920px;
 
 @include keyframes(fade-in-tobottom-transition) {
   0% {
-      opacity: 0;
-      transform: translateY(-10vw);
-    }
-    30%{
-      opacity: 0.5;
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  30% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @include keyframes(fade-in-totop-transition) {
