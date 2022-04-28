@@ -130,6 +130,7 @@ export function onDropdownClick(dropdown) {
 export function handleElementScroll() {
   elementsInView.forEach((root) => {
     const rect = root.getBoundingClientRect()
+    const rectHeight = rect.bottom - rect.top
     const elementOffsetTop = root.offsetTop
     const media = root.querySelector(`img:not(.scroll-fx):not(.aos-init)`)
 
@@ -139,29 +140,24 @@ export function handleElementScroll() {
 
     if (media !== null && distanceScrolled) {
       if (root.classList.contains('footer__newsletter--loader')) {
-        if (mediaQueryMobieSE.matches && rect.y >= root.parentElement.offsetTop) {
+        if (mediaQueryMobieSE.matches && rect.y >= elementOffsetTop) {
           media.style.transform = `translate(-10%, ${15 - progress * 80}%)`
         }
-        if (mediaQueryTabletDown.matches && root.parentElement.offsetTop <= rect.y) {
+        if (mediaQueryTabletDown.matches && elementOffsetTop <= rect.y) {
           media.style.transform = `translate(-10%, ${20 - progress * 75}%)`
         }
-        if (mediaQueryTabletUp.matches && root.parentElement.offsetTop <= rect.y) {
+        if (mediaQueryTabletUp.matches && elementOffsetTop <= rect.y) {
           media.style.transform = `translate(-10%, ${20 - progress * 25}%)`
         }
       } else if (
         media.classList.contains('foreground-image') &&
         !media.classList.contains('article__media')
       ) {
-        // largeDesktop
-        if (largeDesktop.matches && currentScrollPosition < elementOffsetTop) {
-          media.style.transform = `translate(${-50 + progress * 65}%, -50%)`
-        } else if (!mediaQueryMobie.matches && currentScrollPosition < elementOffsetTop) {
-          media.style.transform = `translate(${-50 + progress * 32}%, -50%)`
-        } else if (!mediaQueryMobie.matches && currentScrollPosition < elementOffsetTop + -400) {
-          // iPad & Desktop
-          media.style.transform = `translate(${-50 + progress * 100}%, -50%)`
-        } else if (mediaQueryMobie.matches && currentScrollPosition < elementOffsetTop + -100) {
-          media.style.transform = `translate(-50%, ${-5 - progress * 70}%)`
+        if (largeDesktop.matches && currentScrollPosition <= rectHeight) {
+          media.style.transform = `translate3d(${-70 + progress * 160}%, -50%, 0px)`
+        }
+        if (mediaQueryMobie.matches && currentScrollPosition < elementOffsetTop + -80) {
+          media.style.transform = `translate3d(-50%, ${-5 - progress * 80}%, 0)`
         }
         media.style.opacity = `${progress * 3}`
       } else if (
