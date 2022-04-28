@@ -154,7 +154,7 @@ export function handleElementScroll() {
         !media.classList.contains('article__media')
       ) {
         if (largeDesktop.matches && currentScrollPosition <= rectHeight) {
-          media.style.transform = `translate3d(${-70 + progress * 160}%, -50%, 0px)`
+          media.style.transform = `translate3d(${-70 + progress * 170}%, -50%, 0px)`
         }
         if (mediaQueryMobie.matches && currentScrollPosition < elementOffsetTop + -80) {
           media.style.transform = `translate3d(-50%, ${-5 - progress * 80}%, 0)`
