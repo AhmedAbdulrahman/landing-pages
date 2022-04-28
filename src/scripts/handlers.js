@@ -156,6 +156,10 @@ export function handleElementScroll() {
         if (largeDesktop.matches && currentScrollPosition <= rectHeight) {
           media.style.transform = `translate3d(${-70 + progress * 170}%, -50%, 0px)`
         }
+        if (!mediaQueryMobie.matches && currentScrollPosition < elementOffsetTop + -400) {
+          // iPad & Desktop
+          media.style.transform = `translate3d(${-50 + progress * 65}%, -50%, 0px)`
+        }
         if (mediaQueryMobie.matches && currentScrollPosition < elementOffsetTop + -80) {
           media.style.transform = `translate3d(-50%, ${-5 - progress * 80}%, 0)`
         }
