@@ -151,26 +151,11 @@ export function handleElementScroll() {
         }
       } else if (
         media.classList.contains('foreground-image') &&
-        !media.classList.contains('article__media')
-      ) {
-        if (largeDesktop.matches && currentScrollPosition <= rectHeight) {
-          media.style.transform = `translate3d(${-70 + progress * 170}%, -50%, 0px)`
-        }
-        if (!mediaQueryMobie.matches && currentScrollPosition < elementOffsetTop + -400) {
-          // iPad & Desktop
-          media.style.transform = `translate3d(${-50 + progress * 65}%, -50%, 0px)`
-        }
-        if (mediaQueryMobie.matches && currentScrollPosition < elementOffsetTop + -80) {
-          media.style.transform = `translate3d(-50%, ${-5 - progress * 80}%, 0)`
-        }
-        media.style.opacity = `${progress * 3}`
-      } else if (
-        media.classList.contains('foreground-image') &&
         media.classList.contains('article__media')
       ) {
         if (mediaQueryMobie.matches && currentScrollPosition < elementOffsetTop + -150) {
           media.style.opacity = `${progress * 3}`
-          media.style.transform = `translateY(${50 - progress * 130}%)`
+          media.style.transform = `translateY(${50 - progress * 120}%)`
         }
       } else {
         media.style.transform = `scale(${1 + progress * 0.2})`

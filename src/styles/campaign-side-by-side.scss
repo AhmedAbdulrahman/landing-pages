@@ -240,8 +240,18 @@
                 left: 50%;
                 transform: translate(-50%, -50%);
 
+                &.aos-animate {
+                    transition-duration: 0.8s;
+                }
+
+                @include side-by-side-media-anime();
+
                 @include breakpoint-max($bp-medium) {
                     height: 300px;
+
+                    &.aos-animate {
+                        transition-duration: 0.9s;
+                    }
                 }
             }
         }

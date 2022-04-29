@@ -75,6 +75,51 @@ $bp-xxlarge: 1920px;
   }
 }
 
+@mixin side-by-side-media-anime() {
+  &[data-aos="side-by-side-media-anime"] {
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition-property: transform, opacity;
+
+    @include breakpoint-max($bp-medium) {
+      transform: translate(-50%, 50%);
+    }
+
+    &.aos-animate {
+      transform: translate(-15%, -50%);
+      opacity: 1;
+
+      @include breakpoint-max($bp-medium) {
+        transform: translate(-50%, -40%);
+      }
+
+      @media (min-width: 820px) {
+        transform: translate(-30%, -50%);
+      }
+
+      @media (min-width: 1024px) {
+        transform: translate(-30%, -50%);
+      }
+
+      @media (min-width: 1024px) {
+          transform: translate(-15%, -50%);
+      }
+
+      @media (min-width: 1441px) {
+          transform: translate(-5%, -50%);
+      }
+
+      @media (min-width: 1600px) {
+          transform: translate(5%, -50%);
+      }
+
+      @media (min-width: 1920px) {
+          transform: translate(25%, -50%);
+      }
+    }
+  }
+}
+
 
 
 @mixin animation($name,
