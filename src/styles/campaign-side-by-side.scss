@@ -138,8 +138,8 @@
             padding: 50px 30px;
         }
 
-        @include breakpoint-min($bp-xlarge) {
-            padding: 100px;
+        @include breakpoint-min($bp-large) {
+            padding: 50px;
         }
 
         @include breakpoint-min($bp-xlarge) {

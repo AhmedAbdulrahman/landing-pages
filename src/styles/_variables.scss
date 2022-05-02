@@ -101,9 +101,10 @@ $bp-xxlarge: 1920px;
         transform: translate(-30%, -50%);
       }
 
-      @media (min-width: 1024px) {
-          transform: translate(-15%, -50%);
+      @media (min-width: 1280px) {
+        transform: translate(-15%, -50%);
       }
+
 
       @media (min-width: 1441px) {
           transform: translate(-5%, -50%);
