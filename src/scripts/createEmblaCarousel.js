@@ -128,7 +128,7 @@ const emblaCarousels = [
     prevBtn: '.embla__button--prev',
     nextBtn: '.embla__button--next',
     options: {
-      // align: 'start',
+      align: 'start',
       containScroll: 'trimSnaps',
       slidesToScroll: 1,
       skipSnaps: false,
