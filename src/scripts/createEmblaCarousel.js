@@ -132,6 +132,7 @@ const emblaCarousels = [
       containScroll: 'trimSnaps',
       slidesToScroll: 1,
       skipSnaps: false,
+      dragFree: true,
     },
   },
   {
