@@ -130,7 +130,7 @@ const emblaCarousels = [
     options: {
       align: 'start',
       containScroll: 'trimSnaps',
-      slidesToScroll: 1,
+      slidesToScroll: 2,
       skipSnaps: false,
       dragFree: true,
     },

@@ -58,6 +58,18 @@
   .produts-list__viewport {
     overflow: hidden;
     width: 100%;
+
+    @include breakpoint-up($bp-medium) {
+      &[data-aos='fade-left'] {
+        transform: translate3d(0, 0, 0) !important;
+        opacity: 1;
+        &.aos-animate {
+          transform: translate3d(0, 0, 0) !important;
+          opacity: 1;
+        }
+      }
+    }
+
   }
 
   .products-list__main {
